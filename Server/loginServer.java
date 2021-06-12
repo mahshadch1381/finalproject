@@ -16,7 +16,7 @@ public class loginServer implements Runnable{
         public static Map<String,String> map=new ConcurrentHashMap<>();
         public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\users.txt";
         public void start() {
-            try {
+        /*    try {
                 if (server_time.get() == 1) {
                     serverSocket.close();
                     server_time.set(server_time.get()-1);
@@ -25,7 +25,7 @@ public class loginServer implements Runnable{
                 server_time.set(server_time.get()+1);
 
             }catch (IOException e){e.printStackTrace(); }
-            new Thread(new Server.loginServer()).start();
+            new Thread(new Server.loginServer()).start();*/
         }
         @Override
         public void run() {
