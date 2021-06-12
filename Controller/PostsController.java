@@ -5,9 +5,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import model.Loader;
 import model.Post;
 import model.PrivacyStatus;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,8 +79,8 @@ public class PostsController {
 
     }
 
-    public void menupage(ActionEvent actionEvent) {
-
+    public void menupage(ActionEvent actionEvent) throws IOException {
+        new Loader().load("menu");
     }
 
     public void refreshing(ActionEvent actionEvent) {

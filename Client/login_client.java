@@ -14,6 +14,7 @@ public class login_client {
         username=user;
         password=pass;
     }
+
     public String login_connection() throws IOException, ClassNotFoundException {
         Socket socket=new Socket("127.0.0.1",port);
         ObjectInputStream objectInputStream=new ObjectInputStream(socket.getInputStream());
@@ -30,4 +31,10 @@ public class login_client {
         return (String) answer;
     }
 
+    public String getUsername() {
+        return username;
+    }
+    public String getPassword() {
+        return password;
+    }
 }
