@@ -19,6 +19,8 @@ public class PostsController {
     public MenuItem public_one;
     public MenuItem private_one;
     public MenuButton privacy;
+    public Button menu;
+    public Button refresh;
     List<Post> posts=new ArrayList<>();
     Post newpost=new Post();
     @FXML
@@ -72,6 +74,14 @@ public class PostsController {
                 describing.setText(posts.get(i).getDescription());
             }
         }
+
+    }
+
+    public void menupage(ActionEvent actionEvent) {
+
+    }
+
+    public void refreshing(ActionEvent actionEvent) {
 
     }
 }
