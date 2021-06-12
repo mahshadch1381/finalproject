@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #5FA3F1;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SignupController">
+   <children>
+      <ImageView fitHeight="101.0" fitWidth="361.0" layoutX="16.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/C:/Users/98912/Pictures/signup.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="name" layoutX="16.0" layoutY="145.0" prefHeight="31.0" prefWidth="179.0" promptText="firstname" style="-fx-background-color: #F15F6A;" />
+      <TextField layoutX="219.0" layoutY="145.0" prefHeight="31.0" prefWidth="158.0" promptText="lastname" style="-fx-background-color: #F15F6A;" />
+      <TextField fx:id="country" layoutX="16.0" layoutY="194.0" prefHeight="31.0" prefWidth="179.0" promptText="country" style="-fx-background-color: #F15F6A;" />
+      <TextField layoutX="219.0" layoutY="194.0" prefHeight="31.0" prefWidth="158.0" promptText="phone" style="-fx-background-color: #F15F6A;" />
+      <TextField fx:id="username" layoutX="16.0" layoutY="242.0" prefHeight="31.0" prefWidth="179.0" promptText="username" style="-fx-background-color: #F15F6A;" />
+      <Button fx:id="signupbutton" layoutX="50.0" layoutY="507.0" mnemonicParsing="false" onAction="#signing" prefHeight="31.0" prefWidth="129.0" style="-fx-background-color: #F0E766;" text="signup" />
+      <Button fx:id="loginbutton" layoutX="212.0" layoutY="507.0" mnemonicParsing="false" onAction="#login" prefHeight="31.0" prefWidth="129.0" style="-fx-background-color: #F0E766;" text="login" />
+      <TextField fx:id="password" layoutX="219.0" layoutY="242.0" prefHeight="31.0" prefWidth="158.0" promptText="password" style="-fx-background-color: #F15F6A;" />
+      <Label fx:id="correct" layoutX="143.0" layoutY="440.0" prefHeight="21.0" prefWidth="179.0" text="successful" visible="false">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font></Label>
+      <Label fx:id="wrong" layoutX="55.0" layoutY="467.0" prefHeight="27.0" prefWidth="284.0" text="we already have this information" visible="false">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label fx:id="unacceptable" layoutX="101.0" layoutY="406.0" prefHeight="21.0" prefWidth="221.0" text="unacceptable password" visible="false">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font></Label>
+      <ImageView fx:id="profile" fitHeight="100.0" fitWidth="123.0" layoutX="14.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/C:/Users/98912/Pictures/profile.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="16.0" layoutY="279.0" prefHeight="21.0" prefWidth="109.0" text="choose  profile">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="favoriteColor" layoutX="211.0" layoutY="306.0" prefHeight="31.0" prefWidth="165.0" promptText="color:" style="-fx-background-color: #F15F6A;" />
+      <Label layoutX="213.0" layoutY="279.0" prefHeight="21.0" prefWidth="171.0" text="what is favorite color">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

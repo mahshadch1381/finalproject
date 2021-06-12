@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.42579750346740636" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="723.0" prefWidth="398.0" style="-fx-background-color: #ABEBC6;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PostsController">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="320.0" prefWidth="357.0" style="-fx-background-color: #ABEBC6;">
+         <children>
+            <TextArea fx:id="describing" layoutX="22.0" layoutY="79.0" prefHeight="147.0" prefWidth="325.0" promptText="describe.." style="-fx-background-color: #A3F0F9;" />
+            <TextField fx:id="title" layoutX="22.0" layoutY="27.0" promptText="title" style="-fx-background-color: #F7E98F;" />
+            <Button fx:id="publish" layoutX="33.0" layoutY="243.0" mnemonicParsing="false" onAction="#adding" prefHeight="31.0" prefWidth="83.0" style="-fx-background-color: #F7E98F;" text="publish" />
+            <MenuButton fx:id="privacy" layoutX="246.0" layoutY="27.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" style="-fx-background-color: #F7E98F;" text="Privacy">
+              <items>
+                <MenuItem fx:id="public_one" mnemonicParsing="false" onAction="#makingpublic" text="public" />
+                <MenuItem fx:id="private_one" mnemonicParsing="false" onAction="#makingprivate" text="private" />
+              </items>
+            </MenuButton>
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="304.0" prefWidth="408.0" style="-fx-background-color: #ABEBC6;">
+         <children>
+            <ListView fx:id="postscript" layoutX="-2.0" onMouseClicked="#showingpost" prefHeight="410.0" prefWidth="400.0" style="-fx-background-color: #ABEBC6;" />
+         </children></AnchorPane>
+  </items>
+</SplitPane>
