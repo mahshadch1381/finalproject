@@ -10,6 +10,7 @@ public class Post {
     public String description;
     public String publisher;
     public Date date;
+    public String picture;
     public PrivacyStatus getPrivacyStatus() {
         return privacyStatus;
     }
