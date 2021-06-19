@@ -34,9 +34,7 @@ public class PostsController {
             p.setDescription("description" + 1);
             p.setPublisher("user" + 1);
             posts.add(p);
-
         postscript.setItems(FXCollections.observableArrayList(posts));
-
         //customize each cell of postList with new graphic object PostItem
         postscript.setCellFactory(postList -> new PostItem());
     }
