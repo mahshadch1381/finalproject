@@ -1,5 +1,7 @@
 package Controller;
 
+import Client.postingClient;
+import Server.postingServer;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,7 +10,7 @@ import javafx.scene.input.MouseEvent;
 import model.Loader;
 import model.Post;
 import model.PrivacyStatus;
-
+import sample.Controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,25 +40,27 @@ public class PostsController {
         //customize each cell of postList with new graphic object PostItem
         postscript.setCellFactory(postList -> new PostItem());
     }
-    public void adding(javafx.event.ActionEvent actionEvent) {
+    public void adding(javafx.event.ActionEvent actionEvent) throws IOException, ClassNotFoundException {
         newpost.setTitle(title.getText());
         newpost.setDescription(describing.getText());
-        newpost.setPublisher("ali alavi");
+        newpost.setPublisher(Controller.mainUser);
         //save the post in arraylist
         posts.add(newpost);
         //show the arraylist in listview
         postscript.setItems(FXCollections.observableArrayList(posts));
         postscript.setCellFactory(postList -> new PostItem());
+        (new postingServer()).start();
+        postingClient posting=new postingClient(newpost);
         /*
         if the listview cells are not customized and list view is made of strings
         this code will add new post title to the list view
         postList.getItems().add(currentPost.getTitle());
          */
+        if(posting.posting_connection().contains("ok")){
         newpost = new Post();
-
         //empty fields
         title.setText("");
-        describing.setText("");
+        describing.setText("");}
     }
 
     public void makingpublic(ActionEvent actionEvent) {

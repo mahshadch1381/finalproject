@@ -17,7 +17,7 @@ public class Controller {
     public Label label;
     public TextField visibleusername;
     public Button forgetpass;
-
+    public static String mainUser;
     public void login(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
         String user=username.getText();
         String pass=password.getText();
@@ -26,6 +26,7 @@ public class Controller {
         if(login_client.login_connection().equalsIgnoreCase("true")){
             label.setVisible(false);
             new Loader().load("posts");
+            mainUser=user;
         }else {
             label.setVisible(true);
         }
