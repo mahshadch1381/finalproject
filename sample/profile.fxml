@@ -16,11 +16,11 @@
       <Label layoutX="211.0" layoutY="56.0" prefHeight="31.0" prefWidth="71.0" text="following:" />
       <Label layoutX="211.0" layoutY="98.0" prefHeight="31.0" prefWidth="65.0" text="followers:" />
       <Label layoutX="211.0" layoutY="139.0" prefHeight="31.0" prefWidth="65.0" text="country:" />
-      <Label layoutX="211.0" layoutY="25.0" prefHeight="31.0" prefWidth="71.0" text="username" />
-      <Button fx:id="follow" layoutX="29.0" layoutY="211.0" mnemonicParsing="false" onAction="#following" prefHeight="31.0" prefWidth="78.0" text="follow" />
-      <Button fx:id="unfollow" layoutX="141.0" layoutY="211.0" mnemonicParsing="false" onAction="#unfollowing" text="unfollow" />
-      <Button fx:id="edit" layoutX="247.0" layoutY="211.0" mnemonicParsing="false" onAction="#editing" prefHeight="31.0" prefWidth="71.0" text="edit" />
-      <ListView layoutX="8.0" layoutY="256.0" prefHeight="338.0" prefWidth="354.0" />
+      <Label layoutX="211.0" layoutY="25.0" prefHeight="31.0" prefWidth="71.0" text="username:" />
+      <Button fx:id="follow" layoutX="30.0" layoutY="203.0" mnemonicParsing="false" onAction="#following" prefHeight="31.0" prefWidth="78.0" text="follow" />
+      <Button fx:id="unfollow" layoutX="141.0" layoutY="203.0" mnemonicParsing="false" onAction="#unfollowing" text="unfollow" />
+      <Button fx:id="edit" layoutX="250.0" layoutY="203.0" mnemonicParsing="false" onAction="#editing" prefHeight="31.0" prefWidth="78.0" text="edit" />
+      <ListView layoutX="23.0" layoutY="248.0" prefHeight="338.0" prefWidth="354.0" />
       <Label fx:id="user" layoutX="288.0" layoutY="30.0" prefHeight="21.0" prefWidth="103.0" text="user" />
       <Label fx:id="numoffolloing" layoutX="288.0" layoutY="56.0" prefHeight="31.0" prefWidth="103.0" text="numoffollowing" />
       <Label fx:id="numoffollowers" layoutX="285.0" layoutY="98.0" prefHeight="31.0" prefWidth="103.0" text="numoffollower" />

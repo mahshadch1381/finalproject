@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import model.Loader;
+import model.Person;
 import model.Post;
 
 import java.io.IOException;
@@ -24,7 +25,7 @@ public class postdetailcontroller {
     public Button checkprofilebutton;
     public Label numoflike;
     public Label numofrepost;
-
+    public Person person;
     @FXML
     public void initialize(){
         post=PostItemController.post;

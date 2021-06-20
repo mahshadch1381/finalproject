@@ -3,6 +3,7 @@ package Controller;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import model.Person;
 
 public class profileController {
     public Label user;
@@ -12,6 +13,7 @@ public class profileController {
     public Button follow;
     public Button unfollow;
     public Button edit;
+    public Person person;
 
     public void following(ActionEvent actionEvent) {
     }
