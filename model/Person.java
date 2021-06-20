@@ -5,7 +5,7 @@ public class Person {
     public String country;
     public String name;
     public String password;
-    public String profilePath="";
+    public String profilePath="-";
     public String accidentalQuestion;
    public Person(String user,String password){
        username=user;
