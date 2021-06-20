@@ -16,7 +16,7 @@ public class personitemcontroller {
     public ImageView picture;
     public Label userlabel;
     public Button details;
-    public Person person;
+    public static Person person;
     public personitemcontroller(Person p) throws IOException {
         new Loader().load("personitem", this);
         person=p;
@@ -31,9 +31,13 @@ public class personitemcontroller {
         return root;
     }
 
+    public static Person getPerson() {
+        return person;
+    }
+
     //you can show post's detail in new page with this method
     public void detail(ActionEvent actionEvent) throws IOException {
-        new Loader().load("profile");
+        new Loader().load("profileforfollowing");
     }
 }
 
