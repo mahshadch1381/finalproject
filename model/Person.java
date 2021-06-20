@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 public class Person {
     public String username;
     public String country;
@@ -7,6 +9,8 @@ public class Person {
     public String password;
     public String profilePath="-";
     public String accidentalQuestion;
+    public List<String> followers;
+    public List<String> followings;
    public Person(String user,String password){
        username=user;
        this.password=password;

@@ -7,7 +7,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="360.0" style="-fx-background-color: #A3F0F9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fx:id="picture" fitHeight="56.0" fitWidth="53.0" layoutX="12.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
@@ -16,6 +15,6 @@
          </image>
       </ImageView>
       <Label fx:id="userlabel" layoutX="102.0" layoutY="24.0" prefHeight="21.0" prefWidth="73.0" text="username" />
-      <Button fx:id="details" layoutX="215.0" layoutY="20.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="93.0" text="details" />
+      <Button fx:id="details" layoutX="215.0" layoutY="20.0" mnemonicParsing="false" onAction="#detail" prefHeight="31.0" prefWidth="93.0" text="details" />
    </children>
 </AnchorPane>

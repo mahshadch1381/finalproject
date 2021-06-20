@@ -32,8 +32,8 @@ public class personitemcontroller {
     }
 
     //you can show post's detail in new page with this method
-    public void detail(ActionEvent actionEvent) {
-
+    public void detail(ActionEvent actionEvent) throws IOException {
+        new Loader().load("profile");
     }
 }
 

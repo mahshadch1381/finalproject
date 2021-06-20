@@ -33,7 +33,7 @@ public class PostsController {
             Post p = new Post();
             p.setTitle("post" + 1);
             p.setDescription("description" + 1);
-            p.setPublisher("user" + 1);
+            p.setPublisher("ccc");
             posts.add(p);
         postscript.setItems(FXCollections.observableArrayList(posts));
         //customize each cell of postList with new graphic object PostItem

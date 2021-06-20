@@ -1,5 +1,7 @@
 package Controller;
 
+import Client.getpersoninfo_client;
+import Server.getpersoninfo_server;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -25,13 +27,17 @@ public class postdetailcontroller {
     public Button checkprofilebutton;
     public Label numoflike;
     public Label numofrepost;
-    public Person person;
+    public static Person person;
     @FXML
-    public void initialize(){
+    public void initialize() throws IOException, ClassNotFoundException {
         post=PostItemController.post;
          title.setText(post.getTitle());
         description.setText(post.getDescription());
         username.setText(post.getPublisher());
+        (new getpersoninfo_server()).start();
+        getpersoninfo_client getpersoninfo_client=new getpersoninfo_client();
+        Person p=getpersoninfo_client.findingClientsinformation(post.publisher);
+        person=p;
     }
 
     public void gotomenu(ActionEvent actionEvent) throws IOException {
@@ -39,6 +45,10 @@ public class postdetailcontroller {
     }
 
     public void liking(ActionEvent actionEvent) {
+    }
+
+    public static Person getPerson() {
+        return person;
     }
 
     public void reposting(ActionEvent actionEvent) {
