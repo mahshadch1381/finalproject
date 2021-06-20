@@ -92,6 +92,6 @@ public class PostsController {
 
     public void allclients(ActionEvent actionEvent) throws IOException {
        new Loader().load("clientslist");
-        //new Loader().load("menu");
+
     }
 }

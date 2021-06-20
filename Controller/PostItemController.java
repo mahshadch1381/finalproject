@@ -34,7 +34,7 @@ public class PostItemController {
     public Label title;
     public Button repost;
     public Button details;
-    Post post;
+    public static Post post;
 
     //each list item will have its exclusive controller in runtime so we set the controller as we load the fxml
     public PostItemController(Post post) throws IOException {
@@ -53,8 +53,13 @@ public class PostItemController {
         return root;
     }
 
-    //you can show post's detail in new page with this method
-    public void detail(ActionEvent actionEvent) {
+    public Post getPost() {
+        return post;
+    }
 
+    //you can show post's detail in new page with this method
+    public void detail(ActionEvent actionEvent) throws IOException {
+       // postdetailcontroller p=new postdetailcontroller(post);
+        new Loader().load("postdetail");
     }
 }

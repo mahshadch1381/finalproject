@@ -20,7 +20,7 @@
             <Image url="file:/C:/Users/98912/Pictures/hart.png" />
          </image>
       </ImageView>
-      <Button fx:id="details" layoutX="287.0" layoutY="5.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="67.0" style="-fx-background-color: #F9E79F;" text="details" />
+      <Button fx:id="details" layoutX="287.0" layoutY="5.0" mnemonicParsing="false" onAction="#detail" prefHeight="31.0" prefWidth="67.0" style="-fx-background-color: #F9E79F;" text="details" />
       <Button fx:id="repost" layoutX="287.0" layoutY="43.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="67.0" style="-fx-background-color: #F9E79F;" text="repost" />
    </children>
 </AnchorPane>

@@ -7,21 +7,23 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #ABEBC6;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Profile">
+<AnchorPane prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #ABEBC6;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.profileController">
    <children>
-      <ImageView fitHeight="166.0" fitWidth="166.0" layoutX="32.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="166.0" fitWidth="166.0" layoutX="14.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/C:/Users/98912/Pictures/profile.png" />
+         </image></ImageView>
       <Label layoutX="211.0" layoutY="56.0" prefHeight="31.0" prefWidth="71.0" text="following:" />
       <Label layoutX="211.0" layoutY="98.0" prefHeight="31.0" prefWidth="65.0" text="followers:" />
-      <Label layoutX="211.0" layoutY="139.0" prefHeight="31.0" prefWidth="65.0" text="phone:" />
+      <Label layoutX="211.0" layoutY="139.0" prefHeight="31.0" prefWidth="65.0" text="country:" />
       <Label layoutX="211.0" layoutY="25.0" prefHeight="31.0" prefWidth="71.0" text="username" />
-      <Button layoutX="56.0" layoutY="226.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="78.0" text="follow" />
-      <Button layoutX="172.0" layoutY="226.0" mnemonicParsing="false" text="unfollow" />
-      <Button layoutX="285.0" layoutY="226.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="71.0" text="edit" />
-      <ListView layoutX="6.0" layoutY="287.0" prefHeight="302.0" prefWidth="384.0" />
-      <Label layoutX="288.0" layoutY="30.0" prefHeight="21.0" prefWidth="103.0" text="user" />
-      <Label layoutX="288.0" layoutY="56.0" prefHeight="31.0" prefWidth="103.0" text="numoffollowing" />
-      <Label layoutX="285.0" layoutY="98.0" prefHeight="31.0" prefWidth="103.0" text="numoffollower" />
-      <Label layoutX="269.0" layoutY="139.0" prefHeight="31.0" prefWidth="103.0" text="phone" />
+      <Button fx:id="follow" layoutX="29.0" layoutY="211.0" mnemonicParsing="false" onAction="#following" prefHeight="31.0" prefWidth="78.0" text="follow" />
+      <Button fx:id="unfollow" layoutX="141.0" layoutY="211.0" mnemonicParsing="false" onAction="#unfollowing" text="unfollow" />
+      <Button fx:id="edit" layoutX="247.0" layoutY="211.0" mnemonicParsing="false" onAction="#editing" prefHeight="31.0" prefWidth="71.0" text="edit" />
+      <ListView layoutX="8.0" layoutY="256.0" prefHeight="338.0" prefWidth="354.0" />
+      <Label fx:id="user" layoutX="288.0" layoutY="30.0" prefHeight="21.0" prefWidth="103.0" text="user" />
+      <Label fx:id="numoffolloing" layoutX="288.0" layoutY="56.0" prefHeight="31.0" prefWidth="103.0" text="numoffollowing" />
+      <Label fx:id="numoffollowers" layoutX="285.0" layoutY="98.0" prefHeight="31.0" prefWidth="103.0" text="numoffollower" />
+      <Label fx:id="country" layoutX="286.0" layoutY="139.0" prefHeight="31.0" prefWidth="103.0" text="country" />
    </children>
 </AnchorPane>

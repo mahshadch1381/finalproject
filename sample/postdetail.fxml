@@ -8,33 +8,34 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #ABEBC6;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.postdetailcontroller">
    <children>
-      <Button fx:id="menubutton" layoutX="214.0" layoutY="471.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="133.0" text="menu">
+      <Button fx:id="menubutton" layoutX="214.0" layoutY="471.0" mnemonicParsing="false" onAction="#gotomenu" prefHeight="51.0" prefWidth="133.0" text="menu">
          <font>
             <Font name="System Bold Italic" size="24.0" />
          </font>
       </Button>
-      <Label fx:id="title" layoutX="23.0" layoutY="251.0" prefHeight="40.0" prefWidth="346.0" text="title" />
+      <Label fx:id="title" layoutX="103.0" layoutY="251.0" prefHeight="40.0" prefWidth="266.0" text="title" />
       <Label fx:id="description" layoutX="11.0" layoutY="299.0" prefHeight="110.0" prefWidth="372.0" text="description" />
-      <Label fx:id="username" layoutX="23.0" layoutY="211.0" prefHeight="40.0" prefWidth="346.0" text="username" />
+      <Label fx:id="username" layoutX="103.0" layoutY="211.0" prefHeight="40.0" prefWidth="266.0" text="username" />
       <ImageView fx:id="profile" fitHeight="147.0" fitWidth="125.0" layoutX="23.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="file:/C:/Users/98912/Pictures/profile.png" />
          </image>
       </ImageView>
-      <Button layoutX="11.0" layoutY="420.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="55.0" text="like" />
-      <Button layoutX="76.0" layoutY="420.0" mnemonicParsing="false" text="repost" />
-      <Button layoutX="149.0" layoutY="420.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="125.0" text="view comments" />
-      <Button layoutX="289.0" layoutY="420.0" mnemonicParsing="false" text="add coment" />
-      <Button layoutX="173.0" layoutY="123.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="116.0" text="view profile" />
+      <Button fx:id="likebutton" layoutX="11.0" layoutY="420.0" mnemonicParsing="false" onAction="#liking" prefHeight="31.0" prefWidth="55.0" text="like" />
+      <Button fx:id="repostbutton" layoutX="76.0" layoutY="420.0" mnemonicParsing="false" onAction="#reposting" text="repost" />
+      <Button fx:id="visitcommentsbutton" layoutX="149.0" layoutY="420.0" mnemonicParsing="false" onAction="#visitingcomments" prefHeight="31.0" prefWidth="125.0" text="view comments" />
+      <Button fx:id="addcommentbutton" layoutX="289.0" layoutY="420.0" mnemonicParsing="false" onAction="#addingcomments" text="add coment" />
+      <Button fx:id="checkprofilebutton" layoutX="173.0" layoutY="123.0" mnemonicParsing="false" onAction="#visitingprofile" prefHeight="31.0" prefWidth="116.0" text="view profile" />
       <Label layoutX="125.0" layoutY="25.0" prefHeight="40.0" prefWidth="173.0" text="Post Detail" textAlignment="RIGHT" textFill="#f28706">
          <font>
             <Font name="System Bold Italic" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="25.0" layoutY="512.0" prefHeight="40.0" prefWidth="173.0" text="like:" />
-      <Label layoutX="20.0" layoutY="461.0" prefHeight="40.0" prefWidth="173.0" text="repost:" />
+      <Label fx:id="numoflike" layoutX="25.0" layoutY="512.0" prefHeight="40.0" prefWidth="173.0" text="like:" />
+      <Label fx:id="numofrepost" layoutX="20.0" layoutY="461.0" prefHeight="40.0" prefWidth="173.0" text="repost:" />
+      <Label layoutX="21.0" layoutY="221.0" text="username:" />
+      <Label layoutX="21.0" layoutY="251.0" prefHeight="31.0" prefWidth="40.0" text="title:" />
    </children>
 </AnchorPane>
