@@ -17,9 +17,10 @@ public class personitemcontroller {
     public Label userlabel;
     public Button details;
     public static Person person;
-    public personitemcontroller(Person p) throws IOException {
+
+    public personitemcontroller(Person person) throws IOException {
         new Loader().load("personitem", this);
-        person=p;
+        this.person=person;
     }
 
     //this anchor pane is returned to be set as the list view item
@@ -31,7 +32,7 @@ public class personitemcontroller {
         return root;
     }
 
-    public static Person getPerson() {
+    public Person getPerson() {
         return person;
     }
 

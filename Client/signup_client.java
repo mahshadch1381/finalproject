@@ -12,7 +12,6 @@ public class signup_client {
     public String password;
     public final int port=112;
     public String a= "1";
-    public static String person_address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\person.txt";
     public signup_client(String user,String pass){
         username=user;
         password=pass;
