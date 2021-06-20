@@ -21,6 +21,7 @@
             </MenuButton>
             <Button fx:id="menu" layoutX="33.0" layoutY="14.0" mnemonicParsing="false" onAction="#menupage" style="-fx-background-color: #F75F4A;" text="menu" />
             <Button fx:id="refresh" layoutX="109.0" layoutY="14.0" mnemonicParsing="false" onAction="#refreshing" style="-fx-background-color: #F75F4A;" text="refresh" />
+            <Button fx:id="peaple" layoutX="217.0" layoutY="14.0" mnemonicParsing="false" onAction="#allclients" text="peaple" />
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="304.0" prefWidth="408.0" style="-fx-background-color: #ABEBC6;">
          <children>

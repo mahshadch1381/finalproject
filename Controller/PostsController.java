@@ -25,6 +25,7 @@ public class PostsController {
     public MenuButton privacy;
     public Button menu;
     public Button refresh;
+    public Button peaple;
     List<Post> posts=new ArrayList<>();
     Post newpost=new Post();
     @FXML
@@ -87,5 +88,10 @@ public class PostsController {
 
     public void refreshing(ActionEvent actionEvent) {
 
+    }
+
+    public void allclients(ActionEvent actionEvent) throws IOException {
+       new Loader().load("clientslist");
+        //new Loader().load("menu");
     }
 }

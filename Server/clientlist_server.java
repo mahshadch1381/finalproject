@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class clientlist_server implements Runnable{
-        public static int port =113;
+    public static int port=114;
         public static AtomicInteger server_time=new AtomicInteger(0);
         public static ServerSocket serverSocket;
         public static Map<String,String> map=new ConcurrentHashMap<>();

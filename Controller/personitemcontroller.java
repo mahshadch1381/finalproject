@@ -18,7 +18,7 @@ public class personitemcontroller {
     public Button details;
     public Person person;
     public personitemcontroller(Person p) throws IOException {
-        new Loader().load("postItem", this);
+        new Loader().load("personitem", this);
         person=p;
     }
 

@@ -20,6 +20,6 @@ public class ClientListController {
         List<Person> people=client2.findingClientList();
             list.setItems(FXCollections.observableArrayList(people));
             //customize each cell of postList with new graphic object PostItem
-            list.setCellFactory(postList -> new PostItem());
+            list.setCellFactory(person -> new personitem());
     }
 }
