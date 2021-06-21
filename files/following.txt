@@ -1,2 +1,2 @@
-a:z#ccc
+a:z#ccc#z
 ccc:a#a

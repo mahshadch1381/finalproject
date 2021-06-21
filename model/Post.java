@@ -11,8 +11,8 @@ public class Post {
     public String publisher;
     public String date;
     public String picture;
-    public String likes;
-    public String reposts;
+    public int likes=0;
+    public int reposts=0;
     public PrivacyStatus getPrivacyStatus() {
         return privacyStatus;
     }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -15,12 +16,18 @@
          <image>
             <Image url="file:/C:/Users/98912/Pictures/profile.png" />
          </image></ImageView>
-      <ImageView fx:id="like" fitHeight="42.0" fitWidth="35.0" layoutX="246.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="31.0" fitWidth="28.0" layoutX="250.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="file:/C:/Users/98912/Pictures/hart.png" />
          </image>
       </ImageView>
       <Button fx:id="details" layoutX="287.0" layoutY="5.0" mnemonicParsing="false" onAction="#detail" prefHeight="31.0" prefWidth="67.0" style="-fx-background-color: #F9E79F;" text="details" />
-      <Button fx:id="repost" layoutX="287.0" layoutY="43.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="67.0" style="-fx-background-color: #F9E79F;" text="repost" />
+      <Button fx:id="repost" layoutX="287.0" layoutY="43.0" mnemonicParsing="false" onAction="#reposting" prefHeight="31.0" prefWidth="67.0" style="-fx-background-color: #F9E79F;" text="repost" />
+      <Label fx:id="likedlabel" layoutX="209.0" layoutY="11.0" text="liked" visible="false">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="like" layoutX="224.0" layoutY="43.0" mnemonicParsing="false" onAction="#liking" prefHeight="21.0" prefWidth="52.0" text="like" />
    </children>
 </AnchorPane>

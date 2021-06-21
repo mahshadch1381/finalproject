@@ -1,6 +1,8 @@
 package Controller;
 
+import Client.likerepost_client;
 import Client.postdetails_client;
+import Server.like_server;
 import Server.postdetail_server;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
@@ -34,9 +36,11 @@ public class PostItemController {
     public ImageView profileImage;
     public Label username;
     public Label title;
+    public Label likedlabel;
     public Button repost;
     public Button details;
     public Post post;
+    public Button like;
 
     //each list item will have its exclusive controller in runtime so we set the controller as we load the fxml
     public PostItemController(Post post) throws IOException {
@@ -60,5 +64,16 @@ public class PostItemController {
         postdetails_client postdetails_client=new postdetails_client(post);
         if(postdetails_client.detail_give_info().equals("ok")){
         new Loader().load("postdetail");}
+    }
+
+    public void reposting(ActionEvent actionEvent){
+
+    }
+    public void liking(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
+        ( new like_server()).start();
+        likerepost_client likerepost_client=new likerepost_client(post);
+        if(likerepost_client.liking().equals("ok")){
+            likedlabel.setVisible(true);
+        }
     }
 }

@@ -1,8 +1,10 @@
 package Controller;
 
 import Client.postingClient;
+import Client.savingpostforlike_client;
 import Client.showingposts_client;
 import Server.postingServer;
+import Server.savingpostforlike_srver;
 import Server.showingposts_server;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -39,7 +41,8 @@ public class PostsController {
             posts.add(p);
         (new showingposts_server()).start();
         showingposts_client showingposts_client=new showingposts_client(Controller.mainUser);
-        for (Post s:showingposts_client.posts()){
+        List<Post> post2=showingposts_client.posts();
+        for (Post s:post2){
         posts.add(s);}
         postscript.setItems(FXCollections.observableArrayList(posts));
         postscript.setCellFactory(postList -> new PostItem());
@@ -53,18 +56,23 @@ public class PostsController {
         //show the arraylist in listview
         postscript.setItems(FXCollections.observableArrayList(posts));
         postscript.setCellFactory(postList -> new PostItem());
-        (new postingServer()).start();
-        postingClient posting=new postingClient(newpost);
+        (new savingpostforlike_srver()).start();
+        savingpostforlike_client savingpostforlike_client=new savingpostforlike_client(newpost);
+        if(savingpostforlike_client.liking().equals("ok")) {
+            (new postingServer()).start();
+            postingClient posting = new postingClient(newpost);
         /*
         if the listview cells are not customized and list view is made of strings
         this code will add new post title to the list view
         postList.getItems().add(currentPost.getTitle());
          */
-        if(posting.posting_connection().contains("ok")){
-        newpost = new Post();
-        //empty fields
-        title.setText("");
-        describing.setText("");}
+            if (posting.posting_connection().contains("ok")) {
+                newpost = new Post();
+                //empty fields
+                title.setText("");
+                describing.setText("");
+            }
+        }
     }
 
     public void makingpublic(ActionEvent actionEvent) {
