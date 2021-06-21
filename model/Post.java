@@ -9,7 +9,7 @@ public class Post {
     public String title;
     public String description;
     public String publisher;
-    public Date date;
+    public String date;
     public String picture;
     public String likes;
     public String reposts;
@@ -60,11 +60,5 @@ public class Post {
         this.description = description;
     }
 
-    public Date getDate() {
-        return date;
-    }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
 }

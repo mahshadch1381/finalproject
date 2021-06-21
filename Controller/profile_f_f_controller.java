@@ -50,6 +50,14 @@ public class profile_f_f_controller {
         if(unfollowingclient.unfollow().equals("ok")){
             successfullabel.setVisible(false);
             unsuccessfullable.setVisible(true);
+            (new count_of_followers_server()).start();
+            countoffollowers_client countoffollowers_client=new countoffollowers_client(p.username);
+            String CountOfFollowers=countoffollowers_client.count_of_followers();
+            (new count_of_following_server()).start();
+            countoffollowers_client countoffollowers_client2=new countoffollowers_client(p.username);
+            String CountOfFollowings=countoffollowers_client2.count_of_following();
+            followings.setText(CountOfFollowings);
+            followers.setText(CountOfFollowers);
         }
     }
 
@@ -59,6 +67,14 @@ public class profile_f_f_controller {
         if(followingclient.follow().equals("ok")){
             unsuccessfullable.setVisible(false);
             successfullabel.setVisible(true);
+            (new count_of_followers_server()).start();
+            countoffollowers_client countoffollowers_client=new countoffollowers_client(p.username);
+            String CountOfFollowers=countoffollowers_client.count_of_followers();
+            (new count_of_following_server()).start();
+            countoffollowers_client countoffollowers_client2=new countoffollowers_client(p.username);
+            String CountOfFollowings=countoffollowers_client2.count_of_following();
+            followings.setText(CountOfFollowings);
+            followers.setText(CountOfFollowers);
         }
     }
 

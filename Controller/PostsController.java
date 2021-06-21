@@ -1,7 +1,9 @@
 package Controller;
 
 import Client.postingClient;
+import Client.showingposts_client;
 import Server.postingServer;
+import Server.showingposts_server;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,14 +31,17 @@ public class PostsController {
     List<Post> posts=new ArrayList<>();
     Post newpost=new Post();
     @FXML
-    public void initialize(){
+    public void initialize() throws IOException, ClassNotFoundException {
             Post p = new Post();
             p.setTitle("post" + 1);
             p.setDescription("description" + 1);
-            p.setPublisher("ccc");
+            p.setPublisher("are");
             posts.add(p);
+        (new showingposts_server()).start();
+        showingposts_client showingposts_client=new showingposts_client(Controller.mainUser);
+        for (Post s:showingposts_client.posts()){
+        posts.add(s);}
         postscript.setItems(FXCollections.observableArrayList(posts));
-        //customize each cell of postList with new graphic object PostItem
         postscript.setCellFactory(postList -> new PostItem());
     }
     public void adding(javafx.event.ActionEvent actionEvent) throws IOException, ClassNotFoundException {
@@ -86,8 +91,13 @@ public class PostsController {
         new Loader().load("menu");
     }
 
-    public void refreshing(ActionEvent actionEvent) {
-
+    public void refreshing(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
+        (new showingposts_server()).start();
+        showingposts_client showingposts_client=new showingposts_client(Controller.mainUser);
+        for (Post s:showingposts_client.posts()){
+            posts.add(s);}
+        postscript.setItems(FXCollections.observableArrayList(posts));
+        postscript.setCellFactory(postList -> new PostItem());
     }
 
     public void allclients(ActionEvent actionEvent) throws IOException {
