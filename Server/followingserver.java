@@ -83,6 +83,9 @@ public class followingserver implements Runnable{
                                     Map<String,List<String>> map2=new HashMap<>();
                                     while (scanner2.hasNextLine()){
                                         String a=scanner2.nextLine();
+                                        if(!a.contains(":")){
+                                            continue;
+                                        }
                                         String user=a.substring(0,a.indexOf(":"));
                                         a=a.substring(a.indexOf(":")+1);
                                         String[] array2=a.split("#");
@@ -114,76 +117,7 @@ public class followingserver implements Runnable{
                                     oos.flush();
                                     fileWriter2.close();
                                 }
-                               /* if (input.contains("unfollow")){
-                                    FileReader fileReader3=new FileReader(address1);
-                                    Scanner scanner3=new Scanner(fileReader3);
-                                    Map<String,List<String>> map3=new HashMap<>();
-                                    String[] people=input.substring(input.indexOf("-")+1).split("#");
-                                    while (scanner3.hasNextLine()){
-                                        String a=scanner3.nextLine();
-                                        String user=a.substring(0,a.indexOf(":"));
-                                        a=a.substring(a.indexOf(":")+1);
-                                        String[] array=a.split("#");
-                                        List<String> list1=new ArrayList<>();
-                                        if(user.equals(people[0])) {
-                                            for (String s : array) {
-                                                if(!s.equals(people[1])){
-                                                list1.add(s);}
-                                            }
-                                        }else {
-                                            for (String s : array) {
-                                                    list1.add(s);}
-                                        }
-                                        map3.put(user,list1);
-                                    }
-                                    FileWriter fileWriter3=new FileWriter(address1);
-                                    for (String s:map3.keySet()){
-                                        String line=s+":";
-                                        for (String s2:map3.get(s)){
-                                            line=line+s2+"#";
-                                        }
-                                        line=line.substring(0,line.length()-1);
-                                        fileWriter3.write(line+"\n");
-                                        fileWriter3.flush();
-                                    }
-                                    fileReader3.close();
-                                    fileWriter3.close();
 
-                                        FileReader fileReader4=new FileReader(address2);
-                                        Scanner scanner4=new Scanner(fileReader4);
-                                        Map<String,List<String>> map4=new HashMap<>();
-                                        while (scanner4.hasNextLine()){
-                                            String a=scanner4.nextLine();
-                                            String user=a.substring(0,a.indexOf(":"));
-                                            a=a.substring(a.indexOf(":")+1);
-                                            String[] array2=a.split("#");
-                                            List<String> list2=new ArrayList<>();
-                                            if(user.equals(people[1])) {
-                                                for (String s : array2) {
-                                                    if(!s.equals(people[0])){
-                                                        list2.add(s);}
-                                                }
-                                            }else {
-                                                for (String s : array2) {
-                                                    list2.add(s);}
-                                            }
-                                            map4.put(user,list2);
-                                        }
-                                        FileWriter fileWriter4=new FileWriter(address2);
-                                        for (String s:map4.keySet()){
-                                            String line=s+":";
-                                            for (String s2:map4.get(s)){
-                                                line=line+s2+"#";
-                                            }
-                                            line=line.substring(0,line.length()-1);
-                                            fileWriter4.write(line+"\n");
-                                            fileWriter4.flush();
-                                        }
-                                    oos.writeObject("ok");
-                                    oos.flush();
-                                    fileWriter4.close();
-                                    fileWriter4.close();
-                                    }*/
                             } catch (ClassNotFoundException | IOException e) {
                                 e.printStackTrace();
                             }

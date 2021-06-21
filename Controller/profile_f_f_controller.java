@@ -1,11 +1,10 @@
 package Controller;
 
+import Client.countoffollowers_client;
 import Client.followingclient;
 import Client.followingfiles_client;
 import Client.unfollowing_client;
-import Server.followingfiles2_server2;
-import Server.followingserver;
-import Server.unfollowingserver;
+import Server.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -36,6 +35,14 @@ public class profile_f_f_controller {
         p=followingfiles_client.following_get_info();
         username.setText(p.username);
         country.setText(p.country);
+        (new count_of_followers_server()).start();
+        countoffollowers_client countoffollowers_client=new countoffollowers_client(p.username);
+        String CountOfFollowers=countoffollowers_client.count_of_followers();
+        (new count_of_following_server()).start();
+        countoffollowers_client countoffollowers_client2=new countoffollowers_client(p.username);
+        String CountOfFollowings=countoffollowers_client2.count_of_following();
+        followings.setText(CountOfFollowings);
+        followers.setText(CountOfFollowers);
     }
     public void unfollowing(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
         (new unfollowingserver()).start();
