@@ -1,7 +1,9 @@
 package Controller;
 
 import Client.getpersoninfo_client;
+import Client.postdetails_client;
 import Server.getpersoninfo_server;
+import Server.postdetails2_server2;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -30,7 +32,9 @@ public class postdetailcontroller {
     public static Person person;
     @FXML
     public void initialize() throws IOException, ClassNotFoundException {
-        post=PostItemController.post;
+        (new postdetails2_server2()).start();
+        postdetails_client postdetails_client=new postdetails_client();
+        post=postdetails_client.detail_get_info();
          title.setText(post.getTitle());
         description.setText(post.getDescription());
         username.setText(post.getPublisher());

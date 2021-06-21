@@ -1,5 +1,7 @@
 package Controller;
 
+import Client.postdetails_client;
+import Server.postdetail_server;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -34,7 +36,7 @@ public class PostItemController {
     public Label title;
     public Button repost;
     public Button details;
-    public static Post post;
+    public Post post;
 
     //each list item will have its exclusive controller in runtime so we set the controller as we load the fxml
     public PostItemController(Post post) throws IOException {
@@ -52,14 +54,11 @@ public class PostItemController {
           //  profileImage.setImage(new Image(Paths.get("images/ali_alavi.jpg").toUri().toString()));
         return root;
     }
-
-    public Post getPost() {
-        return post;
-    }
-
     //you can show post's detail in new page with this method
-    public void detail(ActionEvent actionEvent) throws IOException {
-       // postdetailcontroller p=new postdetailcontroller(post);
-        new Loader().load("postdetail");
+    public void detail(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
+        (new postdetail_server()).start();
+        postdetails_client postdetails_client=new postdetails_client(post);
+        if(postdetails_client.detail_give_info().equals("ok")){
+        new Loader().load("postdetail");}
     }
 }
