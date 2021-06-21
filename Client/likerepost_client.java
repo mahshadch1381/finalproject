@@ -15,11 +15,15 @@ public class likerepost_client {
         public likerepost_client(Post post){
             this.post=post;
         }
+        public likerepost_client(Post post,String user){
+            this.post=post;
+            username=user;
+        }
         public String liking() throws IOException, ClassNotFoundException {
             Socket socket=new Socket("127.0.0.1",port1);
             ObjectInputStream objectInputStream=new ObjectInputStream(socket.getInputStream());
             ObjectOutputStream objectOutputStream=new ObjectOutputStream(socket.getOutputStream());
-            String line=post.publisher+"#"+post.title+"#"+post.likes+"#"+post.reposts;
+            String line=post.publisher+"#"+post.title;
             objectOutputStream.writeObject(line);
             objectOutputStream.flush();
             Object answer=objectInputStream.readObject();
@@ -34,7 +38,8 @@ public class likerepost_client {
             Socket socket=new Socket("127.0.0.1",port2);
             ObjectInputStream objectInputStream=new ObjectInputStream(socket.getInputStream());
             ObjectOutputStream objectOutputStream=new ObjectOutputStream(socket.getOutputStream());
-            objectOutputStream.writeObject(username);
+            String message=username+"%"+post.publisher+"#"+post.title+"#"+post.description+"#"+post.date+"#"+post.picture;
+            objectOutputStream.writeObject(message);
             objectOutputStream.flush();
             Object answer=objectInputStream.readObject();
             String a="0";

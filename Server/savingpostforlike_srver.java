@@ -12,8 +12,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import static java.lang.Integer.parseInt;
 
-public class savingpostforlike_srver implements Runnable{
-    public static final int port=128;
+public class savingpostforlike_srver {
+
+
+   /* public static final int port=128;
     public static AtomicInteger server_time=new AtomicInteger(0);
     public static ServerSocket serverSocket;
     public static Map<String,String> map=new ConcurrentHashMap<>();
@@ -65,5 +67,5 @@ public class savingpostforlike_srver implements Runnable{
         }catch (IOException e){e.printStackTrace(); }
     }
 }
-
+*/}
 

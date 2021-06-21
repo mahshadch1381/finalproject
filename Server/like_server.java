@@ -15,7 +15,7 @@ public class like_server implements Runnable{
     public static AtomicInteger server_time=new AtomicInteger(0);
     public static ServerSocket serverSocket;
     public static Map<String,String> map=new ConcurrentHashMap<>();
-    public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\like_repost.txt";
+    public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\countoflikes.txt";
     public void start() {
         try {
             if (server_time.get() == 1) {
@@ -56,8 +56,7 @@ public class like_server implements Runnable{
                                         String[] strings=line.split("#");
                                         int a=parseInt(strings[2]);
                                         int n=a+1;
-                                        array[2]=n+"";
-                                       String s=array[0]+"#"+array[1]+"#"+array[2]+"#"+array[3];
+                                       String s=array[0]+"#"+array[1]+"#"+n;
                                        posts.add(s);
                                        continue;
                                     }else {

@@ -8,7 +8,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class savingpostforlike_client {
-    public static int port=128;
+   /* public static int port=128;
     public String username;
     public Post post;
     public savingpostforlike_client(Post post){
@@ -28,5 +28,5 @@ public class savingpostforlike_client {
         objectInputStream.close();
         objectOutputStream.close();
         return (String) answer;
-    }
+    }*/
 }

@@ -1,10 +1,8 @@
 package Controller;
 
 import Client.postingClient;
-import Client.savingpostforlike_client;
 import Client.showingposts_client;
 import Server.postingServer;
-import Server.savingpostforlike_srver;
 import Server.showingposts_server;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -17,7 +15,9 @@ import model.PrivacyStatus;
 import sample.Controller;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class PostsController {
     public TextArea describing;
@@ -31,6 +31,7 @@ public class PostsController {
     public Button refresh;
     public Button peaple;
     List<Post> posts=new ArrayList<>();
+    Set<Post> allposts=new HashSet<>();
     Post newpost=new Post();
     @FXML
     public void initialize() throws IOException, ClassNotFoundException {
@@ -38,12 +39,16 @@ public class PostsController {
             p.setTitle("post" + 1);
             p.setDescription("description" + 1);
             p.setPublisher("are");
-            posts.add(p);
+            allposts.add(p);
         (new showingposts_server()).start();
         showingposts_client showingposts_client=new showingposts_client(Controller.mainUser);
         List<Post> post2=showingposts_client.posts();
         for (Post s:post2){
-        posts.add(s);}
+        allposts.add(s);}
+        posts.clear();
+        for (Post po:allposts){
+            posts.add(po);
+        }
         postscript.setItems(FXCollections.observableArrayList(posts));
         postscript.setCellFactory(postList -> new PostItem());
     }
@@ -56,23 +61,15 @@ public class PostsController {
         //show the arraylist in listview
         postscript.setItems(FXCollections.observableArrayList(posts));
         postscript.setCellFactory(postList -> new PostItem());
-        (new savingpostforlike_srver()).start();
-        savingpostforlike_client savingpostforlike_client=new savingpostforlike_client(newpost);
-        if(savingpostforlike_client.liking().equals("ok")) {
             (new postingServer()).start();
             postingClient posting = new postingClient(newpost);
-        /*
-        if the listview cells are not customized and list view is made of strings
-        this code will add new post title to the list view
-        postList.getItems().add(currentPost.getTitle());
-         */
             if (posting.posting_connection().contains("ok")) {
                 newpost = new Post();
                 //empty fields
                 title.setText("");
                 describing.setText("");
             }
-        }
+
     }
 
     public void makingpublic(ActionEvent actionEvent) {
@@ -102,8 +99,21 @@ public class PostsController {
     public void refreshing(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
         (new showingposts_server()).start();
         showingposts_client showingposts_client=new showingposts_client(Controller.mainUser);
-        for (Post s:showingposts_client.posts()){
-            posts.add(s);}
+        List<Post> newones=new ArrayList<>();
+        List<Post> array=showingposts_client.posts();
+        for (Post s:array){
+            for (Post p:posts){
+             if(s.publisher.contains(p.publisher)&&s.title.contains(p.title)) {
+                 continue;
+               }else {
+                 allposts.add(s);
+             }
+            }
+        }
+        posts.clear();
+        for (Post p:allposts){
+            posts.add(p);
+        }
         postscript.setItems(FXCollections.observableArrayList(posts));
         postscript.setCellFactory(postList -> new PostItem());
     }

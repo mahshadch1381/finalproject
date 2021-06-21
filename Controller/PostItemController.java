@@ -4,6 +4,7 @@ import Client.likerepost_client;
 import Client.postdetails_client;
 import Server.like_server;
 import Server.postdetail_server;
+import Server.repost_server;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -13,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import model.Loader;
 import model.Post;
+import sample.Controller;
 
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -66,8 +68,11 @@ public class PostItemController {
         new Loader().load("postdetail");}
     }
 
-    public void reposting(ActionEvent actionEvent){
-
+    public void reposting(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
+        (new repost_server()).start();
+        likerepost_client likerepost_client=new likerepost_client(post, Controller.mainUser);
+        if(likerepost_client.reposting().equals("ok")){
+        }
     }
     public void liking(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
         ( new like_server()).start();
