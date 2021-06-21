@@ -1,4 +1,4 @@
-a:a
-a:a#a
-a:a#a#a
-a:a#a#a#a
+a:ccc
+ccc:a
+bbb:a
+z:a

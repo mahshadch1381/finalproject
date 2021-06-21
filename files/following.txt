@@ -1,4 +1,1 @@
-a:a#a
-a:a#a#a
-a:a#a#a#a
-a:a#a#a#a#a
+a:ccc#z#z#bbb#ccc

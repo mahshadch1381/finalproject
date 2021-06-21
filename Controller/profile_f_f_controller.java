@@ -2,8 +2,10 @@ package Controller;
 
 import Client.followingclient;
 import Client.followingfiles_client;
+import Client.unfollowing_client;
 import Server.followingfiles2_server2;
 import Server.followingserver;
+import Server.unfollowingserver;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -36,12 +38,11 @@ public class profile_f_f_controller {
         country.setText(p.country);
     }
     public void unfollowing(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
-        (new followingserver()).start();
-        followingclient followingclient=new followingclient(p, Controller.mainUser);
-        if(followingclient.unfollow().equals("false")){
+        (new unfollowingserver()).start();
+        unfollowing_client unfollowingclient=new unfollowing_client(p, Controller.mainUser);
+        if(unfollowingclient.unfollow().equals("ok")){
+            successfullabel.setVisible(false);
             unsuccessfullable.setVisible(true);
-        }else {
-            successfullabel.setVisible(true);
         }
     }
 
@@ -49,6 +50,7 @@ public class profile_f_f_controller {
         (new followingserver()).start();
         followingclient followingclient=new followingclient(p, Controller.mainUser);
         if(followingclient.follow().equals("ok")){
+            unsuccessfullable.setVisible(false);
             successfullabel.setVisible(true);
         }
     }

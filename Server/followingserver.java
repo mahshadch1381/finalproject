@@ -7,7 +7,7 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class followingserver implements Runnable{
-    public static int port1=115;
+    public static int port1=119;
     public static AtomicInteger server_time=new AtomicInteger(0);
     public static ServerSocket serverSocket;
     public static String address1="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\followers.txt";
@@ -39,15 +39,13 @@ public class followingserver implements Runnable{
                             try {
                                 Object object = ois.readObject();
                                 String input = (String) object;
-                                FileWriter fileWriter1=new FileWriter(address1,true);
                                 FileReader fileReader1=new FileReader(address1);
                                 Scanner scanner1=new Scanner(fileReader1);
-                                FileWriter fileWriter2=new FileWriter(address2,true);
                                 FileReader fileReader2=new FileReader(address2);
-                                Scanner scanner2=new Scanner(fileReader1);
+                                Scanner scanner2=new Scanner(fileReader2);
                                 if(input.equals("0")){
-                                    fileWriter1.close();
                                     fileReader1.close();
+                                    fileReader2.close();
                                     break; }
                                 if(input.contains("follow")){
                                     Map<String,List<String>> map1=new HashMap<>();
@@ -71,6 +69,7 @@ public class followingserver implements Runnable{
                                         list2.add(people[1]);
                                         map1.put(people[0],list2);
                                     }
+                                    FileWriter fileWriter1=new FileWriter(address1);
                                     for (String s:map1.keySet()){
                                         String line=s+":";
                                         for (String s2:map1.get(s)){
@@ -80,6 +79,7 @@ public class followingserver implements Runnable{
                                         fileWriter1.write(line+"\n");
                                         fileWriter1.flush();
                                     }
+                                    fileWriter1.close();
                                     Map<String,List<String>> map2=new HashMap<>();
                                     while (scanner2.hasNextLine()){
                                         String a=scanner2.nextLine();
@@ -100,6 +100,7 @@ public class followingserver implements Runnable{
                                         list3.add(people[0]);
                                         map2.put(people[1],list3);
                                     }
+                                    FileWriter fileWriter2=new FileWriter(address2);
                                     for (String s:map2.keySet()){
                                         String line=s+":";
                                         for (String s2:map2.get(s)){
@@ -111,12 +112,15 @@ public class followingserver implements Runnable{
                                     }
                                     oos.writeObject("ok");
                                     oos.flush();
+                                    fileWriter2.close();
                                 }
-                                if (input.contains("unfollow")){
-                                    Map<String,List<String>> map1=new HashMap<>();
+                               /* if (input.contains("unfollow")){
+                                    FileReader fileReader3=new FileReader(address1);
+                                    Scanner scanner3=new Scanner(fileReader3);
+                                    Map<String,List<String>> map3=new HashMap<>();
                                     String[] people=input.substring(input.indexOf("-")+1).split("#");
-                                    while (scanner1.hasNextLine()){
-                                        String a=scanner1.nextLine();
+                                    while (scanner3.hasNextLine()){
+                                        String a=scanner3.nextLine();
                                         String user=a.substring(0,a.indexOf(":"));
                                         a=a.substring(a.indexOf(":")+1);
                                         String[] array=a.split("#");
@@ -130,25 +134,26 @@ public class followingserver implements Runnable{
                                             for (String s : array) {
                                                     list1.add(s);}
                                         }
-                                        map1.put(user,list1);
+                                        map3.put(user,list1);
                                     }
-                                    for (String s:map1.keySet()){
+                                    FileWriter fileWriter3=new FileWriter(address1);
+                                    for (String s:map3.keySet()){
                                         String line=s+":";
-                                        for (String s2:map1.get(s)){
+                                        for (String s2:map3.get(s)){
                                             line=line+s2+"#";
                                         }
                                         line=line.substring(0,line.length()-1);
-                                        fileWriter1.write(line+"\n");
-                                        fileWriter1.flush();
+                                        fileWriter3.write(line+"\n");
+                                        fileWriter3.flush();
                                     }
-                                    if(!map1.containsKey(people[0])){
-                                        oos.writeObject("false");
-                                        oos.flush();
-                                    }
-                                    else {
-                                        Map<String,List<String>> map2=new HashMap<>();
-                                        while (scanner2.hasNextLine()){
-                                            String a=scanner2.nextLine();
+                                    fileReader3.close();
+                                    fileWriter3.close();
+
+                                        FileReader fileReader4=new FileReader(address2);
+                                        Scanner scanner4=new Scanner(fileReader4);
+                                        Map<String,List<String>> map4=new HashMap<>();
+                                        while (scanner4.hasNextLine()){
+                                            String a=scanner4.nextLine();
                                             String user=a.substring(0,a.indexOf(":"));
                                             a=a.substring(a.indexOf(":")+1);
                                             String[] array2=a.split("#");
@@ -162,20 +167,23 @@ public class followingserver implements Runnable{
                                                 for (String s : array2) {
                                                     list2.add(s);}
                                             }
-                                            map2.put(user,list2);
+                                            map4.put(user,list2);
                                         }
-                                        for (String s:map2.keySet()){
+                                        FileWriter fileWriter4=new FileWriter(address2);
+                                        for (String s:map4.keySet()){
                                             String line=s+":";
-                                            for (String s2:map2.get(s)){
+                                            for (String s2:map4.get(s)){
                                                 line=line+s2+"#";
                                             }
                                             line=line.substring(0,line.length()-1);
-                                            fileWriter2.write(line+"\n");
-                                            fileWriter2.flush();
+                                            fileWriter4.write(line+"\n");
+                                            fileWriter4.flush();
                                         }
                                     oos.writeObject("ok");
-                                    oos.flush();}
-                                }
+                                    oos.flush();
+                                    fileWriter4.close();
+                                    fileWriter4.close();
+                                    }*/
                             } catch (ClassNotFoundException | IOException e) {
                                 e.printStackTrace();
                             }

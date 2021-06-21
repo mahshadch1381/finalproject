@@ -29,12 +29,12 @@
       <Button fx:id="unfollowbutton" layoutX="209.0" layoutY="383.0" mnemonicParsing="false" onAction="#unfollowing" prefHeight="31.0" prefWidth="141.0" text="unfollow" />
       <Button fx:id="followbutton" layoutX="34.0" layoutY="383.0" mnemonicParsing="false" onAction="#following" prefHeight="31.0" prefWidth="141.0" text="follow" />
       <Button fx:id="menubutton" layoutX="103.0" layoutY="507.0" mnemonicParsing="false" onAction="#gotomenu" prefHeight="31.0" prefWidth="156.0" text="menu" />
-      <Label fx:id="successfullabel" layoutX="105.0" layoutY="420.0" prefHeight="37.0" prefWidth="185.0" text="successful" visible="false">
+      <Label fx:id="successfullabel" layoutX="65.0" layoutY="420.0" prefHeight="37.0" prefWidth="225.0" text="followingsuccessful" visible="false">
          <font>
             <Font name="System Bold Italic" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="unsuccessfullable" layoutX="107.0" layoutY="457.0" prefHeight="37.0" prefWidth="156.0" text="unsuccessful" visible="false">
+      <Label fx:id="unsuccessfullable" layoutX="58.0" layoutY="457.0" prefHeight="37.0" prefWidth="258.0" text="unfollowingsuccessful" visible="false">
          <font>
             <Font name="System Bold Italic" size="24.0" />
          </font>
