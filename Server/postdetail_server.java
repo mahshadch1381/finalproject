@@ -50,7 +50,7 @@ public class postdetail_server implements Runnable{
                                     fileWriter.close();
                                     fileReader.close();
                                     break; }
-                                fileWriter.write(input);
+                                fileWriter.write(input+"\n");
                                 fileWriter.flush();
                                 oos.writeObject("ok");
                                 oos.flush();

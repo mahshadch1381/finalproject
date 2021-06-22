@@ -3,6 +3,7 @@ package Controller;
 import Client.getpersoninfo_client;
 import Client.postdetails_client;
 import Server.getpersoninfo_server;
+import Server.postdetail_server;
 import Server.postdetails2_server2;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -58,13 +59,24 @@ public class postdetailcontroller {
     public void reposting(ActionEvent actionEvent) {
     }
 
-    public void visitingcomments(ActionEvent actionEvent) {
+    public void visitingcomments(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
+        (new postdetail_server()).start();
+        postdetails_client postdetails_client=new postdetails_client(post);
+        if(postdetails_client.detail_give_info().equals("ok")){
+            new Loader().load("comments");}
     }
 
-    public void addingcomments(ActionEvent actionEvent) {
+    public void addingcomments(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
+        (new postdetail_server()).start();
+        postdetails_client postdetails_client=new postdetails_client(post);
+        if(postdetails_client.detail_give_info().equals("ok")){
+            new Loader().load("comments");}
     }
 
-    public void visitingprofile(ActionEvent actionEvent) throws IOException {
-        new Loader().load("profile");
+    public void visitingprofile(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
+        (new postdetail_server()).start();
+        postdetails_client postdetails_client=new postdetails_client(post);
+        if(postdetails_client.detail_give_info().equals("ok")){
+        new Loader().load("profile");}
     }
 }

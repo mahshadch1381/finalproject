@@ -51,5 +51,6 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
+      <Button fx:id="choosebutton" layoutX="14.0" layoutY="418.0" mnemonicParsing="false" onAction="#choosing" prefHeight="31.0" prefWidth="73.0" text="choose" />
    </children>
 </AnchorPane>

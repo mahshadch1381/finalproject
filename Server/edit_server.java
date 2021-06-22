@@ -10,8 +10,8 @@ import java.util.Scanner;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class getpersoninfo_server implements Runnable{
-    public static int port=115;
+public class edit_server implements Runnable{
+    public int port=133;
     public static AtomicInteger server_time=new AtomicInteger(0);
     public static ServerSocket serverSocket;
     public static Map<String,String> map=new ConcurrentHashMap<>();
@@ -26,7 +26,7 @@ public class getpersoninfo_server implements Runnable{
             server_time.set(server_time.get()+1);
 
         }catch (IOException e){e.printStackTrace(); }
-        new Thread( new Server.getpersoninfo_server()).start();
+        new Thread( new Server.edit_server()).start();
     }
     @Override
     public void run() {
@@ -43,20 +43,43 @@ public class getpersoninfo_server implements Runnable{
                             try {
                                 Object object = ois.readObject();
                                 String input = (String) object;
-                                FileWriter fileWriter=new FileWriter(address,true);
+                                //FileWriter fileWriter=new FileWriter(address,true);
                                 FileReader fileReader=new FileReader(address);
                                 Scanner scanner=new Scanner(fileReader);
                                 if(input.equals("0")){
-                                    fileWriter.close();
+                                    //fileWriter.close();
                                     fileReader.close();
                                     break; }
+                                String[] r=input.split("#");
                                 List<String> list=new ArrayList<>();
                                 while (scanner.hasNextLine()){
                                     String a=scanner.nextLine();
                                     if(a.length()>0){
-                                    list.add(a);}
+                                    String[] info=a.split("#");
+                                    if(r[0].equals(info[2])){
+                                        if(!r[1].equals("-")){
+                                            info[0]=r[1];
+                                        }if(!r[2].equals("-")){
+                                            info[1]=r[2];
+                                        }if(!r[3].equals("-")){
+                                            info[4]=r[3];
+                                        }
+                                        String st=info[0]+"#"+info[1]+"#"+info[2]+"#"+info[3]+"#"+info[4];
+                                        list.add(st);
+                                        continue;
+                                    }else {
+                                    list.add(a);
+                                    continue;}
+                                    }
+                                    continue;
                                 }
-                                oos.writeObject(list);
+                                FileWriter fileWriter=new FileWriter(address);
+                                for (String s:list){
+                                    fileWriter.write(s+"\n");
+                                    fileWriter.flush();
+                                }
+                                  fileWriter.close();
+                                oos.writeObject("ok");
                                 oos.flush();
                             } catch (ClassNotFoundException | IOException e) {
                                 e.printStackTrace();
@@ -68,5 +91,7 @@ public class getpersoninfo_server implements Runnable{
             }serverSocket.close();
         }catch (IOException e){e.printStackTrace(); }
     }
-
 }
+
+
+

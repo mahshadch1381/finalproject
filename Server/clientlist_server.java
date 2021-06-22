@@ -53,7 +53,8 @@ public class clientlist_server implements Runnable{
                                     List<String> list=new ArrayList<>();
                                     while (scanner.hasNextLine()){
                                         String a=scanner.nextLine();
-                                        list.add(a);
+                                        if(a.length()>0){
+                                        list.add(a);}
                                     }
                                     oos.writeObject(list);
                                     oos.flush();

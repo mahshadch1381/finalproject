@@ -3,19 +3,18 @@ package Server;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class getpersoninfo_server implements Runnable{
-    public static int port=115;
+public class carryoverperson_get1_server implements Runnable {
+    public int port=132;
     public static AtomicInteger server_time=new AtomicInteger(0);
     public static ServerSocket serverSocket;
     public static Map<String,String> map=new ConcurrentHashMap<>();
-    public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\person.txt";
+    public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\newfiletocarryoverperson.txt";
+    public static String address22="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\person.txt";
     public void start() {
         try {
             if (server_time.get() == 1) {
@@ -26,7 +25,7 @@ public class getpersoninfo_server implements Runnable{
             server_time.set(server_time.get()+1);
 
         }catch (IOException e){e.printStackTrace(); }
-        new Thread( new Server.getpersoninfo_server()).start();
+        new Thread( new Server.carryoverperson_get1_server()).start();
     }
     @Override
     public void run() {
@@ -43,21 +42,28 @@ public class getpersoninfo_server implements Runnable{
                             try {
                                 Object object = ois.readObject();
                                 String input = (String) object;
-                                FileWriter fileWriter=new FileWriter(address,true);
                                 FileReader fileReader=new FileReader(address);
                                 Scanner scanner=new Scanner(fileReader);
                                 if(input.equals("0")){
-                                    fileWriter.close();
+                                    //fileWriter.close();
                                     fileReader.close();
                                     break; }
-                                List<String> list=new ArrayList<>();
-                                while (scanner.hasNextLine()){
-                                    String a=scanner.nextLine();
-                                    if(a.length()>0){
-                                    list.add(a);}
+                                String line=scanner.nextLine();
+                                FileWriter fileWriter=new FileWriter(address);
+                                FileReader fileReader2=new FileReader(address22);
+                                Scanner scanner2=new Scanner(fileReader2);
+                                String result=null;
+                                while (scanner2.hasNextLine()){
+                                    String s=scanner2.nextLine();
+                                    String[] array=s.split("#");
+                                    if(line.equals(array[2])){
+                                        result=s;
+                                        break;
+                                    }
                                 }
-                                oos.writeObject(list);
+                                oos.writeObject(result);
                                 oos.flush();
+
                             } catch (ClassNotFoundException | IOException e) {
                                 e.printStackTrace();
                             }
@@ -70,3 +76,4 @@ public class getpersoninfo_server implements Runnable{
     }
 
 }
+

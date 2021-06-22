@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -9,7 +10,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #ABEBC6;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.profileController">
    <children>
-      <ImageView fitHeight="166.0" fitWidth="166.0" layoutX="14.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="image" fitHeight="132.0" fitWidth="132.0" layoutX="26.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="file:/C:/Users/98912/Pictures/profile.png" />
          </image></ImageView>
@@ -17,14 +18,19 @@
       <Label layoutX="211.0" layoutY="98.0" prefHeight="31.0" prefWidth="65.0" text="followers:" />
       <Label layoutX="211.0" layoutY="139.0" prefHeight="31.0" prefWidth="65.0" text="country:" />
       <Label layoutX="211.0" layoutY="25.0" prefHeight="31.0" prefWidth="71.0" text="username:" />
-      <Button fx:id="follow" layoutX="14.0" layoutY="203.0" mnemonicParsing="false" onAction="#following" prefHeight="31.0" prefWidth="78.0" text="follow" />
-      <Button fx:id="unfollow" layoutX="111.0" layoutY="203.0" mnemonicParsing="false" onAction="#unfollowing" text="unfollow" />
-      <Button fx:id="edit" layoutX="208.0" layoutY="203.0" mnemonicParsing="false" onAction="#editing" prefHeight="31.0" prefWidth="58.0" text="edit" />
-      <ListView layoutX="13.0" layoutY="248.0" prefHeight="293.0" prefWidth="364.0" />
+      <Button fx:id="follow" layoutX="40.0" layoutY="155.0" mnemonicParsing="false" onAction="#following" prefHeight="35.0" prefWidth="78.0" text="follow" />
+      <Button fx:id="unfollow" layoutX="40.0" layoutY="199.0" mnemonicParsing="false" onAction="#unfollowing" prefHeight="35.0" prefWidth="78.0" text="unfollow" />
+      <Button fx:id="edit" layoutX="200.0" layoutY="188.0" mnemonicParsing="false" onAction="#editing" prefHeight="43.0" prefWidth="78.0" text="edit" />
+      <ListView fx:id="postslist" layoutX="18.0" layoutY="270.0" prefHeight="309.0" prefWidth="364.0" />
       <Label fx:id="user" layoutX="288.0" layoutY="30.0" prefHeight="21.0" prefWidth="103.0" text="user" />
       <Label fx:id="numoffolloing" layoutX="288.0" layoutY="56.0" prefHeight="31.0" prefWidth="103.0" text="numoffollowing" />
       <Label fx:id="numoffollowers" layoutX="285.0" layoutY="98.0" prefHeight="31.0" prefWidth="103.0" text="numoffollower" />
       <Label fx:id="country" layoutX="286.0" layoutY="139.0" prefHeight="31.0" prefWidth="103.0" text="country" />
-      <Button fx:id="menubutton" layoutX="285.0" layoutY="203.0" mnemonicParsing="false" onAction="#gotomenu" text="menu" />
+      <Button fx:id="menubutton" layoutX="288.0" layoutY="188.0" mnemonicParsing="false" onAction="#gotomenu" prefHeight="43.0" prefWidth="78.0" text="menu" />
+      <Label fx:id="editwarning" layoutX="151.0" layoutY="224.0" prefHeight="35.0" prefWidth="218.0" text="not your own page" textFill="#e40404" visible="false">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

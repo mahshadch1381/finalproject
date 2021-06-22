@@ -33,7 +33,7 @@ public class signup_client {
            socket.close();
              return (String) answer;
          }else {
-             String information="add"+"#"+person.name+"#"+person.country+"#"+person.username+"#"+person.password+"#"+person.profilePath;
+             String information="add"+"#"+person.name+"#"+person.country+"#"+person.username+"#"+person.password+"#"+person.profilePath+"%"+person.accidentalQuestion;
              objectOutputStream.writeObject(information);
              objectOutputStream.flush();
                  a="0";

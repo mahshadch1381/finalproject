@@ -14,8 +14,8 @@ public class Loader {
     public static void StageLoader(Stage primaryStage){
         stage=primaryStage;
         stage.setTitle("SBU GRAM");
-        stage.setWidth(400);
-        stage.setHeight(600);
+       // stage.setWidth(400);
+       // stage.setHeight(600);
         stage.initStyle(StageStyle.DECORATED);
         stage.setResizable(false);
     }

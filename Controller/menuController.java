@@ -17,7 +17,8 @@ public class menuController {
         new Loader().load("sample");
     }
 
-    public void profile(ActionEvent actionEvent) {
+    public void profile(ActionEvent actionEvent) throws IOException {
+        new Loader().load("ownprofile");
     }
 
     public void postpage(ActionEvent actionEvent) throws IOException {

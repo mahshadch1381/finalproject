@@ -12,8 +12,9 @@ public class signupServer implements Runnable {
     public static final int port=112;
     public static AtomicInteger server_time=new AtomicInteger(0);
     public static ServerSocket serverSocket;
-    public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\users.txt";
+    public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\users.txt";
     public static String person_address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\person.txt";
+    public static String recovery_address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\recoverypassword.txt";
     public void start() {
         try {
             if (server_time.get() == 1) {
@@ -43,6 +44,8 @@ public class signupServer implements Runnable {
                             String input = (String) object;
                             FileWriter fileWriter=new FileWriter(address,true);
                             FileReader fileReader=new FileReader(address);
+                            String username="";
+                            String pass="";
                             Scanner scanner=new Scanner(fileReader);
                               if(input.equals("0")){
                                   fileWriter.close();
@@ -71,10 +74,20 @@ public class signupServer implements Runnable {
                                       continue;
                                   }
                               }else {
+                                  String[]array=input.split("%");
+                                  input=array[0];
+                                  String color=array[1];
                                   input=input.substring(4);
                                   FileWriter fileWriter2=new FileWriter(person_address,true);
                                   fileWriter2.write(input+"\n");
                                   fileWriter2.flush();
+                                  String[] sr=input.split("#");
+                                  username=sr[2];
+                                  pass=sr[3];
+                                  FileWriter fileWriter3=new FileWriter(recovery_address,true);
+                                  String recovery=username+"#"+pass+"#"+color;
+                                  fileWriter3.write(recovery+"\n");
+                                  fileWriter3.flush();
                                   continue;
                               }
                         } catch (ClassNotFoundException | IOException e) {
@@ -88,3 +101,5 @@ public class signupServer implements Runnable {
         }catch (IOException e){e.printStackTrace(); }
     }
     }
+
+

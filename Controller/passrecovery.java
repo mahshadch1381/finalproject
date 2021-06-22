@@ -1,5 +1,7 @@
 package Controller;
 
+import Client.recoverypass_client;
+import Server.recoverypass_server;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -17,18 +19,17 @@ public class passrecovery {
     public TextField color;
     public Button logging;
     public Button recover;
+    public TextField username;
 
-    public void recovering(ActionEvent actionEvent) {
+    public void recovering(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
         String answer=color.getText();
-        for (Person p: Initialize.people){
-            if(answer.equalsIgnoreCase(p.accidentalQuestion)){
-                result.setText("your password :"+p.password);
-                result.setVisible(true);
-                break;
-            }
-        }
-    }
+        String user=username.getText();
+        (new recoverypass_server()).start();
+        recoverypass_client recoverypass_client=new recoverypass_client(user,answer);
+        String pass=recoverypass_client.recovering();
+        result.setText(pass);
 
+    }
     public void loging(ActionEvent actionEvent) throws IOException {
         new Loader().load("sample");
     }

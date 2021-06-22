@@ -3,19 +3,14 @@ package Server;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class getpersoninfo_server implements Runnable{
-    public static int port=115;
+public class carryoverperson_give1_server implements Runnable{
+    public int port=131;
     public static AtomicInteger server_time=new AtomicInteger(0);
     public static ServerSocket serverSocket;
-    public static Map<String,String> map=new ConcurrentHashMap<>();
-    public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\person.txt";
+    public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\newfiletocarryoverperson.txt";
     public void start() {
         try {
             if (server_time.get() == 1) {
@@ -26,7 +21,7 @@ public class getpersoninfo_server implements Runnable{
             server_time.set(server_time.get()+1);
 
         }catch (IOException e){e.printStackTrace(); }
-        new Thread( new Server.getpersoninfo_server()).start();
+        new Thread( new Server.carryoverperson_give1_server()).start();
     }
     @Override
     public void run() {
@@ -50,13 +45,9 @@ public class getpersoninfo_server implements Runnable{
                                     fileWriter.close();
                                     fileReader.close();
                                     break; }
-                                List<String> list=new ArrayList<>();
-                                while (scanner.hasNextLine()){
-                                    String a=scanner.nextLine();
-                                    if(a.length()>0){
-                                    list.add(a);}
-                                }
-                                oos.writeObject(list);
+                                fileWriter.write(input+"\n");
+                                fileWriter.flush();
+                                oos.writeObject("ok");
                                 oos.flush();
                             } catch (ClassNotFoundException | IOException e) {
                                 e.printStackTrace();
