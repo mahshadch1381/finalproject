@@ -1,9 +1,6 @@
 package Controller;
 
-import Client.carryoverperson_client;
-import Client.countoffollowers_client;
-import Client.getpersoninfo_client;
-import Client.personspost;
+import Client.*;
 import Server.*;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -34,6 +31,7 @@ public class ownprofilecontroller {
     public Person person;
     public ListView postslist;
     public List<Post> clientsPosts=new ArrayList<>();
+    public Button deletebutton;
 
     @FXML
     public void initialize() throws IOException, ClassNotFoundException {
@@ -73,5 +71,13 @@ public class ownprofilecontroller {
 
     public void gotomenu(ActionEvent actionEvent) throws IOException {
         new Loader().load("menu");
+    }
+
+    public void deleting(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
+        (new deletingacount_server()).start();
+        deletingacount_client dac=new deletingacount_client(Controller.mainUser);
+         if (dac.deleting().equals("ok")){
+             new Loader().load("sample");
+         }
     }
 }

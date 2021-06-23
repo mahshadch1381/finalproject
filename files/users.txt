@@ -6,6 +6,4 @@ ccc#ccc123456
 z#zzzz1234
 ali#ali55555
 reza#reza8888
-karim#karim1381
 a#abcd1234
-x#xxxx6666

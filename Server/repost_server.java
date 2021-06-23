@@ -51,6 +51,7 @@ public class repost_server implements Runnable {
                                 FileWriter fileWriter3=new FileWriter(address3,true);
                                 if(input.equals("0")){
                                     fileWriter.close();
+                                    fileWriter3.close();
                                     break;
                                 }
                                 fileWriter.write(input+"\n");

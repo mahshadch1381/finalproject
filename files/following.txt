@@ -1,4 +1,2 @@
 a:ccc#z
-karim:a
 ccc:a
-x:karim

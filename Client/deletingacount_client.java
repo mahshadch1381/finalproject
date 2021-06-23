@@ -5,19 +5,17 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
-public class count_of_likes {
-    public static int port=143;
-    public String writer;
-    public String title;
-    public count_of_likes(String writer,String title){
-       this.title=title;
-       this.writer=writer;
+public class deletingacount_client {
+    public static int port=150;
+    public String username;
+    public deletingacount_client(String user){
+     username=user;
     }
-    public String numoflikes() throws IOException, ClassNotFoundException {
+    public String deleting() throws IOException, ClassNotFoundException {
         Socket socket=new Socket("127.0.0.1",port);
         ObjectInputStream objectInputStream=new ObjectInputStream(socket.getInputStream());
         ObjectOutputStream objectOutputStream=new ObjectOutputStream(socket.getOutputStream());
-        String line=writer+"#"+title;
+        String line=username;
         objectOutputStream.writeObject(line);
         objectOutputStream.flush();
         Object answer=objectInputStream.readObject();
@@ -28,4 +26,5 @@ public class count_of_likes {
         objectOutputStream.close();
         return (String) answer;
     }
+
 }
