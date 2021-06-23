@@ -41,8 +41,7 @@ public class profileController {
         person=postdetailcontroller.getPerson();
         user.setText(person.username);
         country.setText(person.country);
-        File file=new File("C:\\Users\\p1.jpg");
-        Image image55=new Image(file.toURI().toString());
+        Image image55=new Image(person.profilePath);
         image.setImage(image55);
         (new count_of_followers_server()).start();
         countoffollowers_client countoffollowers_client=new countoffollowers_client(person.username);
@@ -70,10 +69,6 @@ public class profileController {
             (new count_of_followers_server()).start();
             countoffollowers_client countoffollowers_client = new countoffollowers_client(person.username);
             String CountOfFollowers = countoffollowers_client.count_of_followers();
-            (new count_of_following_server()).start();
-            countoffollowers_client countoffollowers_client2 = new countoffollowers_client(person.username);
-            String CountOfFollowings = countoffollowers_client2.count_of_following();
-            numoffolloing.setText(CountOfFollowings);
             numoffollowers.setText(CountOfFollowers);
         }
     }
@@ -84,10 +79,6 @@ public class profileController {
                 (new count_of_followers_server()).start();
                 countoffollowers_client countoffollowers_client = new countoffollowers_client(person.username);
                 String CountOfFollowers = countoffollowers_client.count_of_followers();
-                (new count_of_following_server()).start();
-                countoffollowers_client countoffollowers_client2 = new countoffollowers_client(person.username);
-                String CountOfFollowings = countoffollowers_client2.count_of_following();
-                numoffolloing.setText(CountOfFollowings);
                 numoffollowers.setText(CountOfFollowers);
             }
 

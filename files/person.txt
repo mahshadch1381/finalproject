@@ -1,5 +1,3 @@
-bb#bbb#bbb#bbbbb456789#-
-ccc#ccc#ccc#ccc123456#-
-pop#USA#a#abcd1234#-
-z#z#z#zzzz1234#-
-reza#japan#reza#reza8888#-
+karim#iran#karim#karim1381#file:/C:/Users/98912/Pictures/listpeaple.png
+a#a#a#abcd1234#file:/C:/Users/98912/Pictures/password.jpg
+x#x#x#xxxx6666#file:/C:/Users/98912/Pictures/menu.png

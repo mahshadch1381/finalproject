@@ -38,7 +38,7 @@ public class likerepost_client {
             Socket socket=new Socket("127.0.0.1",port2);
             ObjectInputStream objectInputStream=new ObjectInputStream(socket.getInputStream());
             ObjectOutputStream objectOutputStream=new ObjectOutputStream(socket.getOutputStream());
-            String message=username+"%"+post.publisher+"#"+post.title+"#"+post.description+"#"+post.date+"#"+post.picture;
+            String message=username+"%"+post.publisher+"#"+post.title+"#"+post.description+"#"+post.date+"#"+post.postPicture+"#"+post.profile;
             objectOutputStream.writeObject(message);
             objectOutputStream.flush();
             Object answer=objectInputStream.readObject();

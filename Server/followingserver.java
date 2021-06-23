@@ -48,14 +48,14 @@ public class followingserver implements Runnable{
                                     fileReader2.close();
                                     break; }
                                 if(input.contains("follow")){
-                                    Map<String,List<String>> map1=new HashMap<>();
+                                    Map<String,Set<String>> map1=new HashMap<>();
                                     String[] people=input.substring(input.indexOf("-")+1).split("#");
                                     while (scanner1.hasNextLine()){
                                         String a=scanner1.nextLine();
                                         String user=a.substring(0,a.indexOf(":"));
                                         a=a.substring(a.indexOf(":")+1);
                                         String[] array=a.split("#");
-                                        List<String> list1=new ArrayList<>();
+                                        Set<String> list1=new HashSet<>();
                                         for (String s:array){
                                             list1.add(s);
                                         }
@@ -65,7 +65,7 @@ public class followingserver implements Runnable{
                                         map1.put(user,list1);
                                     }
                                     if(map1.size()==0||!map1.containsKey(people[0])){
-                                        List<String> list2=new ArrayList<>();
+                                       Set<String> list2=new HashSet<>();
                                         list2.add(people[1]);
                                         map1.put(people[0],list2);
                                     }
@@ -80,7 +80,7 @@ public class followingserver implements Runnable{
                                         fileWriter1.flush();
                                     }
                                     fileWriter1.close();
-                                    Map<String,List<String>> map2=new HashMap<>();
+                                    Map<String,Set<String>> map2=new HashMap<>();
                                     while (scanner2.hasNextLine()){
                                         String a=scanner2.nextLine();
                                         if(!a.contains(":")){
@@ -89,7 +89,7 @@ public class followingserver implements Runnable{
                                         String user=a.substring(0,a.indexOf(":"));
                                         a=a.substring(a.indexOf(":")+1);
                                         String[] array2=a.split("#");
-                                        List<String> list2=new ArrayList<>();
+                                        Set<String> list2=new HashSet<>();
                                         for (String s:array2){
                                             list2.add(s);
                                         }
@@ -99,7 +99,7 @@ public class followingserver implements Runnable{
                                         map2.put(user,list2);
                                     }
                                     if(map2.size()==0||!map2.containsKey(people[1])){
-                                        List<String> list3=new ArrayList<>();
+                                        Set<String> list3=new HashSet<>();
                                         list3.add(people[0]);
                                         map2.put(people[1],list3);
                                     }

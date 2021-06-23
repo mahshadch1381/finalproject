@@ -48,14 +48,14 @@ public class unfollowingserver implements Runnable{
                                     fileReader4.close();
                                     break; }
                                 if (input.contains("unfollow")){
-                                    Map<String, List<String>> map3=new HashMap<>();
+                                    Map<String, Set<String>> map3=new HashMap<>();
                                     String[] people=input.substring(input.indexOf("-")+1).split("#");
                                     while (scanner3.hasNextLine()){
                                         String a=scanner3.nextLine();
                                         String user=a.substring(0,a.indexOf(":"));
                                         a=a.substring(a.indexOf(":")+1);
                                         String[] array=a.split("#");
-                                        List<String> list1=new ArrayList<>();
+                                        Set<String> list1=new HashSet<>();
                                         if(user.equals(people[0])) {
                                             for (String s : array) {
                                                 if(!s.equals(people[1])){

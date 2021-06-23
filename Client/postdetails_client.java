@@ -24,7 +24,7 @@ public class postdetails_client {
             Socket socket=new Socket("127.0.0.1",port1);
             ObjectInputStream objectInputStream=new ObjectInputStream(socket.getInputStream());
             ObjectOutputStream objectOutputStream=new ObjectOutputStream(socket.getOutputStream());
-            String message=post.publisher+"#"+post.title+"#"+post.description+"#"+post.date+"#"+post.picture;
+     String message=post.publisher+"#"+post.title+"#"+post.description+"#"+post.date+"#"+post.postPicture+"#"+post.profile;
             objectOutputStream.writeObject(message);
             objectOutputStream.flush();
             Object answer=objectInputStream.readObject();
@@ -54,7 +54,8 @@ public class postdetails_client {
             p.title=info[1];
             p.setDescription(info[2]);
             p.date=info[3];
-            p.picture=info[4];
+            p.postPicture=info[4];
+            p.profile=info[5];
             return p;
         }
     }

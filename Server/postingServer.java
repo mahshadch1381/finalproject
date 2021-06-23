@@ -16,6 +16,7 @@ public class postingServer implements Runnable{
     public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\posts.txt";
     public static String address2="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\countoflikes.txt";
     public static String address3="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\countofreposts.txt";
+    public static String address4="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\allposts.txt";
     public void start() {
         try {
             if (server_time.get() == 1) {
@@ -48,19 +49,26 @@ public class postingServer implements Runnable{
                                 Scanner scanner=new Scanner(fileReader);
                                 FileWriter fileWriter2=new FileWriter(address2,true);
                                 FileWriter fileWriter3=new FileWriter(address3,true);
+                                FileWriter fileWriter4=new FileWriter(address4,true);
                                 if(input.equals("0")){
+                                    fileWriter4.close();
                                     fileWriter.close();
                                     fileWriter3.close();
                                     fileWriter2.close();
                                     fileReader.close();
                                     break; }
+                                String a=input;
+                                String[] array1=input.split("%");
+                                input=array1[1];
                                 fileWriter.write(input + "\n");
                                 fileWriter.flush();
+                                fileWriter4.write(a + "\n");
+                                fileWriter4.flush();
                                 String[] array=input.split("#");
                                 String result=array[0]+"#"+array[1]+"#"+"0";
-                                fileWriter2.write(result);
+                                fileWriter2.write(result+"\n");
                                 fileWriter2.flush();
-                                fileWriter3.write(result);
+                                fileWriter3.write(result+"\n");
                                 fileWriter3.flush();
                                 oos.writeObject("ok");
                                 oos.flush();

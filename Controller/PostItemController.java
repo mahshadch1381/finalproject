@@ -35,7 +35,7 @@ public class PostItemController {
         return root;*/
 
     public AnchorPane root;
-    public ImageView profileImage;
+    public ImageView profile;
     public Label username;
     public Label title;
     public Label likedlabel;
@@ -48,12 +48,15 @@ public class PostItemController {
     public PostItemController(Post post) throws IOException {
         new Loader().load("postItem", this);
         this.post = post;
+
     }
 
     //this anchor pane is returned to be set as the list view item
-    public AnchorPane init() {
+    public AnchorPane init() throws IOException, ClassNotFoundException {
         username.setText(post.getPublisher());
         title.setText(post.getTitle());
+        Image image=new Image(post.profile);
+        profile.setImage(image);
 
         //set another image dynamically
        // if (post.getPublisher().equals("ali alavi"))

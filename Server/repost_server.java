@@ -19,6 +19,7 @@ public class repost_server implements Runnable {
     public static ServerSocket serverSocket;
     public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\reposts.txt";
     public static String address22="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\countofreposts.txt";
+    public static String address3="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\allposts.txt";
     public void start() {
         try {
             if (server_time.get() == 1) {
@@ -47,16 +48,18 @@ public class repost_server implements Runnable {
                                 Object object = ois.readObject();
                                 String input = (String) object;
                                 FileWriter fileWriter=new FileWriter(address,true);
+                                FileWriter fileWriter3=new FileWriter(address3,true);
                                 if(input.equals("0")){
                                     fileWriter.close();
                                     break;
                                 }
                                 fileWriter.write(input+"\n");
                                 fileWriter.flush();
+                                fileWriter3.write(input+"\n");
+                                fileWriter3.flush();
                                 String[] s=input.split("%");
                                 String user=s[0];
                                 String[] info=s[1].split("#");
-
                                 FileReader fileReader2=new FileReader(address22);
                                 Scanner scanner=new Scanner(fileReader2);
                                 List<String> posts=new ArrayList<>();

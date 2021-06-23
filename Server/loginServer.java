@@ -44,6 +44,7 @@ public class loginServer implements Runnable{
                                     String input = (String) object;
                                     FileReader fileReader=new FileReader(address);
                                     if(input.equals("0")){
+                                        System.out.println("ok");
                                         break; }
                                     Scanner scanner=new Scanner(fileReader);
                                     int i=0,j=0;

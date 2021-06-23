@@ -1,3 +1,4 @@
-a:ccc#ccc#a
+a:karim#ccc
+karim:x
 ccc:a
-z:a#a
+z:a

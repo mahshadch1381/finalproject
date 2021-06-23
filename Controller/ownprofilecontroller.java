@@ -42,8 +42,7 @@ public class ownprofilecontroller {
         person=getpersoninfoClient.findingClientsinformation(Controller.mainUser);
         username.setText(person.username);
         country.setText(person.country);
-        File file=new File("C:\\Users\\p1.jpg");
-        Image image55=new Image(file.toURI().toString());
+        Image image55=new Image(Controller.getmainprofile());
         image.setImage(image55);
         (new count_of_followers_server()).start();
         countoffollowers_client countoffollowers_client=new countoffollowers_client(person.username);

@@ -13,7 +13,7 @@ public class PostItem extends ListCell<Post> {
         if (post != null) {
             try {
                 setGraphic(new PostItemController(post).init());
-            } catch (IOException e) {
+            } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
         }

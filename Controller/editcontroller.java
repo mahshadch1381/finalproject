@@ -9,8 +9,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import model.Loader;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class editcontroller {
@@ -30,6 +33,7 @@ public class editcontroller {
     public String country;
     public String picture;
     public String phone;
+    public ImageView profilepicture;
     String user;
 
     @FXML
@@ -43,6 +47,8 @@ public class editcontroller {
         oldname.setText(info[0]);
         oldcountry.setText(info[1]);
         oldpicture.setText(info[4]);
+        Image image=new Image(info[4]);
+        profilepicture.setImage(image);
         user=info[2];
 
     }

@@ -9,6 +9,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import model.Loader;
 import model.Person;
 import sample.Controller;
@@ -27,6 +29,7 @@ public class profile_f_f_controller {
     public Label successfullabel;
     public Label unsuccessfullable;
     public Person p;
+    public ImageView profile;
 
     @FXML
     public void initialize() throws IOException, ClassNotFoundException {
@@ -35,6 +38,8 @@ public class profile_f_f_controller {
         p=followingfiles_client.following_get_info();
         username.setText(p.username);
         country.setText(p.country);
+        Image image=new Image(p.profilePath);
+        profile.setImage(image);
         (new count_of_followers_server()).start();
         countoffollowers_client countoffollowers_client=new countoffollowers_client(p.username);
         String CountOfFollowers=countoffollowers_client.count_of_followers();

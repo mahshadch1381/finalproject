@@ -3,29 +3,25 @@ package Server;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class personposts_server implements Runnable{
-    public static int port =134;
+public class counts_of_reposts implements Runnable{
+    public static int port1=145;
     public static AtomicInteger server_time=new AtomicInteger(0);
     public static ServerSocket serverSocket;
-    public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\allposts.txt";
+    public static String address1="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\countofreposts.txt";
     public void start() {
         try {
             if (server_time.get() == 1) {
                 serverSocket.close();
                 server_time.set(server_time.get()-1);
             }
-            serverSocket=new ServerSocket(port);
+            serverSocket=new ServerSocket(port1);
             server_time.set(server_time.get()+1);
 
         }catch (IOException e){e.printStackTrace(); }
-        new Thread( new personposts_server()).start();
+        new Thread( new Server.counts_of_reposts ()).start();
     }
     @Override
     public void run() {
@@ -42,22 +38,20 @@ public class personposts_server implements Runnable{
                             try {
                                 Object object = ois.readObject();
                                 String input = (String) object;
-                                FileReader fileReader=new FileReader(address);
-                                Scanner scanner=new Scanner(fileReader);
+                                FileReader fileReader1=new FileReader(address1);
+                                Scanner scanner1=new Scanner(fileReader1);
                                 if(input.equals("0")){
-                                    fileReader.close();
+                                    fileReader1.close();
                                     break; }
-                                List<String> list =new ArrayList<>();
-                               while (scanner.hasNextLine()){
-                                   String line=scanner.nextLine();
-                                   if(line.length()>0){
-                                       String[] array=line.split("%");
-                                       if(input.equals(array[0])){
-                                           list.add(array[1]);
-                                       }
-                                   }
-                               }
-                                oos.writeObject(list);
+                                String result="";
+                                while (scanner1.hasNextLine()) {
+                                    String line = scanner1.nextLine();
+                                    if(line.contains(input)){
+                                        String[] array=line.split("#");
+                                        result = array[2];
+                                    }
+                                }
+                                oos.writeObject(result);
                                 oos.flush();
                             } catch (ClassNotFoundException | IOException e) {
                                 e.printStackTrace();
@@ -70,6 +64,7 @@ public class personposts_server implements Runnable{
         }catch (IOException e){e.printStackTrace(); }
     }
 }
+
 
 
 

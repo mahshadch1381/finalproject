@@ -38,7 +38,8 @@ public class personspost {
             p.title=array[1];
             p.description=array[2];
             p.date=array[3];
-            p.picture=array[4];
+            p.postPicture=array[4];
+            p.profile=array[5];
             posts.add(p);
         }
         return posts;

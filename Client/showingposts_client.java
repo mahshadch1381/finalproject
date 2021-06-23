@@ -39,7 +39,8 @@ public class showingposts_client {
           post.title=array[1];
           post.description=array[2];
           post.date=array[3];
-          post.picture=array[4];
+          post.postPicture=array[4];
+          post.profile=array[5];
           posts.add(post);
       }
       return posts;

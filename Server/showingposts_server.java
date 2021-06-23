@@ -11,9 +11,8 @@ public class showingposts_server implements Runnable{
         public static int port =125;
         public static AtomicInteger server_time=new AtomicInteger(0);
         public static ServerSocket serverSocket;
-        public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\posts.txt";
+        public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\allposts.txt";
        public static String address2="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\following.txt";
-       public static String address3="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\reposts.txt";
         public void start() {
             try {
                 if (server_time.get() == 1) {
@@ -45,12 +44,9 @@ public class showingposts_server implements Runnable{
                                     Scanner scanner=new Scanner(fileReader);
                                     FileReader fileReader2=new FileReader(address2);
                                     Scanner scanner2=new Scanner(fileReader2);
-                                    FileReader fileReader3=new FileReader(address3);
-                                    Scanner scanner3=new Scanner(fileReader3);
                                     if(user.equals("0")){
                                         fileReader2.close();
                                         fileReader.close();
-                                        fileReader3.close();
                                         break; }
                                     user=user.substring(0,user.length()-1);
                                     Set<String> list=new HashSet<>();
@@ -70,33 +66,15 @@ public class showingposts_server implements Runnable{
                                     List<String> posts=new ArrayList<>();
                                     while (scanner.hasNextLine()){
                                         String line=scanner.nextLine();
-                                        String post=line;
-                                        String[] array=line.split("#");
-                                        if(array[0].equals(user)){
-                                            posts.add(post);
-                                            continue;
-                                        }
-                                        for (String s:list){
-                                            if(s.equals(array[0])){
-                                                posts.add(post);
-                                                break;
-                                            }
-                                        }
-
-                                    }
-                                    while (scanner3.hasNextLine()){
-                                        String line=scanner3.nextLine();
-                                        String[] info=line.split("%");
-                                        if(user.equals(info[0])){
-                                            posts.add(info[1]);
-                                            continue;
-                                        }else {
-                                            for (String s:list){
-                                                if(s.equals(info[0])){
-                                                    posts.add(info[1]);
-                                                }
-                                            }
-                                        }
+                                        String[ ]parts=line.split("%");
+                                       if(list.contains(parts[0])){
+                                           posts.add(parts[1]);
+                                           continue;
+                                       }
+                                       if(parts[0].equals(user)){
+                                           posts.add(parts[1]);
+                                           continue;
+                                       }
                                     }
                                     oos.writeObject(posts);
                                     oos.flush();

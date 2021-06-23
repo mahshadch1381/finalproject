@@ -7,10 +7,14 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
+import javafx.stage.Popup;
 import model.Loader;
 import model.Person;
 
+import java.io.File;
 import java.io.IOException;
 
 public class SignupController {
@@ -26,6 +30,8 @@ public class SignupController {
     public TextField name;
     public TextField country;
     public TextField favoriteColor;
+    public Button choosebutton;
+    public String photo;
 
     public void signing(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
         String user=username.getText();
@@ -44,6 +50,7 @@ public class SignupController {
             p.setCountry(country_person);
             p.setName(name_person);
             p.setAccidentalQuestion(color);
+            p.profilePath=photo;
             if (signup_client.signup_connection(p).equals("true")) {
                 wrong.setVisible(false);
                 correct.setVisible(true);
@@ -90,5 +97,13 @@ public class SignupController {
         }
         return false;
 
+    }
+
+    public void choosing(ActionEvent actionEvent) {
+        FileChooser fileChooser=new FileChooser();
+        File file=fileChooser.showOpenDialog(new Popup());
+        Image image=new Image(file.toURI().toString());
+        profile.setImage(image);
+        photo=file.toURI().toString();
     }
 }

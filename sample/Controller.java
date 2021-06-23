@@ -1,6 +1,8 @@
 package sample;
 
+import Client.findmainprofile;
 import Client.login_client;
+import Server.findprofile_server;
 import Server.loginServer;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
@@ -25,8 +27,9 @@ public class Controller {
         (new loginServer()).start();
         if(login_client.login_connection().equalsIgnoreCase("true")){
             label.setVisible(false);
-            new Loader().load("posts");
             mainUser=user;
+            new Loader().load("posts");
+
         }else {
             label.setVisible(true);
         }
@@ -51,5 +54,11 @@ public class Controller {
 
     public void Recovery(ActionEvent actionEvent) throws IOException {
         new Loader().load("recoverypassword");
+    }
+    public static String getmainprofile() throws IOException, ClassNotFoundException {
+        (new findprofile_server()).start();
+        findmainprofile findmainprofile=new findmainprofile(mainUser);
+        String pro=findmainprofile.findprofile();
+        return pro;
     }
 }
