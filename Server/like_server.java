@@ -1,8 +1,12 @@
 package Server;
 
+import sample.Controller;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -16,6 +20,12 @@ public class like_server implements Runnable{
     public static ServerSocket serverSocket;
     public static Map<String,String> map=new ConcurrentHashMap<>();
     public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\countoflikes.txt";
+    public static String date;
+    public static long time_date;
+    public void setDateString(Date d) {
+        SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy/ HH:mm:ss");
+        date=formatter.format(d);
+    }
     public void start() {
         try {
             if (server_time.get() == 1) {
@@ -70,6 +80,10 @@ public class like_server implements Runnable{
                                     fileWriter.flush();
                                 }
                                 fileWriter.close();
+                                System.out.println(Controller.mainUser +" like ");
+                                setDateString(new Date());
+                                time_date= Instant.now().toEpochMilli();
+                                System.out.println("time:"+date);
                                     oos.writeObject("ok");
                                     oos.flush();
                             } catch (ClassNotFoundException | IOException e) {

@@ -1,12 +1,13 @@
 package Server;
 
+import sample.Controller;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -16,6 +17,12 @@ public class edit_server implements Runnable{
     public static ServerSocket serverSocket;
     public static Map<String,String> map=new ConcurrentHashMap<>();
     public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\person.txt";
+    public static String date;
+    public static long time_date;
+    public void setDateString(Date d) {
+        SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy/ HH:mm:ss");
+        date=formatter.format(d);
+    }
     public void start() {
         try {
             if (server_time.get() == 1) {
@@ -50,6 +57,7 @@ public class edit_server implements Runnable{
                                     //fileWriter.close();
                                     fileReader.close();
                                     break; }
+                                String profile=null;
                                 String[] r=input.split("#");
                                 List<String> list=new ArrayList<>();
                                 while (scanner.hasNextLine()){
@@ -64,6 +72,7 @@ public class edit_server implements Runnable{
                                         }if(!r[3].equals("-")){
                                             info[4]=r[3];
                                         }
+                                        profile=info[4];
                                         String st=info[0]+"#"+info[1]+"#"+info[2]+"#"+info[3]+"#"+info[4];
                                         list.add(st);
                                         continue;
@@ -79,6 +88,11 @@ public class edit_server implements Runnable{
                                     fileWriter.flush();
                                 }
                                   fileWriter.close();
+                                System.out.println(Controller.mainUser +" update info");
+                                System.out.println("message: new profile:" +profile);
+                                setDateString(new Date());
+                                time_date= Instant.now().toEpochMilli();
+                                System.out.println("time:"+date);
                                 oos.writeObject("ok");
                                 oos.flush();
                             } catch (ClassNotFoundException | IOException e) {

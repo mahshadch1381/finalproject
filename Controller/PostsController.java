@@ -20,10 +20,8 @@ import sample.Controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.time.Instant;
+import java.util.*;
 
 public class PostsController {
     public Button menu;
@@ -63,6 +61,8 @@ public class PostsController {
         newpost.setPublisher(Controller.mainUser);
         newpost.postPicture=postpicture;
         newpost.profile=Controller.getmainprofile();
+        newpost.setDateString(new Date());
+        newpost.time_date= Instant.now().toEpochMilli();
         //save the post in arraylist
         posts.add(newpost);
         //show the arraylist in listview

@@ -1,12 +1,13 @@
 package Server;
 
+import sample.Controller;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -20,6 +21,12 @@ public class repost_server implements Runnable {
     public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\reposts.txt";
     public static String address22="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\countofreposts.txt";
     public static String address3="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\allposts.txt";
+    public static String date;
+    public static long time_date;
+    public void setDateString(Date d) {
+        SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy/ HH:mm:ss");
+        date=formatter.format(d);
+    }
     public void start() {
         try {
             if (server_time.get() == 1) {
@@ -84,6 +91,10 @@ public class repost_server implements Runnable {
                                     fileWriter2.write(s1+"\n");
                                     fileWriter2.flush();
                                 }
+                                System.out.println(Controller.mainUser +" repost ");
+                                setDateString(new Date());
+                                time_date= Instant.now().toEpochMilli();
+                                System.out.println("time:"+date);
                                 oos.writeObject("ok");
                                 oos.flush();
                             } catch (ClassNotFoundException | IOException e) {

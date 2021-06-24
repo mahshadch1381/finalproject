@@ -44,13 +44,13 @@ public class postdetails2_server2 implements Runnable{
                                 FileReader fileReader=new FileReader(address);
                                 Scanner scanner=new Scanner(fileReader);
                                 if(input.equals("0")){
-                                    //fileWriter.close();
+                                    FileWriter fileWriter=new FileWriter(address);
                                     fileReader.close();
+                                    fileWriter.close();
                                     break; }
                                 String line=scanner.nextLine();
                                 oos.writeObject(line);
                                 oos.flush();
-                                FileWriter fileWriter=new FileWriter(address);
                             } catch (ClassNotFoundException | IOException e) {
                                 e.printStackTrace();
                             }

@@ -38,6 +38,9 @@ public class profileController {
 
     @FXML
     public void initialize() throws IOException, ClassNotFoundException {
+        (new carryoverperson_get1_server()).start();
+        carryoverperson_client cc=new carryoverperson_client();
+        String s=cc.person_get_info();
         person=postdetailcontroller.getPerson();
         user.setText(person.username);
         country.setText(person.country);

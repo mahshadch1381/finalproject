@@ -6,3 +6,5 @@ a#nnn#0
 a#p#2
 a#bb#0
 a#rrrr#0
+a#date#1
+margo#vv#2

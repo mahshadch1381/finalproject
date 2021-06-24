@@ -1,12 +1,13 @@
 package Server;
 
+import sample.Controller;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -16,6 +17,12 @@ public class getpersoninfo_server implements Runnable{
     public static ServerSocket serverSocket;
     public static Map<String,String> map=new ConcurrentHashMap<>();
     public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\person.txt";
+    public static String date;
+    public static long time_date;
+    public void setDateString(Date d) {
+        SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy/ HH:mm:ss");
+        date=formatter.format(d);
+    }
     public void start() {
         try {
             if (server_time.get() == 1) {
@@ -56,6 +63,10 @@ public class getpersoninfo_server implements Runnable{
                                     if(a.length()>0){
                                     list.add(a);}
                                 }
+                                System.out.println(Controller.mainUser +" get info ");
+                                setDateString(new Date());
+                                time_date= Instant.now().toEpochMilli();
+                                System.out.println("time:"+date);
                                 oos.writeObject(list);
                                 oos.flush();
                             } catch (ClassNotFoundException | IOException e) {

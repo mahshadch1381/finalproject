@@ -1,2 +1,4 @@
 a:ccc#z
 ccc:a
+margo:sherlock
+sherlock:a#margo

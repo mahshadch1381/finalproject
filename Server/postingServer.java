@@ -3,6 +3,9 @@ package Server;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.util.Date;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.concurrent.ConcurrentHashMap;
@@ -17,6 +20,12 @@ public class postingServer implements Runnable{
     public static String address2="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\countoflikes.txt";
     public static String address3="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\countofreposts.txt";
     public static String address4="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\allposts.txt";
+    public static String date;
+    public static long time_date;
+    public void setDateString(Date d) {
+        SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy/ HH:mm:ss");
+        date=formatter.format(d);
+    }
     public void start() {
         try {
             if (server_time.get() == 1) {
@@ -70,6 +79,11 @@ public class postingServer implements Runnable{
                                 fileWriter2.flush();
                                 fileWriter3.write(result+"\n");
                                 fileWriter3.flush();
+                                System.out.println(array[0] +" publish");
+                                System.out.println("file address:" +array[4]);
+                                setDateString(new Date());
+                                time_date= Instant.now().toEpochMilli();
+                                System.out.println("time:"+date);
                                 oos.writeObject("ok");
                                 oos.flush();
                             } catch (ClassNotFoundException | IOException e) {

@@ -3,6 +3,8 @@ package Server;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -12,6 +14,12 @@ public class followingserver implements Runnable{
     public static ServerSocket serverSocket;
     public static String address1="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\followers.txt";
     public static String address2="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\following.txt";
+    public static String date;
+    public static long time_date;
+    public void setDateString(Date d) {
+        SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy/ HH:mm:ss");
+        date=formatter.format(d);
+    }
     public void start() {
         try {
             if (server_time.get() == 1) {
@@ -113,6 +121,10 @@ public class followingserver implements Runnable{
                                         fileWriter2.write(line+"\n");
                                         fileWriter2.flush();
                                     }
+                                    System.out.println(people[1]+" follow");
+                                    setDateString(new Date());
+                                    time_date= Instant.now().toEpochMilli();
+                                    System.out.println("time:"+date);
                                     oos.writeObject("ok");
                                     oos.flush();
                                     fileWriter2.close();

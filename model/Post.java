@@ -2,6 +2,7 @@ package model;
 
 import javafx.scene.chart.PieChart;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
@@ -10,6 +11,7 @@ public class Post {
     public String description;
     public String publisher;
     public String date;
+    public Long time_date;
     public String postPicture;
     public String profile;
     public int likes=0;
@@ -61,5 +63,8 @@ public class Post {
         this.description = description;
     }
 
-
+    public void setDateString(Date d) {
+        SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy/ HH:mm:ss");
+        date=formatter.format(d);
+    }
 }

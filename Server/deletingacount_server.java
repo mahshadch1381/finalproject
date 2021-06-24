@@ -1,8 +1,12 @@
 package Server;
 
+import sample.Controller;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -13,6 +17,12 @@ public class deletingacount_server implements Runnable {
     public static final int port=150;
     public static AtomicInteger server_time=new AtomicInteger(0);
     public static ServerSocket serverSocket;
+    public static String date;
+    public static long time_date;
+    public void setDateString(Date d) {
+        SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy/ HH:mm:ss");
+        date=formatter.format(d);
+    }
 
     public void deleting_posts(String username) throws IOException {
          String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\allposts.txt";
@@ -328,6 +338,10 @@ public class deletingacount_server implements Runnable {
                                 deleting_users_recovery(input);
                                 deleting_followers(input);
                                 deleting_followings(input);
+                                System.out.println(Controller.mainUser +" delete acount");
+                                setDateString(new Date());
+                                time_date= Instant.now().toEpochMilli();
+                                System.out.println("time:"+date);
                                 oos.writeObject("ok");
                                 oos.flush();
                             } catch (ClassNotFoundException | IOException e) {

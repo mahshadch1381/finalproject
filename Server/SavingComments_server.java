@@ -1,8 +1,13 @@
 package Server;
 
+import sample.Controller;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.util.Date;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.concurrent.ConcurrentHashMap;
@@ -13,6 +18,12 @@ public class SavingComments_server implements Runnable{
     public static AtomicInteger server_time=new AtomicInteger(0);
     public static ServerSocket serverSocket;
     public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\comments.txt";
+    public static String date;
+    public static long time_date;
+    public void setDateString(Date d) {
+        SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy/ HH:mm:ss");
+        date=formatter.format(d);
+    }
     public void start() {
         try {
             if (server_time.get() == 1) {
@@ -49,6 +60,12 @@ public class SavingComments_server implements Runnable{
                                     break; }
                                 fileWriter.write(input+"\n");
                                 fileWriter.flush();
+                                String[] array=input.split("#");
+                                System.out.println(Controller.mainUser +" comment");
+                                System.out.println("message:" +array[1]);
+                                setDateString(new Date());
+                                time_date= Instant.now().toEpochMilli();
+                                System.out.println("time:"+date);
                                 oos.writeObject("ok");
                                 oos.flush();
                             } catch (ClassNotFoundException | IOException e) {

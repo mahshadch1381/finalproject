@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.time.Instant;
+import java.util.Date;
 
 public class likerepost_client {
         public static int port1=126;
@@ -38,6 +40,8 @@ public class likerepost_client {
             Socket socket=new Socket("127.0.0.1",port2);
             ObjectInputStream objectInputStream=new ObjectInputStream(socket.getInputStream());
             ObjectOutputStream objectOutputStream=new ObjectOutputStream(socket.getOutputStream());
+            post.setDateString(new Date());
+            post.time_date= Instant.now().toEpochMilli();
             String message=username+"%"+post.publisher+"#"+post.title+"#"+post.description+"#"+post.date+"#"+post.postPicture+"#"+post.profile;
             objectOutputStream.writeObject(message);
             objectOutputStream.flush();
@@ -48,7 +52,6 @@ public class likerepost_client {
             objectInputStream.close();
             objectOutputStream.close();
             return  (String) answer;
-
         }
     }
 

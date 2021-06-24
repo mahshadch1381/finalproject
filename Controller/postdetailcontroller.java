@@ -30,6 +30,8 @@ public class postdetailcontroller {
     public Label numoflike;
     public Label numofrepost;
     public static Person person;
+    public Label postdate;
+
     @FXML
     public void initialize() throws IOException, ClassNotFoundException {
         (new postdetails2_server2()).start();
@@ -38,6 +40,7 @@ public class postdetailcontroller {
          title.setText(post.getTitle());
         description.setText(post.getDescription());
         username.setText(post.getPublisher());
+        postdate.setText(post.date);
         Image image=new Image(post.postPicture);
         profile.setImage(image);
         (new getpersoninfo_server()).start();
@@ -99,9 +102,9 @@ public class postdetailcontroller {
     }
 
     public void visitingprofile(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
-        (new postdetail_server()).start();
-        postdetails_client postdetails_client=new postdetails_client(post);
-        if(postdetails_client.detail_give_info().equals("ok")){
+        (new carryoverperson_give1_server()).start();
+        carryoverperson_client  carryoverperson_client=new carryoverperson_client(person.username);
+        if(carryoverperson_client.person_give_info().equals("ok")){
         new Loader().load("profile");}
     }
 }

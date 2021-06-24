@@ -50,8 +50,14 @@ public class postdetail_server implements Runnable{
                                     fileWriter.close();
                                     fileReader.close();
                                     break; }
+                                if(scanner.hasNextLine()){
+                                    fileWriter=new FileWriter(address);
+                                    fileWriter.write(input+"\n");
+                                    fileWriter.flush();
+                                }
+                                else {
                                 fileWriter.write(input+"\n");
-                                fileWriter.flush();
+                                fileWriter.flush();}
                                 oos.writeObject("ok");
                                 oos.flush();
                             } catch (ClassNotFoundException | IOException e) {
