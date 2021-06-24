@@ -35,6 +35,12 @@ public class profileController {
     public ListView postslist;
     public List<Post> clientsPosts=new ArrayList<>();
     public ImageView image;
+    public Button mutebutton;
+    public Label mutingwarning;
+    public Label mutinglabel;
+    public Button unmutebutton;
+    public Label unmutelabel;
+    public Label unmutewarning;
 
     @FXML
     public void initialize() throws IOException, ClassNotFoundException {
@@ -101,6 +107,35 @@ public class profileController {
 
     public void gotomenu(ActionEvent actionEvent) throws IOException {
         new Loader().load("menu");
+    }
+
+    public void muting(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
+        if (Controller.mainUser.equals(person.username)) {
+            mutingwarning.setVisible(true);
+        } else {
+            (new mute_server()).start();
+            mute_client mc = new mute_client(Controller.mainUser, person.username);
+            if (mc.muting().equals("ok")) {
+                mutinglabel.setVisible(true);
+            } else {
+                mutingwarning.setVisible(true);
+            }
+        }
+    }
+
+    public void unmuting(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
+        if (Controller.mainUser.equals(person.username)) {
+            mutingwarning.setVisible(true);
+        } else {
+            (new unmute_server()).start();
+            unmute_client mc = new unmute_client(Controller.mainUser, person.username);
+            if(mc.unmuting().equals("ok")){
+                unmutelabel.setVisible(true);
+            }
+            else {
+                unmutewarning.setVisible(true);
+            }
+        }
     }
 
 }

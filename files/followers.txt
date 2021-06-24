@@ -2,4 +2,4 @@ a:ccc#sherlock
 ccc:a
 z:a
 margo:sherlock
-sherlock:margo
+sherlock:a#margo

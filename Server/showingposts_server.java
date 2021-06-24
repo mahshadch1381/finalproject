@@ -15,6 +15,7 @@ public class showingposts_server implements Runnable{
         public static ServerSocket serverSocket;
         public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\allposts.txt";
        public static String address2="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\following.txt";
+       public static String address3="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\mute.txt";
     public static String date;
     public static long time_date;
     public void setDateString(Date d) {
@@ -52,6 +53,8 @@ public class showingposts_server implements Runnable{
                                     Scanner scanner=new Scanner(fileReader);
                                     FileReader fileReader2=new FileReader(address2);
                                     Scanner scanner2=new Scanner(fileReader2);
+                                    FileReader fileReader3=new FileReader(address3);
+                                    Scanner scanner3=new Scanner(fileReader3);
                                     if(user.equals("0")){
                                         fileReader2.close();
                                         fileReader.close();
@@ -71,11 +74,28 @@ public class showingposts_server implements Runnable{
                                         else {
                                             continue; }
                                     }
+                                    Set<String> mute=new HashSet<>();
+                                    while (scanner3.hasNextLine()){
+                                        String line=scanner3.nextLine();
+                                        if(line.length()>0&&line.contains(":")) {
+                                            String client = line.substring(0, line.indexOf(":"));
+                                            if (client.equals(user)) {
+                                                line = line.substring(line.indexOf(":") + 1);
+                                                String[] strings = line.split("#");
+                                                for (String s : strings) {
+                                                    mute.add(s);
+                                                }
+                                                break;
+                                            } else {
+                                                continue;
+                                            }
+                                        }
+                                    }
                                     List<String> posts=new ArrayList<>();
                                     while (scanner.hasNextLine()){
                                         String line=scanner.nextLine();
                                         String[ ]parts=line.split("%");
-                                       if(list.contains(parts[0])){
+                                       if(list.contains(parts[0])&&!mute.contains(parts[0])){
                                            posts.add(parts[1]);
                                            continue;
                                        }
