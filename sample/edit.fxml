@@ -10,28 +10,52 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #ABEBC6;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.editcontroller">
    <children>
-      <ImageView fx:id="profilepicture" fitHeight="123.0" fitWidth="150.0" layoutX="38.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="profilepicture" fitHeight="123.0" fitWidth="150.0" layoutX="24.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="file:/C:/Users/98912/Pictures/profile.png" />
          </image>
       </ImageView>
-      <Label layoutX="29.0" layoutY="185.0" text="name:" />
-      <Label layoutX="222.0" layoutY="60.0" text="username:" />
-      <Label layoutX="223.0" layoutY="118.0" text="password:" />
-      <Label layoutX="14.0" layoutY="224.0" text="country:" />
-      <Label layoutX="18.0" layoutY="269.0" text="picturepath:" />
-      <Label layoutX="14.0" layoutY="355.0" prefHeight="21.0" prefWidth="168.0" text="phone:    09876654234" />
-      <Label fx:id="username" layoutX="303.0" layoutY="60.0" prefHeight="21.0" prefWidth="86.0" text="Label" />
+      <Label layoutX="5.0" layoutY="181.0" prefHeight="30.0" prefWidth="67.0" text="name:">
+         <font>
+            <Font name="Bodoni MT Bold Italic" size="24.0" />
+         </font></Label>
+      <Label layoutX="182.0" layoutY="56.0" text="username:">
+         <font>
+            <Font name="Bodoni MT Bold Italic" size="24.0" />
+         </font></Label>
+      <Label layoutX="190.0" layoutY="114.0" text="password:">
+         <font>
+            <Font name="Bodoni MT" size="24.0" />
+         </font></Label>
+      <Label layoutX="5.0" layoutY="221.0" text="country:">
+         <font>
+            <Font name="Bodoni MT Bold Italic" size="24.0" />
+         </font></Label>
+      <Label layoutX="3.0" layoutY="265.0" text="picturepath:">
+         <font>
+            <Font name="Bodoni MT Bold Italic" size="24.0" />
+         </font></Label>
+      <Label layoutX="10.0" layoutY="356.0" prefHeight="30.0" prefWidth="192.0" text="phone:  0987665">
+         <font>
+            <Font name="Bodoni MT Bold Italic" size="24.0" />
+         </font></Label>
+      <Label fx:id="username" layoutX="308.0" layoutY="61.0" prefHeight="21.0" prefWidth="67.0" text="Label" />
       <Label fx:id="password" layoutX="303.0" layoutY="118.0" prefHeight="21.0" prefWidth="86.0" text="Label" />
-      <Label fx:id="oldname" layoutX="75.0" layoutY="185.0" prefHeight="21.0" prefWidth="135.0" text="Label" />
-      <Label fx:id="oldcountry" layoutX="77.0" layoutY="224.0" prefHeight="21.0" prefWidth="135.0" text="Label" />
-      <Label fx:id="oldpicture" layoutX="106.0" layoutY="269.0" prefHeight="21.0" prefWidth="111.0" text="Label" />
-      <TextField fx:id="newname" layoutX="200.0" layoutY="180.0" prefHeight="31.0" prefWidth="168.0" promptText="newname" />
-      <TextField fx:id="newcountry" layoutX="200.0" layoutY="219.0" prefHeight="31.0" prefWidth="168.0" promptText="newcountry" />
-      <TextField fx:id="newpicture" layoutX="24.0" layoutY="306.0" prefHeight="31.0" prefWidth="346.0" promptText="newpicture" />
-      <TextField fx:id="newphone" layoutX="200.0" layoutY="350.0" prefHeight="31.0" prefWidth="168.0" promptText="newphone" />
-      <Button fx:id="savebutton" layoutX="58.0" layoutY="450.0" mnemonicParsing="false" onAction="#saving" prefHeight="41.0" prefWidth="80.0" text="save" />
-      <Button fx:id="menubutton" layoutX="222.0" layoutY="450.0" mnemonicParsing="false" onAction="#gotomenu" prefHeight="41.0" prefWidth="86.0" text="menu" />
+      <Label fx:id="oldname" layoutX="81.0" layoutY="186.0" prefHeight="21.0" prefWidth="123.0" text="Label" />
+      <Label fx:id="oldcountry" layoutX="106.0" layoutY="226.0" prefHeight="21.0" prefWidth="111.0" text="Label" />
+      <Label fx:id="oldpicture" layoutX="141.0" layoutY="269.0" prefHeight="21.0" prefWidth="252.0" text="Label" />
+      <TextField fx:id="newname" layoutX="213.0" layoutY="181.0" prefHeight="31.0" prefWidth="168.0" promptText="newname" />
+      <TextField fx:id="newcountry" layoutX="213.0" layoutY="220.0" prefHeight="31.0" prefWidth="168.0" promptText="newcountry" />
+      <TextField fx:id="newpicture" layoutX="24.0" layoutY="306.0" prefHeight="31.0" prefWidth="355.0" promptText="newpicture" />
+      <TextField fx:id="newphone" layoutX="213.0" layoutY="355.0" prefHeight="31.0" prefWidth="168.0" promptText="newphone" />
+      <Button fx:id="savebutton" layoutX="35.0" layoutY="450.0" mnemonicParsing="false" onAction="#saving" prefHeight="41.0" prefWidth="100.0" text="save" textFill="#d32727">
+         <font>
+            <Font name="Britannic Bold" size="24.0" />
+         </font></Button>
+      <Button fx:id="menubutton" layoutX="222.0" layoutY="450.0" mnemonicParsing="false" onAction="#gotomenu" prefHeight="41.0" prefWidth="100.0" text="menu" textFill="#1e9ec9">
+         <font>
+            <Font name="Britannic Bold" size="24.0" />
+         </font></Button>
       <Label fx:id="correct" layoutX="41.0" layoutY="507.0" prefHeight="41.0" prefWidth="150.0" text="saved changes" textFill="#09bf2a" visible="false">
          <font>
             <Font name="Bodoni MT Bold" size="24.0" />

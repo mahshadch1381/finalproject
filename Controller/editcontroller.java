@@ -34,7 +34,7 @@ public class editcontroller {
     public String picture;
     public String phone;
     public ImageView profilepicture;
-    String user;
+     public String user;
 
     @FXML
     public void initialize() throws IOException, ClassNotFoundException {

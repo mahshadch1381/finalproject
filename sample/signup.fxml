@@ -20,37 +20,46 @@
       <TextField fx:id="country" layoutX="16.0" layoutY="194.0" prefHeight="31.0" prefWidth="179.0" promptText="country" style="-fx-background-color: #F15F6A;" />
       <TextField layoutX="219.0" layoutY="194.0" prefHeight="31.0" prefWidth="158.0" promptText="phone" style="-fx-background-color: #F15F6A;" />
       <TextField fx:id="username" layoutX="16.0" layoutY="242.0" prefHeight="31.0" prefWidth="179.0" promptText="username" style="-fx-background-color: #F15F6A;" />
-      <Button fx:id="signupbutton" layoutX="50.0" layoutY="507.0" mnemonicParsing="false" onAction="#signing" prefHeight="31.0" prefWidth="129.0" style="-fx-background-color: #F0E766;" text="signup" />
-      <Button fx:id="loginbutton" layoutX="212.0" layoutY="507.0" mnemonicParsing="false" onAction="#login" prefHeight="31.0" prefWidth="129.0" style="-fx-background-color: #F0E766;" text="login" />
+      <Button fx:id="signupbutton" layoutX="50.0" layoutY="507.0" mnemonicParsing="false" onAction="#signing" prefHeight="31.0" prefWidth="129.0" style="-fx-background-color: #F0E766;" text="signup">
+         <font>
+            <Font name="Britannic Bold" size="18.0" />
+         </font></Button>
+      <Button fx:id="loginbutton" layoutX="212.0" layoutY="507.0" mnemonicParsing="false" onAction="#login" prefHeight="31.0" prefWidth="129.0" style="-fx-background-color: #F0E766;" text="login">
+         <font>
+            <Font name="Britannic Bold" size="18.0" />
+         </font></Button>
       <TextField fx:id="password" layoutX="219.0" layoutY="242.0" prefHeight="31.0" prefWidth="158.0" promptText="password" style="-fx-background-color: #F15F6A;" />
-      <Label fx:id="correct" layoutX="143.0" layoutY="440.0" prefHeight="21.0" prefWidth="179.0" text="successful" visible="false">
+      <Label fx:id="correct" layoutX="151.0" layoutY="465.0" prefHeight="21.0" prefWidth="179.0" text="successful" textFill="#086b14" visible="false">
          <font>
-            <Font name="System Bold Italic" size="18.0" />
+            <Font name="Bodoni MT Bold Italic" size="24.0" />
          </font></Label>
-      <Label fx:id="wrong" layoutX="55.0" layoutY="467.0" prefHeight="27.0" prefWidth="284.0" text="we already have this information" visible="false">
+      <Label fx:id="wrong" layoutX="15.0" layoutY="548.0" prefHeight="30.0" prefWidth="375.0" text="we already have this information" textFill="#b51d1d" visible="false">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="Bodoni MT Bold Italic" size="24.0" />
          </font></Label>
-      <Label fx:id="unacceptable" layoutX="101.0" layoutY="406.0" prefHeight="21.0" prefWidth="221.0" text="unacceptable password" visible="false">
+      <Label fx:id="unacceptable" layoutX="132.0" layoutY="426.0" prefHeight="30.0" prefWidth="258.0" text="unacceptable password" textFill="#ae2c2c" visible="false">
          <font>
-            <Font name="System Bold Italic" size="18.0" />
+            <Font name="Bodoni MT Bold Italic" size="24.0" />
          </font></Label>
-      <ImageView fx:id="profile" fitHeight="100.0" fitWidth="123.0" layoutX="14.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="profile" fitHeight="100.0" fitWidth="123.0" layoutX="16.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="file:/C:/Users/98912/Pictures/profile.png" />
          </image>
       </ImageView>
-      <Label layoutX="16.0" layoutY="279.0" prefHeight="21.0" prefWidth="109.0" text="choose  profile">
+      <Label layoutX="16.0" layoutY="279.0" prefHeight="30.0" prefWidth="145.0" text="choose  profile">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="Bodoni MT Bold" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="favoriteColor" layoutX="211.0" layoutY="306.0" prefHeight="31.0" prefWidth="165.0" promptText="color:" style="-fx-background-color: #F15F6A;" />
-      <Label layoutX="213.0" layoutY="279.0" prefHeight="21.0" prefWidth="171.0" text="what is favorite color">
+      <TextField fx:id="favoriteColor" layoutX="219.0" layoutY="315.0" prefHeight="31.0" prefWidth="165.0" promptText="color:" style="-fx-background-color: #F15F6A;" />
+      <Label layoutX="192.0" layoutY="284.0" prefHeight="30.0" prefWidth="213.0" text="what is favorite color">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="Bodoni MT Bold" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="choosebutton" layoutX="14.0" layoutY="418.0" mnemonicParsing="false" onAction="#choosing" prefHeight="31.0" prefWidth="73.0" text="choose" />
+      <Button fx:id="choosebutton" layoutX="14.0" layoutY="425.0" mnemonicParsing="false" onAction="#choosing" prefHeight="31.0" prefWidth="87.0" text="choose">
+         <font>
+            <Font name="Britannic Bold" size="18.0" />
+         </font></Button>
    </children>
 </AnchorPane>

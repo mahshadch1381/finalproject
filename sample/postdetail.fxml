@@ -10,37 +10,70 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #ABEBC6;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.postdetailcontroller">
    <children>
-      <Button fx:id="menubutton" layoutX="214.0" layoutY="471.0" mnemonicParsing="false" onAction="#gotomenu" prefHeight="51.0" prefWidth="133.0" text="menu">
+      <Button fx:id="menubutton" layoutX="219.0" layoutY="139.0" mnemonicParsing="false" onAction="#gotomenu" prefHeight="51.0" prefWidth="133.0" text="menu" textFill="#b5a512">
          <font>
-            <Font name="System Bold Italic" size="24.0" />
+            <Font name="Broadway" size="24.0" />
          </font>
       </Button>
-      <Label fx:id="title" layoutX="103.0" layoutY="251.0" prefHeight="40.0" prefWidth="266.0" text="title" />
-      <Label fx:id="description" layoutX="100.0" layoutY="300.0" prefHeight="59.0" prefWidth="273.0" text="description" />
-      <Label fx:id="username" layoutX="103.0" layoutY="211.0" prefHeight="40.0" prefWidth="266.0" text="username" />
+      <Label fx:id="title" layoutX="81.0" layoutY="252.0" prefHeight="40.0" prefWidth="266.0" text="title" />
+      <Label fx:id="description" layoutX="144.0" layoutY="294.0" prefHeight="59.0" prefWidth="243.0" text="description" />
+      <Label fx:id="username" layoutX="129.0" layoutY="216.0" prefHeight="40.0" prefWidth="223.0" text="username" />
       <ImageView fx:id="profile" fitHeight="147.0" fitWidth="125.0" layoutX="23.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="file:/C:/Users/98912/Pictures/profile.png" />
          </image>
       </ImageView>
-      <Button fx:id="likebutton" layoutX="11.0" layoutY="420.0" mnemonicParsing="false" onAction="#liking" prefHeight="31.0" prefWidth="55.0" text="like" />
-      <Button fx:id="repostbutton" layoutX="76.0" layoutY="420.0" mnemonicParsing="false" onAction="#reposting" text="repost" />
-      <Button fx:id="visitcommentsbutton" layoutX="149.0" layoutY="420.0" mnemonicParsing="false" onAction="#visitingcomments" prefHeight="31.0" prefWidth="125.0" text="view comments" />
-      <Button fx:id="addcommentbutton" layoutX="289.0" layoutY="420.0" mnemonicParsing="false" onAction="#addingcomments" text="add coment" />
-      <Button fx:id="checkprofilebutton" layoutX="240.0" layoutY="123.0" mnemonicParsing="false" onAction="#visitingprofile" prefHeight="31.0" prefWidth="133.0" text="view profile" />
+      <Button fx:id="likebutton" layoutX="265.0" layoutY="461.0" mnemonicParsing="false" onAction="#liking" prefHeight="31.0" prefWidth="73.0" text="like" textFill="#a41212">
+         <font>
+            <Font name="Broadway" size="15.0" />
+         </font></Button>
+      <Button fx:id="repostbutton" layoutX="265.0" layoutY="419.0" mnemonicParsing="false" onAction="#reposting" prefHeight="31.0" prefWidth="73.0" text="repost" textFill="#a81b1b">
+         <font>
+            <Font name="Broadway" size="15.0" />
+         </font></Button>
+      <Button fx:id="visitcommentsbutton" layoutX="19.0" layoutY="530.0" mnemonicParsing="false" onAction="#visitingcomments" prefHeight="31.0" prefWidth="151.0" text="view comments" textFill="#1f19bc">
+         <font>
+            <Font name="Broadway" size="15.0" />
+         </font></Button>
+      <Button fx:id="addcommentbutton" layoutX="214.0" layoutY="531.0" mnemonicParsing="false" onAction="#addingcomments" prefHeight="31.0" prefWidth="142.0" text="add coment" textFill="#201eab">
+         <font>
+            <Font name="Broadway" size="15.0" />
+         </font></Button>
+      <Button fx:id="checkprofilebutton" layoutX="219.0" layoutY="82.0" mnemonicParsing="false" onAction="#visitingprofile" prefHeight="51.0" prefWidth="133.0" text="view profile" textFill="#c99e10">
+         <font>
+            <Font name="Britannic Bold" size="18.0" />
+         </font></Button>
       <Label layoutX="125.0" layoutY="25.0" prefHeight="40.0" prefWidth="173.0" text="Post Detail" textAlignment="RIGHT" textFill="#f28706">
          <font>
-            <Font name="System Bold Italic" size="24.0" />
+            <Font name="Bell MT Italic" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="numoflike" layoutX="86.0" layoutY="511.0" prefHeight="40.0" prefWidth="106.0" text="like:" />
-      <Label fx:id="numofrepost" layoutX="87.0" layoutY="461.0" prefHeight="40.0" prefWidth="106.0" text="repost:" />
-      <Label layoutX="21.0" layoutY="221.0" text="username:" />
-      <Label layoutX="21.0" layoutY="251.0" prefHeight="31.0" prefWidth="40.0" text="title:" />
-      <Label layoutX="9.0" layoutY="319.0" text="description:" />
-      <Label layoutX="21.0" layoutY="471.0" text="reposts:" />
-      <Label layoutX="21.0" layoutY="521.0" text="likes:" />
-      <Label layoutX="37.0" layoutY="371.0" text="date:" />
-      <Label fx:id="postdate" layoutX="108.0" layoutY="371.0" text="Label" />
+      <Label fx:id="numoflike" layoutX="95.0" layoutY="456.0" prefHeight="40.0" prefWidth="106.0" text="like:" />
+      <Label fx:id="numofrepost" layoutX="108.0" layoutY="409.0" prefHeight="40.0" prefWidth="106.0" text="repost:" />
+      <Label layoutX="21.0" layoutY="221.0" text="username:">
+         <font>
+            <Font name="Bodoni MT" size="24.0" />
+         </font></Label>
+      <Label layoutX="22.0" layoutY="257.0" prefHeight="31.0" prefWidth="55.0" text="title:">
+         <font>
+            <Font name="Bodoni MT Italic" size="24.0" />
+         </font></Label>
+      <Label layoutX="25.0" layoutY="309.0" text="description:">
+         <font>
+            <Font name="Bodoni MT Italic" size="24.0" />
+         </font></Label>
+      <Label layoutX="21.0" layoutY="414.0" text="reposts:">
+         <font>
+            <Font name="Bodoni MT Italic" size="24.0" />
+         </font></Label>
+      <Label layoutX="23.0" layoutY="456.0" text="likes:">
+         <font>
+            <Font name="Bodoni MT Italic" size="24.0" />
+         </font></Label>
+      <Label layoutX="25.0" layoutY="361.0" text="date:">
+         <font>
+            <Font name="Bodoni MT Italic" size="24.0" />
+         </font></Label>
+      <Label fx:id="postdate" layoutX="91.0" layoutY="366.0" text="Label" />
    </children>
 </AnchorPane>

@@ -14,29 +14,71 @@
          <image>
             <Image url="file:/C:/Users/98912/Pictures/profile.png" />
          </image></ImageView>
-      <Label layoutX="211.0" layoutY="56.0" prefHeight="31.0" prefWidth="71.0" text="following:" />
-      <Label layoutX="211.0" layoutY="98.0" prefHeight="31.0" prefWidth="65.0" text="followers:" />
-      <Label layoutX="211.0" layoutY="139.0" prefHeight="31.0" prefWidth="65.0" text="country:" />
-      <Label layoutX="211.0" layoutY="25.0" prefHeight="31.0" prefWidth="71.0" text="username:" />
-      <Button fx:id="follow" layoutX="18.0" layoutY="163.0" mnemonicParsing="false" onAction="#following" prefHeight="31.0" prefWidth="84.0" style="-fx-background-color: E94933;" text="follow" />
-      <Button fx:id="unfollow" layoutX="112.0" layoutY="163.0" mnemonicParsing="false" onAction="#unfollowing" prefHeight="31.0" prefWidth="78.0" style="-fx-background-color: E94933;" text="unfollow" />
-      <Button fx:id="edit" layoutX="321.0" layoutY="224.0" mnemonicParsing="false" onAction="#editing" prefHeight="35.0" prefWidth="65.0" style="-fx-background-color: #42BFEC;" text="edit" />
-      <ListView fx:id="postslist" layoutX="18.0" layoutY="277.0" prefHeight="309.0" prefWidth="364.0" />
+      <Label layoutX="204.0" layoutY="56.0" prefHeight="31.0" prefWidth="78.0" text="following:">
+         <font>
+            <Font name="Bodoni MT Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="198.0" layoutY="98.0" prefHeight="31.0" prefWidth="78.0" text="followers:">
+         <font>
+            <Font name="Bodoni MT Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="205.0" layoutY="131.0" prefHeight="31.0" prefWidth="65.0" text="country:">
+         <font>
+            <Font name="Bodoni MT Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="201.0" layoutY="25.0" prefHeight="31.0" prefWidth="78.0" text="username:">
+         <font>
+            <Font name="Bodoni MT Bold" size="18.0" />
+         </font></Label>
+      <Button fx:id="follow" layoutX="18.0" layoutY="163.0" mnemonicParsing="false" onAction="#following" prefHeight="31.0" prefWidth="84.0" style="-fx-background-color: E94933;" text="follow">
+         <font>
+            <Font name="Britannic Bold" size="18.0" />
+         </font></Button>
+      <Button fx:id="unfollow" layoutX="112.0" layoutY="163.0" mnemonicParsing="false" onAction="#unfollowing" prefHeight="31.0" prefWidth="93.0" style="-fx-background-color: E94933;" text="unfollow">
+         <font>
+            <Font name="Britannic Bold" size="18.0" />
+         </font></Button>
+      <Button fx:id="edit" layoutX="334.0" layoutY="207.0" mnemonicParsing="false" onAction="#editing" prefHeight="35.0" prefWidth="71.0" text="edit" textFill="#ae8524">
+         <font>
+            <Font name="Britannic Bold" size="18.0" />
+         </font></Button>
+      <ListView fx:id="postslist" layoutX="8.0" layoutY="329.0" prefHeight="257.0" prefWidth="405.0" />
       <Label fx:id="user" layoutX="288.0" layoutY="30.0" prefHeight="21.0" prefWidth="103.0" text="user" />
       <Label fx:id="numoffolloing" layoutX="288.0" layoutY="56.0" prefHeight="31.0" prefWidth="103.0" text="numoffollowing" />
       <Label fx:id="numoffollowers" layoutX="285.0" layoutY="98.0" prefHeight="31.0" prefWidth="103.0" text="numoffollower" />
-      <Label fx:id="country" layoutX="286.0" layoutY="139.0" prefHeight="31.0" prefWidth="103.0" text="country" />
-      <Button fx:id="menubutton" layoutX="321.0" layoutY="177.0" mnemonicParsing="false" onAction="#gotomenu" prefHeight="35.0" prefWidth="65.0" style="-fx-background-color: #42BFEC;" text="menu" />
-      <Label fx:id="editwarning" layoutX="151.0" layoutY="224.0" prefHeight="35.0" prefWidth="218.0" text="not your own page" textFill="#e40404" visible="false">
+      <Label fx:id="country" layoutX="288.0" layoutY="131.0" prefHeight="31.0" prefWidth="103.0" text="country" />
+      <Button fx:id="menubutton" layoutX="334.0" layoutY="161.0" mnemonicParsing="false" onAction="#gotomenu" prefHeight="35.0" prefWidth="71.0" text="menu" textFill="#bc9022">
          <font>
-            <Font name="System Bold" size="24.0" />
+            <Font name="Britannic Bold" size="18.0" />
+         </font></Button>
+      <Label fx:id="editwarning" layoutX="212.0" layoutY="262.0" prefHeight="35.0" prefWidth="207.0" text="not your own page" textFill="#e40404" visible="false">
+         <font>
+            <Font name="Bodoni MT Bold Italic" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="mutebutton" layoutX="18.0" layoutY="209.0" mnemonicParsing="false" onAction="#muting" prefHeight="31.0" prefWidth="84.0" text="mute" />
-      <Label fx:id="mutingwarning" layoutX="86.0" layoutY="249.0" text="its your own acount" visible="false" />
-      <Label fx:id="mutinglabel" layoutX="26.0" layoutY="249.0" text="muted" visible="false" />
-      <Button fx:id="unmutebutton" layoutX="116.0" layoutY="209.0" mnemonicParsing="false" onAction="#unmuting" prefHeight="31.0" prefWidth="78.0" text="unmute" />
-      <Label fx:id="unmutelabel" layoutX="226.0" layoutY="214.0" text="unmuted" visible="false" />
-      <Label fx:id="unmutewarning" layoutX="208.0" layoutY="184.0" text="wraningunmute" visible="false" />
+      <Button fx:id="mutebutton" layoutX="18.0" layoutY="209.0" mnemonicParsing="false" onAction="#muting" prefHeight="31.0" prefWidth="84.0" style="-fx-background-color: #42BFEC;" text="mute">
+         <font>
+            <Font name="Britannic Bold" size="18.0" />
+         </font></Button>
+      <Label fx:id="mutingwarning" layoutX="11.0" layoutY="290.0" text="its your own acount" textFill="#d00707" visible="false">
+         <font>
+            <Font name="Bodoni MT Bold Italic" size="24.0" />
+         </font></Label>
+      <Label fx:id="mutinglabel" layoutX="26.0" layoutY="249.0" text="muted" textFill="#0b7228" visible="false">
+         <font>
+            <Font name="Bodoni MT Bold Italic" size="24.0" />
+         </font></Label>
+      <Button fx:id="unmutebutton" layoutX="110.0" layoutY="209.0" mnemonicParsing="false" onAction="#unmuting" prefHeight="31.0" prefWidth="93.0" style="-fx-background-color: #42BFEC;" text="unmute">
+         <font>
+            <Font name="Britannic Bold" size="18.0" />
+         </font></Button>
+      <Label fx:id="unmutelabel" layoutX="116.0" layoutY="249.0" prefHeight="30.0" prefWidth="103.0" text="unmuted" textFill="#126f0d" visible="false">
+         <font>
+            <Font name="Bodoni MT Bold Italic" size="24.0" />
+         </font></Label>
+      <Label fx:id="unmutewarning" layoutX="116.0" layoutY="249.0" text="wraningunmute" textFill="#c92323" visible="false">
+         <font>
+            <Font name="Bodoni MT Bold Italic" size="24.0" />
+         </font></Label>
    </children>
 </AnchorPane>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,22 +8,39 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #ABEBC6;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PostsController">
    <children>
-      <Button fx:id="menu" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#menupage" style="-fx-background-color: E94933;" text="menu" />
-      <Button fx:id="refresh" layoutX="98.0" layoutY="14.0" mnemonicParsing="false" onAction="#refreshing" style="-fx-background-color: E94933;" text="refresh" />
-      <Button fx:id="peaple" layoutX="191.0" layoutY="14.0" mnemonicParsing="false" onAction="#allclients" prefHeight="31.0" prefWidth="66.0" style="-fx-background-color: E94933;" text="users" />
-      <TextArea fx:id="describing" layoutX="14.0" layoutY="123.0" prefHeight="123.0" prefWidth="232.0" promptText="describe..." style="-fx-background-color: #F9E79F;" />
+      <Button fx:id="menu" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#menupage" style="-fx-background-color: E94933;" text="menu">
+         <font>
+            <Font name="Britannic Bold" size="18.0" />
+         </font></Button>
+      <Button fx:id="refresh" layoutX="98.0" layoutY="14.0" mnemonicParsing="false" onAction="#refreshing" style="-fx-background-color: E94933;" text="refresh">
+         <font>
+            <Font name="Britannic Bold" size="18.0" />
+         </font></Button>
+      <Button fx:id="peaple" layoutX="191.0" layoutY="14.0" mnemonicParsing="false" onAction="#allclients" prefHeight="31.0" prefWidth="69.0" style="-fx-background-color: E94933;" text="users">
+         <font>
+            <Font name="Britannic Bold" size="18.0" />
+         </font></Button>
+      <TextArea fx:id="describing" layoutX="14.0" layoutY="124.0" prefHeight="123.0" prefWidth="232.0" promptText="describe..." style="-fx-background-color: #F9E79F;" />
       <TextField fx:id="title" layoutX="24.0" layoutY="79.0" promptText="title" style="-fx-background-color: #F9E79F;" />
       <ImageView fx:id="picture" fitHeight="110.0" fitWidth="122.0" layoutX="264.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="publish" layoutX="64.0" layoutY="253.0" mnemonicParsing="false" onAction="#adding" style="-fx-background-color: #42BFEC;" text="publish" />
-      <Button fx:id="chossingpicture" layoutX="268.0" layoutY="253.0" mnemonicParsing="false" onAction="#choosing" prefHeight="31.0" prefWidth="122.0" style="-fx-background-color: #42BFEC;" text="choose picture" />
-      <MenuButton fx:id="privacy" layoutX="270.0" layoutY="79.0" mnemonicParsing="false" style="-fx-background-color: #42BFEC;" text="privacy">
+      <Button fx:id="publish" layoutX="14.0" layoutY="254.0" mnemonicParsing="false" onAction="#adding" style="-fx-background-color: #42BFEC;" text="publish">
+         <font>
+            <Font name="Britannic Bold" size="18.0" />
+         </font></Button>
+      <Button fx:id="chossingpicture" layoutX="250.0" layoutY="254.0" mnemonicParsing="false" onAction="#choosing" prefHeight="39.0" prefWidth="146.0" style="-fx-background-color: #42BFEC;" text="choose picture">
+         <font>
+            <Font name="Britannic Bold" size="18.0" />
+         </font></Button>
+      <MenuButton fx:id="privacy" layoutX="270.0" layoutY="79.0" mnemonicParsing="false" style="-fx-background-color: #42BFEC;" text="privacy" textFill="#ae3434">
         <items>
           <MenuItem fx:id="public_one" mnemonicParsing="false" onAction="#makingpublic" text="public" />
           <MenuItem fx:id="private_one" mnemonicParsing="false" onAction="#makingprivate" text="private" />
         </items>
+         <font>
+            <Font name="Britannic Bold" size="18.0" />
+         </font>
       </MenuButton>
       <ListView fx:id="postscript" layoutX="9.0" layoutY="303.0" prefHeight="287.0" prefWidth="383.0" style="-fx-background-color: #F9E79F;" />
    </children>

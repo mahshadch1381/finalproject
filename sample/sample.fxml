@@ -14,19 +14,19 @@
    <children>
       <Pane prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #ABEBC6;">
          <children>
-            <Button fx:id="log" layoutX="51.0" layoutY="412.0" mnemonicParsing="false" onAction="#login" prefHeight="64.0" prefWidth="125.0" style="-fx-background-color: #F9E79F;" text="log in" textFill="#1c7002">
+            <Button fx:id="log" layoutX="58.0" layoutY="447.0" mnemonicParsing="false" onAction="#login" prefHeight="64.0" prefWidth="125.0" style="-fx-background-color: #F9E79F;" text="log in" textFill="#1c7002">
                <font>
                   <Font name="Bernard MT Condensed" size="24.0" />
                </font>
             </Button>
-            <Button fx:id="sign" layoutX="214.0" layoutY="415.0" mnemonicParsing="false" onAction="#enroll" prefHeight="58.0" prefWidth="125.0" style="-fx-background-color: #F9E79F;" text="sign up" textFill="#1c7202">
+            <Button fx:id="sign" layoutX="215.0" layoutY="447.0" mnemonicParsing="false" onAction="#enroll" prefHeight="64.0" prefWidth="125.0" style="-fx-background-color: #F9E79F;" text="sign up" textFill="#1c7202">
                <font>
                   <Font name="Bernard MT Condensed" size="24.0" />
                </font>
             </Button>
             <TextField fx:id="username" layoutX="91.0" layoutY="206.0" prefHeight="47.0" prefWidth="186.0" promptText="username" style="-fx-background-color: #EA3927;" />
             <PasswordField fx:id="password" layoutX="91.0" layoutY="266.0" prefHeight="47.0" prefWidth="186.0" promptText="password" style="-fx-background-color: #EA3927;" />
-            <Label fx:id="label" layoutX="120.0" layoutY="330.0" prefHeight="28.0" prefWidth="140.0" text="wrong password" textFill="#2cd034" visible="false">
+            <Label fx:id="label" layoutX="120.0" layoutY="330.0" prefHeight="28.0" prefWidth="140.0" text="wrong password" textFill="#a72dcf" visible="false">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -37,10 +37,13 @@
                </image>
             </ImageView>
             <TextField fx:id="visibleusername" layoutX="91.0" layoutY="266.0" onAction="#showing" prefHeight="47.0" prefWidth="186.0" promptText="visibleusername" style="-fx-background-color: #EA3927;" visible="false" />
-            <CheckBox layoutX="285.0" layoutY="279.0" mnemonicParsing="false" onAction="#showing" text="show me" />
-            <Button fx:id="forgetpass" layoutX="113.0" layoutY="372.0" mnemonicParsing="false" onAction="#Recovery" prefHeight="31.0" prefWidth="163.0" style="-fx-background-color: #F6860F;" text="forget password">
+            <CheckBox layoutX="285.0" layoutY="279.0" mnemonicParsing="false" onAction="#showing" text="show me" textFill="#d0832a">
                <font>
-                  <Font name="System Bold Italic" size="15.0" />
+                  <Font name="Bodoni MT Bold Italic" size="18.0" />
+               </font></CheckBox>
+            <Button fx:id="forgetpass" layoutX="97.0" layoutY="384.0" mnemonicParsing="false" onAction="#Recovery" prefHeight="45.0" prefWidth="186.0" style="-fx-background-color: #F6860F;" text="forget password" textFill="#1c7202">
+               <font>
+                  <Font name="Bernard MT Condensed" size="24.0" />
                </font>
             </Button>
          </children></Pane>

@@ -28,7 +28,7 @@ public class passrecovery {
         recoverypass_client recoverypass_client=new recoverypass_client(user,answer);
         String pass=recoverypass_client.recovering();
         result.setText(pass);
-
+        result.setVisible(true);
     }
     public void loging(ActionEvent actionEvent) throws IOException {
         new Loader().load("sample");

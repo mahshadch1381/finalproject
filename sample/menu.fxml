@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,18 +8,32 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #ABEBC6;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.menuController">
    <children>
-      <Button layoutX="94.0" layoutY="281.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="225.0" text="messages" />
-      <Button fx:id="logout" layoutX="94.0" layoutY="406.0" mnemonicParsing="false" onAction="#mainpage" prefHeight="44.0" prefWidth="225.0" text="log out" />
-      <Button fx:id="profilepage" layoutX="94.0" layoutY="220.0" mnemonicParsing="false" onAction="#profile" prefHeight="44.0" prefWidth="225.0" text="profile" />
-      <Button fx:id="posting" layoutX="94.0" layoutY="345.0" mnemonicParsing="false" onAction="#postpage" prefHeight="44.0" prefWidth="225.0" text="new post" />
-      <ImageView fitHeight="172.0" fitWidth="279.0" layoutX="65.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+      <Button layoutX="94.0" layoutY="281.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="225.0" text="messages" textFill="#2d88bc">
+         <font>
+            <Font name="Britannic Bold" size="24.0" />
+         </font></Button>
+      <Button fx:id="logout" layoutX="94.0" layoutY="406.0" mnemonicParsing="false" onAction="#mainpage" prefHeight="44.0" prefWidth="225.0" text="log out" textFill="#ab1d9f">
+         <font>
+            <Font name="Britannic Bold" size="24.0" />
+         </font></Button>
+      <Button fx:id="profilepage" layoutX="94.0" layoutY="220.0" mnemonicParsing="false" onAction="#profile" prefHeight="44.0" prefWidth="225.0" text="profile" textFill="#c69824">
+         <font>
+            <Font name="Britannic Bold" size="24.0" />
+         </font></Button>
+      <Button fx:id="posting" layoutX="94.0" layoutY="345.0" mnemonicParsing="false" onAction="#postpage" prefHeight="44.0" prefWidth="225.0" text="new post" textFill="#18bc44">
+         <font>
+            <Font name="Britannic Bold" size="24.0" />
+         </font></Button>
+      <ImageView fitHeight="172.0" fitWidth="225.0" layoutX="108.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:/C:/Users/98912/Pictures/menu.png" />
+            <Image url="file:/C:/Users/98912/Pictures/sbu.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="exit" layoutX="33.0" layoutY="479.0" mnemonicParsing="false" onAction="#exit" prefHeight="31.0" prefWidth="83.0" text="exit" />
+      <Button fx:id="exit" layoutX="33.0" layoutY="512.0" mnemonicParsing="false" onAction="#exit" prefHeight="12.0" prefWidth="83.0" text="exit" textFill="#b51919">
+         <font>
+            <Font name="Britannic Bold" size="24.0" />
+         </font></Button>
    </children>
 </AnchorPane>

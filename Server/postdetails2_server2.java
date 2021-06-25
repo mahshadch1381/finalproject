@@ -12,7 +12,6 @@ public class postdetails2_server2 implements Runnable{
     public static int port=122;
     public static AtomicInteger server_time=new AtomicInteger(0);
     public static ServerSocket serverSocket;
-    public static Map<String,String> map=new ConcurrentHashMap<>();
     public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\postdetails.txt";
     public void start() {
         try {
