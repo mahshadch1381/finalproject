@@ -16,7 +16,7 @@ public class getpersoninfo_client {
         Socket socket=new Socket("127.0.0.1",port);
         ObjectInputStream objectInputStream=new ObjectInputStream(socket.getInputStream());
         ObjectOutputStream objectOutputStream=new ObjectOutputStream(socket.getOutputStream());
-        String message="find the information";
+        String message=username;
         objectOutputStream.writeObject(message);
         objectOutputStream.flush();
         Object answer=objectInputStream.readObject();

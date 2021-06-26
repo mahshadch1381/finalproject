@@ -101,7 +101,7 @@ public class repost_server extends Thread {
                                     fileWriter2.write(s1+"\n");
                                     fileWriter2.flush();
                                 }
-                                System.out.println(Controller.mainUser +" repost ");
+                                System.out.println(user +" repost ");
                                 setDateString(new Date());
                                 time_date= Instant.now().toEpochMilli();
                                 System.out.println("time:"+date);

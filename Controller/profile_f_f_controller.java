@@ -112,7 +112,7 @@ public class profile_f_f_controller {
         if (Controller.mainUser.equals(p.username)) {
             mutingwarning.setVisible(true);
         } else {
-            (new unmute_server()).start();
+          // (new unmute_server()).start();
             unmute_client mc = new unmute_client(Controller.mainUser, p.username);
             if (mc.unmuting().equals("ok")) {
                 unmutelabel.setVisible(true);

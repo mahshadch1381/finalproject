@@ -108,7 +108,7 @@ public class unmute_server extends Thread{
                                     fileWriter1.flush();
                                 }
                                 fileWriter1.close();
-                                System.out.println(Controller.mainUser +" unmute "+people[1]);
+                                System.out.println(people[0] +" unmute "+people[1]);
                                 setDateString(new Date());
                                 time_date= Instant.now().toEpochMilli();
                                 System.out.println("time:"+date);

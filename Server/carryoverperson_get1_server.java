@@ -74,6 +74,7 @@ public class carryoverperson_get1_server extends Thread{
                                 FileReader fileReader2=new FileReader(address22);
                                 Scanner scanner2=new Scanner(fileReader2);
                                 String result=null;
+                                String user=null;
                                 while (scanner2.hasNextLine()){
                                     String s=scanner2.nextLine();
                                     String[] array=s.split("#");
@@ -82,7 +83,7 @@ public class carryoverperson_get1_server extends Thread{
                                         break;
                                     }
                                 }
-                                System.out.println(Controller.mainUser +" get info "+line);
+                                System.out.println(line +" get info "+line);
                                 setDateString(new Date());
                                 time_date= Instant.now().toEpochMilli();
                                 System.out.println("time:"+date);

@@ -25,7 +25,7 @@ public class menuController {
         new Loader().load("posts");
     }
 
-    public void exit(ActionEvent actionEvent) {
-
+    public void exit(ActionEvent actionEvent) throws IOException {
+        new Loader().load("sample");
     }
 }

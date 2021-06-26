@@ -348,7 +348,7 @@ public class deletingacount_server extends Thread {
                                 deleting_users_recovery(input);
                                 deleting_followers(input);
                                 deleting_followings(input);
-                                System.out.println(Controller.mainUser +" delete acount");
+                                System.out.println(input +" delete acount");
                                 setDateString(new Date());
                                 time_date= Instant.now().toEpochMilli();
                                 System.out.println("time:"+date);

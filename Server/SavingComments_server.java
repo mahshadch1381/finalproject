@@ -73,7 +73,7 @@ public class SavingComments_server extends Thread{
                                 fileWriter.write(input+"\n");
                                 fileWriter.flush();
                                 String[] array=input.split("#");
-                                System.out.println(Controller.mainUser +" comment");
+                                System.out.println(array[0] +" comment");
                                 System.out.println("message:" +array[1]);
                                 setDateString(new Date());
                                 time_date= Instant.now().toEpochMilli();

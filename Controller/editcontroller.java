@@ -76,7 +76,7 @@ public class editcontroller {
         if (picture.length()==0){
             s=s+"#"+"-";
         }
-        (new edit_server()).start();
+       // (new edit_server()).start();
         edit_client edit_client=new edit_client(s);
         if(edit_client.editing().equals("ok")){
             correct.setVisible(true);

@@ -102,7 +102,7 @@ public class mute_server extends Thread{
                                     fileWriter1.flush();
                                 }
                                 fileWriter1.close();
-                                System.out.println(Controller.mainUser +" mute "+people[1]);
+                                System.out.println(people[0] +" mute "+people[1]);
                                 setDateString(new Date());
                                 time_date= Instant.now().toEpochMilli();
                                 System.out.println("time:"+date);

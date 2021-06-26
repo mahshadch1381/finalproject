@@ -1,4 +1,4 @@
-a:a#ccc#sherlock
+a:a#ccc
 ccc:a
 z:a
 margo:a#sherlock

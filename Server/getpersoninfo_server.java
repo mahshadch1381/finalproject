@@ -1,5 +1,6 @@
 package Server;
 
+import model.Main;
 import sample.Controller;
 
 import java.io.*;
@@ -73,7 +74,8 @@ public class getpersoninfo_server extends  Thread{
                                     if(a.length()>0){
                                     list.add(a);}
                                 }
-                                System.out.println(Controller.mainUser +" get info ");
+
+                                System.out.println(input +" get info ");
                                 setDateString(new Date());
                                 time_date= Instant.now().toEpochMilli();
                                 System.out.println("time:"+date);

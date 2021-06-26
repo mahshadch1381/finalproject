@@ -7,6 +7,7 @@ import Server.loginServer;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import model.Loader;
+import model.Main;
 
 import java.io.IOException;
 
@@ -28,6 +29,7 @@ public class Controller {
         if(login_client.login_connection().equalsIgnoreCase("true")){
             label.setVisible(false);
             mainUser=user;
+            Main.user=user;
             new Loader().load("posts");
 
         }else {

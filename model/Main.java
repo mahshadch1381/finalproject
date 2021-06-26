@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Main extends Application {
-
+   public static String user;
     @Override
     public void start(Stage primaryStage) throws Exception{
         Loader.StageLoader(primaryStage);
