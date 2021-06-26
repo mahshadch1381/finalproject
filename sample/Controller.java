@@ -24,7 +24,7 @@ public class Controller {
         String user=username.getText();
         String pass=password.getText();
         login_client login_client=new login_client(user,pass);
-        (new loginServer()).start();
+       // (new loginServer()).start();
         if(login_client.login_connection().equalsIgnoreCase("true")){
             label.setVisible(false);
             mainUser=user;
@@ -56,7 +56,7 @@ public class Controller {
         new Loader().load("recoverypassword");
     }
     public static String getmainprofile() throws IOException, ClassNotFoundException {
-        (new findprofile_server()).start();
+        //(new findprofile_server()).start();
         findmainprofile findmainprofile=new findmainprofile(mainUser);
         String pro=findmainprofile.findprofile();
         return pro;

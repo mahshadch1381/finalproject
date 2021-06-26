@@ -6,12 +6,22 @@ import java.net.Socket;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class count_of_followers_server implements Runnable {
-    public static int port1=123;
+public class count_of_followers_server extends Thread {
+    public  int port1=206;
     public static AtomicInteger server_time=new AtomicInteger(0);
-    public static ServerSocket serverSocket;
+    public  ServerSocket serverSocket;
+
+     {
+        try {
+          //  serverSocket.close();
+            serverSocket = new ServerSocket(port1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static String address1="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\followers.txt";
-    public void start() {
+  /*  public void start() {
         try {
             if (server_time.get() == 1) {
                 serverSocket.close();
@@ -22,7 +32,7 @@ public class count_of_followers_server implements Runnable {
 
         }catch (IOException e){e.printStackTrace(); }
         new Thread( new Server.count_of_followers_server()).start();
-    }
+    }*/
     @Override
     public void run() {
         try {
@@ -43,20 +53,20 @@ public class count_of_followers_server implements Runnable {
                                 if(input.equals("0")){
                                     fileReader1.close();
                                     break; }
-                                int n=0;
+                                AtomicInteger n=new AtomicInteger(0);
                                 while (scanner1.hasNextLine()) {
                                     String line = scanner1.nextLine();
                                     String user = line.substring(0, line.indexOf(":"));
                                     if (input.equals(user)) {
                                       line=line.substring(line.indexOf(":")+1);
                                       String[] followers=line.split("#");
-                                      n=followers.length;
+                                     n.set(followers.length);
                                       break;
                                     } else {
                                         continue;
                                     }
                                 }
-                                String result=n+"";
+                                String result=n.get()+"";
                                 oos.writeObject(result);
                                 oos.flush();
                             } catch (ClassNotFoundException | IOException e) {
@@ -65,8 +75,8 @@ public class count_of_followers_server implements Runnable {
                         }
                     }
                 } new My_thread().start();
-                break;
-            }serverSocket.close();
+
+            }
         }catch (IOException e){e.printStackTrace(); }
     }
 }

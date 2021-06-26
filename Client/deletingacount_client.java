@@ -6,7 +6,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class deletingacount_client {
-    public static int port=150;
+    public static int port=209;
     public String username;
     public deletingacount_client(String user){
      username=user;

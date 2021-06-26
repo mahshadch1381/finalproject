@@ -6,7 +6,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class counts_of_reposts_client{
-    public static int port=145;
+    public static int port=208;
     public String writer;
     public String title;
     public counts_of_reposts_client(String writer,String title){

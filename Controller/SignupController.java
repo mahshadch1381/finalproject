@@ -44,7 +44,7 @@ public class SignupController {
         }
         else {
             unacceptable.setVisible(false);
-            (new signupServer()).start();
+           // (new signupServer()).start();
             signup_client signup_client = new signup_client(user, pass);
             Person p=new Person(user,pass);
             p.setCountry(country_person);

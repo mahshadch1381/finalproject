@@ -13,10 +13,22 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import static java.lang.Integer.parseInt;
 
-public class mute_server implements Runnable{
-    public static int port=154;
+public class mute_server extends Thread{
+    public  int port=219;
     public static AtomicInteger server_time=new AtomicInteger(0);
-    public static ServerSocket serverSocket;
+    public ServerSocket serverSocket;
+
+     {
+        try {
+          //  if (serverSocket!=null){
+            //    serverSocket.close();
+            //}
+            serverSocket = new ServerSocket(port);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\mute.txt";
     public static String date;
     public static long time_date;
@@ -24,7 +36,7 @@ public class mute_server implements Runnable{
         SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy/ HH:mm:ss");
         date=formatter.format(d);
     }
-    public void start() {
+    /*public void start() {
         try {
             if (server_time.get() == 1) {
                 serverSocket.close();
@@ -35,7 +47,7 @@ public class mute_server implements Runnable{
 
         }catch (IOException e){e.printStackTrace(); }
         new Thread(new Server.mute_server()).start();
-    }
+    }*/
     @Override
     public void run() {
         try {
@@ -57,7 +69,7 @@ public class mute_server implements Runnable{
                                 if(input.equals("0")){
                                     fileReader.close();
                                     break; }
-                                Map<String, Set<String>> map1=new HashMap<>();
+                                Map<String, Set<String>> map1=new ConcurrentHashMap<>();
                                 while (scanner.hasNextLine()) {
                                     String a = scanner.nextLine();
                                     if (a.length() > 0 && a.contains(":")) {
@@ -102,8 +114,8 @@ public class mute_server implements Runnable{
                         }
                     }
                 } new My_thread().start();
-                break;
-            }serverSocket.close();
+
+            }
         }catch (IOException e){e.printStackTrace(); }
     }
 }

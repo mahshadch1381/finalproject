@@ -65,20 +65,20 @@ public class PostItemController {
     }
     //you can show post's detail in new page with this method
     public void detail(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
-        (new postdetail_server()).start();
+        //(new postdetail_server()).start();
         postdetails_client postdetails_client=new postdetails_client(post);
         if(postdetails_client.detail_give_info().equals("ok")){
         new Loader().load("postdetail");}
     }
 
     public void reposting(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
-        (new repost_server()).start();
+        //(new repost_server()).start();
         likerepost_client likerepost_client=new likerepost_client(post, Controller.mainUser);
         if(likerepost_client.reposting().equals("ok")){
         }
     }
     public void liking(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
-        ( new like_server()).start();
+       // ( new like_server()).start();
         likerepost_client likerepost_client=new likerepost_client(post);
         if(likerepost_client.liking().equals("ok")){
             likedlabel.setVisible(true);

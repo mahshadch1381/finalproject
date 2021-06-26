@@ -13,11 +13,21 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import static java.lang.Integer.parseInt;
 
-public class like_server implements Runnable{
+public class like_server extends Thread{
     ////////////////////////////////////////////////////000000
-    public static final int port=126;
+    public  final int port=216;
     public static AtomicInteger server_time=new AtomicInteger(0);
-    public static ServerSocket serverSocket;
+    public  ServerSocket serverSocket;
+
+   {
+        try {
+         //   serverSocket.close();
+            serverSocket = new ServerSocket(port);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static Map<String,String> map=new ConcurrentHashMap<>();
     public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\countoflikes.txt";
     public static String date;
@@ -26,7 +36,7 @@ public class like_server implements Runnable{
         SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy/ HH:mm:ss");
         date=formatter.format(d);
     }
-    public void start() {
+   /* public void start() {
         try {
             if (server_time.get() == 1) {
                 serverSocket.close();
@@ -37,7 +47,7 @@ public class like_server implements Runnable{
 
         }catch (IOException e){e.printStackTrace(); }
         new Thread(new Server.like_server()).start();
-    }
+    }*/
     @Override
     public void run() {
         try {
@@ -59,14 +69,14 @@ public class like_server implements Runnable{
                                 if(input.equals("0")){
                                     fileReader.close();
                                     break; }
-                                List<String> posts=new ArrayList<>();
+                                List<String> posts=new Vector<>();
                                 while (scanner.hasNextLine()){
                                     String line=scanner.nextLine();
                                     if(line.contains(array[0])&&line.contains(array[1])){
                                         String[] strings=line.split("#");
-                                        int a=parseInt(strings[2]);
-                                        int n=a+1;
-                                       String s=array[0]+"#"+array[1]+"#"+n;
+                                        AtomicInteger a=new AtomicInteger(parseInt(strings[2]));
+                                        AtomicInteger n=new AtomicInteger(a.get()+1);
+                                       String s=array[0]+"#"+array[1]+"#"+n.get();
                                        posts.add(s);
                                        continue;
                                     }else {
@@ -92,8 +102,8 @@ public class like_server implements Runnable{
                         }
                     }
                 } new My_thread().start();
-                break;
-            }serverSocket.close();
+
+            }
         }catch (IOException e){e.printStackTrace(); }
     }
 }

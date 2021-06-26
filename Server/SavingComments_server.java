@@ -13,10 +13,22 @@ import java.util.Scanner;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class SavingComments_server implements Runnable{
-    public static int port=129;
+public class SavingComments_server extends Thread{
+    public  int port=203;
     public static AtomicInteger server_time=new AtomicInteger(0);
-    public static ServerSocket serverSocket;
+    public  ServerSocket serverSocket;
+
+    {
+        try {
+            //if(serverSocket!=null){
+             //   serverSocket.close();
+           // }
+            serverSocket = new ServerSocket(port);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\comments.txt";
     public static String date;
     public static long time_date;
@@ -24,7 +36,7 @@ public class SavingComments_server implements Runnable{
         SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy/ HH:mm:ss");
         date=formatter.format(d);
     }
-    public void start() {
+    /*public void start() {
         try {
             if (server_time.get() == 1) {
                 serverSocket.close();
@@ -35,7 +47,7 @@ public class SavingComments_server implements Runnable{
 
         }catch (IOException e){e.printStackTrace(); }
         new Thread( new Server.SavingComments_server()).start();
-    }
+    }*/
     @Override
     public void run() {
         try {
@@ -74,8 +86,8 @@ public class SavingComments_server implements Runnable{
                         }
                     }
                 } new My_thread().start();
-                break;
-            }serverSocket.close();
+
+            }
         }catch (IOException e){e.printStackTrace(); }
     }
 }

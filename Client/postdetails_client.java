@@ -11,8 +11,8 @@ import java.net.Socket;
 import static java.lang.Integer.parseInt;
 
 public class postdetails_client {
-    public static int port1=121;
-    public static int port2=122;
+    public static int port1=223;
+    public static int port2=224;
     public String a="1";
     public Post post;
     public String username;

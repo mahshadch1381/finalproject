@@ -9,11 +9,21 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class showingposts_server implements Runnable{
-        public static int port =125;
+public class showingposts_server extends Thread{
+        public  int port =227;
         public static AtomicInteger server_time=new AtomicInteger(0);
-        public static ServerSocket serverSocket;
-        public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\allposts.txt";
+        public  ServerSocket serverSocket;
+
+     {
+        try {
+            //serverSocket.close();
+            serverSocket = new ServerSocket(port);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\allposts.txt";
        public static String address2="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\following.txt";
        public static String address3="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\mute.txt";
     public static String date;
@@ -22,7 +32,7 @@ public class showingposts_server implements Runnable{
         SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy/ HH:mm:ss");
         date=formatter.format(d);
     }
-        public void start() {
+        /*public void start() {
             try {
                 if (server_time.get() == 1) {
                     serverSocket.close();
@@ -33,7 +43,7 @@ public class showingposts_server implements Runnable{
 
             }catch (IOException e){e.printStackTrace(); }
             new Thread( new Server.showingposts_server()).start();
-        }
+        }*/
         @Override
         public void run() {
             try {
@@ -116,8 +126,8 @@ public class showingposts_server implements Runnable{
                             }
                         }
                     } new My_thread().start();
-                    break;
-                }serverSocket.close();
+
+                }
             }catch (IOException e){e.printStackTrace(); }
         }
     }

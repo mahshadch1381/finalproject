@@ -12,13 +12,23 @@ import java.util.Scanner;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class followingfiles_server implements Runnable{
-    public static int port=117;
+public class followingfiles_server extends Thread{
+    public  int port=213;
     public static AtomicInteger server_time=new AtomicInteger(0);
-    public static ServerSocket serverSocket;
+    public  ServerSocket serverSocket;
+
+     {
+        try {
+       //     serverSocket.close();
+            serverSocket = new ServerSocket(port);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static Map<String,String> map=new ConcurrentHashMap<>();
     public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\newfileforfindfollowing.txt";
-    public void start() {
+   /* public void start() {
         try {
             if (server_time.get() == 1) {
                 serverSocket.close();
@@ -29,7 +39,7 @@ public class followingfiles_server implements Runnable{
 
         }catch (IOException e){e.printStackTrace(); }
         new Thread( new Server.followingfiles_server()).start();
-    }
+    }*/
     @Override
     public void run() {
         try {
@@ -62,8 +72,8 @@ public class followingfiles_server implements Runnable{
                         }
                     }
                 } new My_thread().start();
-                break;
-            }serverSocket.close();
+
+            }
         }catch (IOException e){e.printStackTrace(); }
     }
 

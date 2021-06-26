@@ -47,7 +47,7 @@ public class personitemcontroller {
 
     //you can show post's detail in new page with this method
     public void detail(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
-        (new followingfiles_server()).start();
+       // (new followingfiles_server()).start();
         followingfiles_client followingfiles_client=new followingfiles_client(person);
          if(followingfiles_client.following_give_info().equals("ok")){
         new Loader().load("profileforfollowing");}

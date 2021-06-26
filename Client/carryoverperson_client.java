@@ -8,8 +8,8 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class carryoverperson_client {
-    public int port1=131;
-    public static int port2=132;
+    public int port1=201;
+    public static int port2=270;
     public String string;
    // public Person person;
     public carryoverperson_client(){
@@ -30,6 +30,7 @@ public class carryoverperson_client {
         objectOutputStream.flush();
         objectInputStream.close();
         objectOutputStream.close();
+        socket.close();
         return (String) answer;
     }
     public String person_get_info() throws IOException, ClassNotFoundException {

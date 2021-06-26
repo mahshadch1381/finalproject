@@ -6,7 +6,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class recoverypass_client {
-    public static int port=134;
+    public static int port=226;
     public String username;
     public String color;
     public String a= "1";

@@ -6,14 +6,25 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Vector;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class ReadingComments_Server implements Runnable {
-    public static int port=130;
+public class ReadingComments_Server extends Thread {
+    public  int port=204;
     public static AtomicInteger server_time=new AtomicInteger(0);
-    public static ServerSocket serverSocket;
+    public ServerSocket serverSocket;
+
+    {
+        try {
+         //   serverSocket.close();
+            serverSocket = new ServerSocket(port);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\comments.txt";
-    public void start() {
+    /*public void start() {
         try {
             if (server_time.get() == 1) {
                 serverSocket.close();
@@ -24,7 +35,7 @@ public class ReadingComments_Server implements Runnable {
 
         }catch (IOException e){e.printStackTrace(); }
         new Thread( new Server.ReadingComments_Server()).start();
-    }
+    }*/
     @Override
     public void run() {
         try {
@@ -45,7 +56,7 @@ public class ReadingComments_Server implements Runnable {
                                 if(input.equals("0")){
                                     fileReader.close();
                                     break; }
-                                List<String> list=new ArrayList<>();
+                                List<String> list=new Vector<>();
                                while (scanner.hasNextLine()) {
                                    String line = scanner.nextLine();
                                    if (line.length() != 0) {
@@ -63,8 +74,8 @@ public class ReadingComments_Server implements Runnable {
                         }
                     }
                 } new My_thread().start();
-                break;
-            }serverSocket.close();
+
+            }
         }catch (IOException e){e.printStackTrace(); }
     }
 }

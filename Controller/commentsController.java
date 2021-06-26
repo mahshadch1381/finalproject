@@ -18,22 +18,23 @@ import sample.Controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 public class commentsController {
     public TextArea description;
     public Button menubutton;
     public ListView<String> commentslist;
     public Button addingbutton;
-    public List<String> list = new ArrayList<>();
+    public List<String> list = new Vector<>();
     public Post post;
 
     @FXML
     public void initialize() throws IOException, ClassNotFoundException {
-        (new postdetails2_server2()).start();
+       // (new postdetails2_server2()).start();
         postdetails_client postdetails_client = new postdetails_client();
         post = postdetails_client.detail_get_info();
         list.add("pppppp");
-        (new ReadingComments_Server()).start();
+       // (new ReadingComments_Server()).start();
         comments_client comments_client = new comments_client(post.title);
         List<String> comments = comments_client.Reading_comments();
         for (String s : comments) {
@@ -45,7 +46,7 @@ public class commentsController {
 
     public void adding(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
         String comment = description.getText();
-        (new SavingComments_server()).start();
+       // (new SavingComments_server()).start();
         comments_client comments_client = new comments_client(Controller.mainUser, comment, post.title);
         if (comments_client.Saving_comments().equals("ok")) {
               String new_comment="username: "+Controller.mainUser+"  //   comment: "+comment;

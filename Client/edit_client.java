@@ -8,9 +8,10 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 public class edit_client {
-    public int port=133;
+    public int port=210;
     public String line;
     public edit_client(String line){
         this.line=line;
@@ -41,7 +42,7 @@ public class edit_client {
             String[] a1=info[2].split(":");
             c=a1[1];
         }
-        List<String> list=new ArrayList<>();
+        List<String> list=new Vector<>();
         list.add(user);
         list.add(a);
         list.add(b);

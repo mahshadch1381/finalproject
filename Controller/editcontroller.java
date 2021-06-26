@@ -38,7 +38,7 @@ public class editcontroller {
 
     @FXML
     public void initialize() throws IOException, ClassNotFoundException {
-        (new carryoverperson_get1_server()).start();
+        //(new carryoverperson_get1_server()).start();
         carryoverperson_client carryoverperson_client=  new carryoverperson_client();
         String client=carryoverperson_client.person_get_info();
         String[] info=client.split("#");

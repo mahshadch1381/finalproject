@@ -8,8 +8,8 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class followingfiles_client {
-    public static int port1=117;
-    public static int port2=118;
+    public static int port1=213;
+    public static int port2=214;
     public String string;
     public Person person;
     public followingfiles_client(){

@@ -8,8 +8,8 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class countoffollowers_client {
-    public static int port1=123;
-    public static int port2=124;
+    public static int port1=206;
+    public static int port2=207;
     public String username;
     public countoffollowers_client(String user){
         username=user;

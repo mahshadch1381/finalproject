@@ -8,12 +8,13 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 public class comments_client {
     public String username;
     public String comment;
-    public final int port1=129;
-    public final int port2=130;
+    public final int port1=203;
+    public final int port2=204;
     public String a= "1";
     public String postTitle;
     public comments_client(String user,String comment,String title){
@@ -52,7 +53,7 @@ public class comments_client {
     objectOutputStream.flush();
     objectInputStream.close();
     objectOutputStream.close();
-    List<String> list=new ArrayList<>();
+    List<String> list=new Vector<>();
     for (String s:(List<String>) answer){
         String[] array=s.split("#");
         String co="username: "+ array[0]+"  //   comment: "+array[2];

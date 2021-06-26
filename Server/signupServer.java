@@ -11,10 +11,20 @@ import java.util.Scanner;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class signupServer implements Runnable {
-    public static final int port=112;
+public class signupServer extends Thread {
+    public  final int port=228;
     public static AtomicInteger server_time=new AtomicInteger(0);
-    public static ServerSocket serverSocket;
+    public  ServerSocket serverSocket;
+
+     {
+        try {
+          //  serverSocket.close();
+            serverSocket = new ServerSocket(port);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\users.txt";
     public static String person_address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\person.txt";
     public static String recovery_address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\recoverypassword.txt";
@@ -24,7 +34,7 @@ public class signupServer implements Runnable {
         SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy/ HH:mm:ss");
         date=formatter.format(d);
     }
-    public void start() {
+   /* public void start() {
         try {
             if (server_time.get() == 1) {
                 serverSocket.close();
@@ -35,7 +45,7 @@ public class signupServer implements Runnable {
 
         }catch (IOException e){e.printStackTrace(); }
         new Thread(new signupServer()).start();
-    }
+    }*/
     @Override
     public void run() {
         try {
@@ -62,9 +72,10 @@ public class signupServer implements Runnable {
                                 break; }
                               if(!input.contains("add")) {
                                   String[] check = input.split("#");
-                                  int i = 0, j = 0;
+                                  AtomicInteger i=new AtomicInteger(0);
+                                  AtomicInteger j=new AtomicInteger(0);
                                   while (scanner.hasNextLine()) {
-                                      i++;
+                                      i.set(i.get()+1);
                                       String line = scanner.nextLine();
                                       String[] user = line.split("#");
                                       if (user[0].equals(check[0])) {
@@ -72,10 +83,10 @@ public class signupServer implements Runnable {
                                           oos.flush();
                                           break;
                                       } else {
-                                          j++;
+                                          j.set(j.get()+1);
                                       }
                                   }
-                                  if (i == j) {
+                                  if (i.get() == j.get()) {
                                       fileWriter.write(input + "\n");
                                       fileWriter.flush();
                                       oos.writeObject("true");
@@ -109,8 +120,8 @@ public class signupServer implements Runnable {
                     }
                 }
             } new My_thread().start();
-                break;
-            }serverSocket.close();
+
+            }
         }catch (IOException e){e.printStackTrace(); }
     }
     }

@@ -3,19 +3,26 @@ package Server;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class personposts_server implements Runnable{
-    public static int port =134;
+public class personposts_server extends Thread{
+    public  int port =220;
     public static AtomicInteger server_time=new AtomicInteger(0);
-    public static ServerSocket serverSocket;
+    public  ServerSocket serverSocket;
+
+     {
+        try {
+          //  serverSocket.close();
+            serverSocket = new ServerSocket(port);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\allposts.txt";
-    public void start() {
+   /* public void start() {
         try {
             if (server_time.get() == 1) {
                 serverSocket.close();
@@ -26,7 +33,7 @@ public class personposts_server implements Runnable{
 
         }catch (IOException e){e.printStackTrace(); }
         new Thread( new personposts_server()).start();
-    }
+    }*/
     @Override
     public void run() {
         try {
@@ -47,7 +54,7 @@ public class personposts_server implements Runnable{
                                 if(input.equals("0")){
                                     fileReader.close();
                                     break; }
-                                List<String> list =new ArrayList<>();
+                                List<String> list =new Vector<>();
                                while (scanner.hasNextLine()){
                                    String line=scanner.nextLine();
                                    if(line.length()>0){
@@ -65,8 +72,8 @@ public class personposts_server implements Runnable{
                         }
                     }
                 } new My_thread().start();
-                break;
-            }serverSocket.close();
+
+            }
         }catch (IOException e){e.printStackTrace(); }
     }
 }

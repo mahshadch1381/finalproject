@@ -34,7 +34,7 @@ public class postdetailcontroller {
 
     @FXML
     public void initialize() throws IOException, ClassNotFoundException {
-        (new postdetails2_server2()).start();
+       // (new postdetails2_server2()).start();
         postdetails_client postdetails_client=new postdetails_client();
         post=postdetails_client.detail_get_info();
          title.setText(post.getTitle());
@@ -43,15 +43,15 @@ public class postdetailcontroller {
         postdate.setText(post.date);
         Image image=new Image(post.postPicture);
         profile.setImage(image);
-        (new getpersoninfo_server()).start();
+        //(new getpersoninfo_server()).start();
         getpersoninfo_client getpersoninfo_client=new getpersoninfo_client();
         Person p=getpersoninfo_client.findingClientsinformation(post.publisher);
         person=p;
-        (new count_of_likes_server()).start();
+       // (new count_of_likes_server()).start();
         count_of_likes col=new count_of_likes(post.publisher,post.title);
         String result=col.numoflikes();
         numoflike.setText(result);
-        (new counts_of_reposts()).start();
+        //(new counts_of_reposts()).start();
         counts_of_reposts_client countsOfRepostsClient=new counts_of_reposts_client(post.publisher,post.title);
         String repost=countsOfRepostsClient.numofreposts();
         numofrepost.setText(repost);
@@ -62,10 +62,10 @@ public class postdetailcontroller {
     }
 
     public void liking(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
-        ( new like_server()).start();
+       // ( new like_server()).start();
         likerepost_client likerepost_client=new likerepost_client(post);
         if(likerepost_client.liking().equals("ok")){
-            (new count_of_likes_server()).start();
+         //   (new count_of_likes_server()).start();
             count_of_likes col=new count_of_likes(post.publisher,post.title);
             String result=col.numoflikes();
             numoflike.setText(result);
@@ -77,10 +77,10 @@ public class postdetailcontroller {
     }
 
     public void reposting(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
-        (new repost_server()).start();
+      //  (new repost_server()).start();
         likerepost_client likerepost_client=new likerepost_client(post, Controller.mainUser);
         if(likerepost_client.reposting().equals("ok")){
-            (new counts_of_reposts()).start();
+            //(new counts_of_reposts()).start();
             counts_of_reposts_client countsOfRepostsClient=new counts_of_reposts_client(post.publisher,post.title);
             String repost=countsOfRepostsClient.numofreposts();
             numofrepost.setText(repost);
@@ -88,23 +88,23 @@ public class postdetailcontroller {
     }
 
     public void visitingcomments(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
-        (new postdetail_server()).start();
+      //  (new postdetail_server()).start();
         postdetails_client postdetails_client=new postdetails_client(post);
         if(postdetails_client.detail_give_info().equals("ok")){
             new Loader().load("comments");}
     }
 
     public void addingcomments(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
-        (new postdetail_server()).start();
+      //  (new postdetail_server()).start();
         postdetails_client postdetails_client=new postdetails_client(post);
         if(postdetails_client.detail_give_info().equals("ok")){
             new Loader().load("comments");}
     }
 
     public void visitingprofile(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
-        (new carryoverperson_give1_server()).start();
-        carryoverperson_client  carryoverperson_client=new carryoverperson_client(person.username);
-        if(carryoverperson_client.person_give_info().equals("ok")){
-        new Loader().load("profile");}
+      //  (new carryoverperson_give1_server()).start();
+      //  carryoverperson_client  carryoverperson_client=new carryoverperson_client(person.username);
+        //if(carryoverperson_client.person_give_info().equals("ok")){
+        new Loader().load("profile");//}
     }
 }

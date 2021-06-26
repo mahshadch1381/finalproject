@@ -9,10 +9,11 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 public class showingposts_client {
     public String username;
-    public final int port=125;
+    public final int port=227;
     public String a= "1";
     public showingposts_client(String user){
         username=user;
@@ -31,7 +32,7 @@ public class showingposts_client {
         objectOutputStream.flush();
         objectInputStream.close();
         objectOutputStream.close();
-        List<Post> posts=new ArrayList<>();
+        List<Post> posts=new Vector<>();
       for(String s:(List<String>)answer){
           String[] array=s.split("#");
           Post post=new Post();
@@ -43,6 +44,7 @@ public class showingposts_client {
           post.profile=array[5];
           posts.add(post);
       }
+      socket.close();
       return posts;
     }
 

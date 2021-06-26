@@ -6,7 +6,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class count_of_likes {
-    public static int port=143;
+    public static int port=205;
     public String writer;
     public String title;
     public count_of_likes(String writer,String title){

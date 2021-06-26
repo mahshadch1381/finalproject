@@ -8,7 +8,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class unfollowing_client {
-    public static int port2=120;
+    public static int port2=229;
     public String a="1";
     public Person p;
     public String username;

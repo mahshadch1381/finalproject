@@ -37,17 +37,17 @@ public class profile_f_f_controller {
 
     @FXML
     public void initialize() throws IOException, ClassNotFoundException {
-        (new followingfiles2_server2()).start();
+       // (new followingfiles2_server2()).start();
         followingfiles_client followingfiles_client = new followingfiles_client();
         p = followingfiles_client.following_get_info();
         username.setText(p.username);
         country.setText(p.country);
         Image image = new Image(p.profilePath);
         profile.setImage(image);
-        (new count_of_followers_server()).start();
+       // (new count_of_followers_server()).start();
         countoffollowers_client countoffollowers_client = new countoffollowers_client(p.username);
         String CountOfFollowers = countoffollowers_client.count_of_followers();
-        (new count_of_following_server()).start();
+       // (new count_of_following_server()).start();
         countoffollowers_client countoffollowers_client2 = new countoffollowers_client(p.username);
         String CountOfFollowings = countoffollowers_client2.count_of_following();
         followings.setText(CountOfFollowings);
@@ -55,15 +55,15 @@ public class profile_f_f_controller {
     }
 
     public void unfollowing(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
-        (new unfollowingserver()).start();
+      //  (new unfollowingserver()).start();
         unfollowing_client unfollowingclient = new unfollowing_client(p, Controller.mainUser);
         if (unfollowingclient.unfollow().equals("ok")) {
             successfullabel.setVisible(false);
             unsuccessfullable.setVisible(true);
-            (new count_of_followers_server()).start();
+         //   (new count_of_followers_server()).start();
             countoffollowers_client countoffollowers_client = new countoffollowers_client(p.username);
             String CountOfFollowers = countoffollowers_client.count_of_followers();
-            (new count_of_following_server()).start();
+           // (new count_of_following_server()).start();
             countoffollowers_client countoffollowers_client2 = new countoffollowers_client(p.username);
             String CountOfFollowings = countoffollowers_client2.count_of_following();
             followings.setText(CountOfFollowings);
@@ -72,15 +72,15 @@ public class profile_f_f_controller {
     }
 
     public void following(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
-        (new followingserver()).start();
+     //   (new followingserver()).start();
         followingclient followingclient = new followingclient(p, Controller.mainUser);
         if (followingclient.follow().equals("ok")) {
             unsuccessfullable.setVisible(false);
             successfullabel.setVisible(true);
-            (new count_of_followers_server()).start();
+           // (new count_of_followers_server()).start();
             countoffollowers_client countoffollowers_client = new countoffollowers_client(p.username);
             String CountOfFollowers = countoffollowers_client.count_of_followers();
-            (new count_of_following_server()).start();
+           // (new count_of_following_server()).start();
             countoffollowers_client countoffollowers_client2 = new countoffollowers_client(p.username);
             String CountOfFollowings = countoffollowers_client2.count_of_following();
             followings.setText(CountOfFollowings);
@@ -96,7 +96,7 @@ public class profile_f_f_controller {
         if (Controller.mainUser.equals(p.username)) {
             mutingwarning.setVisible(true);
         } else {
-            (new mute_server()).start();
+           // (new mute_server()).start();
             mute_client mc = new mute_client(Controller.mainUser, p.username);
             if (mc.muting().equals("ok")) {
                 mutinglabel.setVisible(true);

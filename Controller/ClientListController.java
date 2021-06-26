@@ -15,7 +15,7 @@ public class ClientListController {
     public ListView list;
     @FXML
     public void initialize() throws IOException, ClassNotFoundException {
-        (new clientlist_server()).start();
+        //(new clientlist_server()).start();
         clientlist_client client2=new clientlist_client();
         List<Person> people=client2.findingClientList();
             list.setItems(FXCollections.observableArrayList(people));

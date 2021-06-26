@@ -44,23 +44,23 @@ public class profileController {
 
     @FXML
     public void initialize() throws IOException, ClassNotFoundException {
-        (new carryoverperson_get1_server()).start();
-        carryoverperson_client cc=new carryoverperson_client();
-        String s=cc.person_get_info();
+       // (new carryoverperson_get1_server()).start();
+       // carryoverperson_client cc=new carryoverperson_client();
+        //String s=cc.person_get_info();
         person=postdetailcontroller.getPerson();
         user.setText(person.username);
         country.setText(person.country);
         Image image55=new Image(person.profilePath);
         image.setImage(image55);
-        (new count_of_followers_server()).start();
+       // (new count_of_followers_server()).start();
         countoffollowers_client countoffollowers_client=new countoffollowers_client(person.username);
         String CountOfFollowers=countoffollowers_client.count_of_followers();
-        (new count_of_following_server()).start();
+      //  (new count_of_following_server()).start();
         countoffollowers_client countoffollowers_client2=new countoffollowers_client(person.username);
         String CountOfFollowings=countoffollowers_client2.count_of_following();
         numoffolloing.setText(CountOfFollowings);
         numoffollowers.setText(CountOfFollowers);
-        (new personposts_server()).start();
+       // (new personposts_server()).start();
         personspost personspost=new personspost(person.username);
         List<Post> posts=personspost.posts();
         if(posts.size()>0){
@@ -72,20 +72,20 @@ public class profileController {
     }
 
     public void following(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
-        (new followingserver()).start();
+     //   (new followingserver()).start();
         followingclient followingclient = new followingclient(person, Controller.mainUser);
         if (followingclient.follow().equals("ok")) {
-            (new count_of_followers_server()).start();
+          //  (new count_of_followers_server()).start();
             countoffollowers_client countoffollowers_client = new countoffollowers_client(person.username);
             String CountOfFollowers = countoffollowers_client.count_of_followers();
             numoffollowers.setText(CountOfFollowers);
         }
     }
     public void unfollowing(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
-            (new unfollowingserver()).start();
+           // (new unfollowingserver()).start();
             unfollowing_client unfollowingclient = new unfollowing_client(person, Controller.mainUser);
             if (unfollowingclient.unfollow().equals("ok")) {
-                (new count_of_followers_server()).start();
+               // (new count_of_followers_server()).start();
                 countoffollowers_client countoffollowers_client = new countoffollowers_client(person.username);
                 String CountOfFollowers = countoffollowers_client.count_of_followers();
                 numoffollowers.setText(CountOfFollowers);
@@ -97,7 +97,7 @@ public class profileController {
         if(!Controller.mainUser.equals(person.username)){
             editwarning.setVisible(true);
         }else {
-            (new carryoverperson_give1_server()).start();
+           // (new carryoverperson_give1_server()).start();
             carryoverperson_client carryoverperson_client=new carryoverperson_client(Controller.mainUser);
             if(carryoverperson_client.person_give_info().equals("ok")){
                 new Loader().load("edit");
@@ -113,7 +113,7 @@ public class profileController {
         if (Controller.mainUser.equals(person.username)) {
             mutingwarning.setVisible(true);
         } else {
-            (new mute_server()).start();
+          //  (new mute_server()).start();
             mute_client mc = new mute_client(Controller.mainUser, person.username);
             if (mc.muting().equals("ok")) {
                 mutinglabel.setVisible(true);
@@ -127,7 +127,7 @@ public class profileController {
         if (Controller.mainUser.equals(person.username)) {
             mutingwarning.setVisible(true);
         } else {
-            (new unmute_server()).start();
+           // (new unmute_server()).start();
             unmute_client mc = new unmute_client(Controller.mainUser, person.username);
             if(mc.unmuting().equals("ok")){
                 unmutelabel.setVisible(true);

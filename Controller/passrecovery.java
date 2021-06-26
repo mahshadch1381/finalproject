@@ -24,7 +24,7 @@ public class passrecovery {
     public void recovering(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
         String answer=color.getText();
         String user=username.getText();
-        (new recoverypass_server()).start();
+        //(new recoverypass_server()).start();
         recoverypass_client recoverypass_client=new recoverypass_client(user,answer);
         String pass=recoverypass_client.recovering();
         result.setText(pass);

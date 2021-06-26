@@ -6,6 +6,8 @@ a#nnn#0
 a#p#2
 a#bb#0
 a#rrrr#0
-a#date#1
+a#date#2
 margo#vv#2
-sherlock#love#0
+sherlock#love#1
+margo#mm#1
+a#oooo#1

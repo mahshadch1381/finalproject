@@ -6,12 +6,23 @@ import java.net.Socket;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class carryoverperson_give1_server implements Runnable{
-    public int port=131;
+public class carryoverperson_give1_server extends Thread{
+    public int port=201;
     public static AtomicInteger server_time=new AtomicInteger(0);
-    public static ServerSocket serverSocket;
+    public  ServerSocket serverSocket;
+
+    {
+        try {
+            //if (!serverSocket.equals(null)){
+            //serverSocket.close();}
+            serverSocket = new ServerSocket(port);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\newfiletocarryoverperson.txt";
-    public void start() {
+  /*  public void start() {
         try {
             if (server_time.get() == 1) {
                 serverSocket.close();
@@ -22,7 +33,7 @@ public class carryoverperson_give1_server implements Runnable{
 
         }catch (IOException e){e.printStackTrace(); }
         new Thread( new Server.carryoverperson_give1_server()).start();
-    }
+    }*/
     @Override
     public void run() {
         try {
@@ -49,14 +60,15 @@ public class carryoverperson_give1_server implements Runnable{
                                 fileWriter.flush();
                                 oos.writeObject("ok");
                                 oos.flush();
+
                             } catch (ClassNotFoundException | IOException e) {
                                 e.printStackTrace();
                             }
                         }
                     }
                 } new My_thread().start();
-                break;
-            }serverSocket.close();
+
+            }
         }catch (IOException e){e.printStackTrace(); }
     }
 

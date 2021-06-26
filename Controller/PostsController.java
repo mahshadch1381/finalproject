@@ -37,13 +37,13 @@ public class PostsController {
     public ListView postscript;
     public Button peaple;
     public String postpicture;
-    List<Post> posts = new ArrayList<>();
-    List<Post> allposts = new ArrayList<>();
+    List<Post> posts = new Vector<>();
+    List<Post> allposts = new Vector<>();
     Post newpost = new Post();
 
     @FXML
     public void initialize() throws IOException, ClassNotFoundException {
-        (new showingposts_server()).start();
+        //(new showingposts_server()).start();
         showingposts_client showingposts_client=new showingposts_client(Controller.mainUser);
         List<Post> post2=showingposts_client.posts();
         if(post2.size()>0){
@@ -68,7 +68,7 @@ public class PostsController {
         //show the arraylist in listview
         postscript.setItems(FXCollections.observableArrayList(posts));
         postscript.setCellFactory(postList -> new PostItem());
-        (new postingServer()).start();
+        //(new postingServer()).start();
         postingClient posting = new postingClient(newpost,Controller.mainUser);
         if (posting.posting_connection().contains("ok")) {
             newpost = new Post();

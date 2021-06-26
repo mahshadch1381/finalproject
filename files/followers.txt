@@ -1,5 +1,5 @@
-a:ccc#sherlock
+a:a#ccc#sherlock
 ccc:a
 z:a
-margo:sherlock
+margo:a#sherlock
 sherlock:a#margo

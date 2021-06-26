@@ -3,20 +3,27 @@ package Server;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class clientlist_server implements Runnable{
-    public static int port=114;
+public class clientlist_server extends  Thread{
+    public  int port=202;
         public static AtomicInteger server_time=new AtomicInteger(0);
-        public static ServerSocket serverSocket;
-        public static Map<String,String> map=new ConcurrentHashMap<>();
+        public  ServerSocket serverSocket;
+
+    {
+        try {
+            //serverSocket.close();
+            serverSocket = new ServerSocket(port);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static Map<String,String> map=new ConcurrentHashMap<>();
         public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\person.txt";
-        public void start() {
+       /* public void start() {
             try {
                 if (server_time.get() == 1) {
                     serverSocket.close();
@@ -27,7 +34,7 @@ public class clientlist_server implements Runnable{
 
             }catch (IOException e){e.printStackTrace(); }
             new Thread( new Server.clientlist_server()).start();
-        }
+        }*/
         @Override
         public void run() {
             try {
@@ -50,7 +57,7 @@ public class clientlist_server implements Runnable{
                                         fileWriter.close();
                                         fileReader.close();
                                         break; }
-                                    List<String> list=new ArrayList<>();
+                                    List<String> list=new Vector<>();
                                     while (scanner.hasNextLine()){
                                         String a=scanner.nextLine();
                                         if(a.length()>0){
@@ -64,8 +71,8 @@ public class clientlist_server implements Runnable{
                             }
                         }
                     } new My_thread().start();
-                    break;
-                }serverSocket.close();
+
+                }
             }catch (IOException e){e.printStackTrace(); }
         }
     }

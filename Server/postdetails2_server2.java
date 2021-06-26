@@ -8,12 +8,22 @@ import java.util.Scanner;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class postdetails2_server2 implements Runnable{
-    public static int port=122;
+public class postdetails2_server2 extends Thread{
+    public  int port=224;
     public static AtomicInteger server_time=new AtomicInteger(0);
-    public static ServerSocket serverSocket;
+    public  ServerSocket serverSocket;
+
+    {
+        try {
+          //  serverSocket.close();
+            serverSocket = new ServerSocket(port);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\postdetails.txt";
-    public void start() {
+   /* public void start() {
         try {
             if (server_time.get() == 1) {
                 serverSocket.close();
@@ -24,7 +34,7 @@ public class postdetails2_server2 implements Runnable{
 
         }catch (IOException e){e.printStackTrace(); }
         new Thread( new Server.postdetails2_server2()).start();
-    }
+    }*/
     @Override
     public void run() {
         try {
@@ -56,8 +66,8 @@ public class postdetails2_server2 implements Runnable{
                         }
                     }
                 } new My_thread().start();
-                break;
-            }serverSocket.close();
+
+            }
         }catch (IOException e){e.printStackTrace(); }
     }
 

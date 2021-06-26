@@ -10,8 +10,8 @@ import java.time.Instant;
 import java.util.Date;
 
 public class likerepost_client {
-        public static int port1=126;
-        public static int port2=127;
+        public static int port1=216;
+        public static int port2=217;
         public String username;
         public Post post;
         public likerepost_client(Post post){

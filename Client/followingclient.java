@@ -8,7 +8,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class followingclient {
-    public static int port1=119;
+    public static int port1=212;
     public String a="1";
    public Person p;
     public String username;

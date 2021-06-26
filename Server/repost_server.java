@@ -13,11 +13,21 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import static java.lang.Integer.parseInt;
 
-public class repost_server implements Runnable {
+public class repost_server extends Thread {
     ////////////////////////////////////////////////////000000
-    public static final int port=127;
+    public  final int port=217;
     public static AtomicInteger server_time=new AtomicInteger(0);
-    public static ServerSocket serverSocket;
+    public  ServerSocket serverSocket;
+
+    {
+        try {
+          //  serverSocket.close();
+            serverSocket = new ServerSocket(port);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\reposts.txt";
     public static String address22="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\countofreposts.txt";
     public static String address3="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\allposts.txt";
@@ -27,7 +37,7 @@ public class repost_server implements Runnable {
         SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy/ HH:mm:ss");
         date=formatter.format(d);
     }
-    public void start() {
+   /* public void start() {
         try {
             if (server_time.get() == 1) {
                 serverSocket.close();
@@ -38,7 +48,7 @@ public class repost_server implements Runnable {
 
         }catch (IOException e){e.printStackTrace(); }
         new Thread(new Server.repost_server()).start();
-    }
+    }*/
     @Override
     public void run() {
         try {
@@ -70,7 +80,7 @@ public class repost_server implements Runnable {
                                 String[] info=s[1].split("#");
                                 FileReader fileReader2=new FileReader(address22);
                                 Scanner scanner=new Scanner(fileReader2);
-                                List<String> posts=new ArrayList<>();
+                                List<String> posts=new Vector<>();
                                 while (scanner.hasNextLine()){
                                     String line=scanner.nextLine();
                                     String[] strings=line.split("#");
@@ -103,8 +113,8 @@ public class repost_server implements Runnable {
                         }
                     }
                 } new My_thread().start();
-                break;
-            }serverSocket.close();
+
+            }
         }catch (IOException e){e.printStackTrace(); }
     }
 }

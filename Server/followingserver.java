@@ -6,12 +6,23 @@ import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class followingserver implements Runnable{
-    public static int port1=119;
+public class followingserver extends Thread{
+    public  int port1=212;
     public static AtomicInteger server_time=new AtomicInteger(0);
-    public static ServerSocket serverSocket;
+    public ServerSocket serverSocket;
+
+    {
+        try {
+          //  serverSocket.close();
+            serverSocket = new ServerSocket(port1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static String address1="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\followers.txt";
     public static String address2="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\following.txt";
     public static String date;
@@ -20,7 +31,7 @@ public class followingserver implements Runnable{
         SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy/ HH:mm:ss");
         date=formatter.format(d);
     }
-    public void start() {
+   /* public void start() {
         try {
             if (server_time.get() == 1) {
                 serverSocket.close();
@@ -31,7 +42,7 @@ public class followingserver implements Runnable{
 
         }catch (IOException e){e.printStackTrace(); }
         new Thread( new Server.followingserver()).start();
-    }
+    }*/
     @Override
     public void run() {
         try {
@@ -56,7 +67,7 @@ public class followingserver implements Runnable{
                                     fileReader2.close();
                                     break; }
                                 if(input.contains("follow")){
-                                    Map<String,Set<String>> map1=new HashMap<>();
+                                    Map<String,Set<String>> map1=new ConcurrentHashMap<>();
                                     String[] people=input.substring(input.indexOf("-")+1).split("#");
                                     while (scanner1.hasNextLine()){
                                         String a=scanner1.nextLine();
@@ -88,7 +99,7 @@ public class followingserver implements Runnable{
                                         fileWriter1.flush();
                                     }
                                     fileWriter1.close();
-                                    Map<String,Set<String>> map2=new HashMap<>();
+                                    Map<String,Set<String>> map2=new ConcurrentHashMap<>();
                                     while (scanner2.hasNextLine()){
                                         String a=scanner2.nextLine();
                                         if(!a.contains(":")){
@@ -136,8 +147,8 @@ public class followingserver implements Runnable{
                         }
                     }
                 } new My_thread().start();
-                break;
-            }serverSocket.close();
+
+            }
         }catch (IOException e){e.printStackTrace(); }
     }
 }

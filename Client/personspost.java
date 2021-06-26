@@ -8,9 +8,10 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 public class personspost {
-    public int port=134;
+    public int port=220;
     public String username;
     public String a= "1";
     public personspost(String user){
@@ -30,7 +31,7 @@ public class personspost {
         objectOutputStream.flush();
         objectInputStream.close();
         objectOutputStream.close();
-        List<Post> posts=new ArrayList<>();
+        List<Post> posts=new Vector<>();
         for (String s:(List<String> )answer){
             String[] array=s.split("#");
             Post p=new Post();

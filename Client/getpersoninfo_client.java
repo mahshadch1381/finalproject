@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class getpersoninfo_client {
-    public static int port=115;
+    public static int port=215;
     String a="1";
     public Person findingClientsinformation(String username) throws IOException, ClassNotFoundException {
         Socket socket=new Socket("127.0.0.1",port);

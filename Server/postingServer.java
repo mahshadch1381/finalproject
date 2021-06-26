@@ -11,10 +11,20 @@ import java.util.Scanner;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class postingServer implements Runnable{
-    public static int port =113;
+public class postingServer extends Thread{
+    public int port =225;
     public static AtomicInteger server_time=new AtomicInteger(0);
-    public static ServerSocket serverSocket;
+    public  ServerSocket serverSocket;
+
+    {
+        try {
+          //  serverSocket.close();
+            serverSocket = new ServerSocket(port);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static Map<String,String> map=new ConcurrentHashMap<>();
     public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\posts.txt";
     public static String address2="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\countoflikes.txt";
@@ -26,7 +36,7 @@ public class postingServer implements Runnable{
         SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy/ HH:mm:ss");
         date=formatter.format(d);
     }
-    public void start() {
+    /*public void start() {
         try {
             if (server_time.get() == 1) {
                 serverSocket.close();
@@ -37,7 +47,7 @@ public class postingServer implements Runnable{
 
         }catch (IOException e){e.printStackTrace(); }
         new Thread( new postingServer()).start();
-    }
+    }*/
     @Override
     public void run() {
         try {
@@ -92,8 +102,8 @@ public class postingServer implements Runnable{
                         }
                     }
                 } new My_thread().start();
-                break;
-            }serverSocket.close();
+
+            }
         }catch (IOException e){e.printStackTrace(); }
     }
 }

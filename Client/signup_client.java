@@ -10,7 +10,7 @@ import java.net.Socket;
 public class signup_client {
     public String username;
     public String password;
-    public final int port=112;
+    public final int port=228;
     public String a= "1";
     public signup_client(String user,String pass){
         username=user;

@@ -8,7 +8,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class postingClient {
-    public static int port=113;
+    public static int port=225;
     public Post p;
     public String a= "1";
     public String mainuser;

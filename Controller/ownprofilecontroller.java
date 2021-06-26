@@ -19,6 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 public class ownprofilecontroller {
     public ImageView image;
@@ -30,27 +31,27 @@ public class ownprofilecontroller {
     public Button menu;
     public Person person;
     public ListView postslist;
-    public List<Post> clientsPosts=new ArrayList<>();
+    public List<Post> clientsPosts=new Vector<>();
     public Button deletebutton;
 
     @FXML
     public void initialize() throws IOException, ClassNotFoundException {
-        (new getpersoninfo_server()).start();
+        //(new getpersoninfo_server()).start();
         getpersoninfo_client getpersoninfoClient=new getpersoninfo_client();
         person=getpersoninfoClient.findingClientsinformation(Controller.mainUser);
         username.setText(person.username);
         country.setText(person.country);
         Image image55=new Image(Controller.getmainprofile());
         image.setImage(image55);
-        (new count_of_followers_server()).start();
+        //(new count_of_followers_server()).start();
         countoffollowers_client countoffollowers_client=new countoffollowers_client(person.username);
         String CountOfFollowers=countoffollowers_client.count_of_followers();
-        (new count_of_following_server()).start();
+        //(new count_of_following_server()).start();
         countoffollowers_client countoffollowers_client2=new countoffollowers_client(person.username);
         String CountOfFollowings=countoffollowers_client2.count_of_following();
         followers.setText(CountOfFollowers);
         followings.setText(CountOfFollowings);
-        (new personposts_server()).start();
+        //(new personposts_server()).start();
         personspost personspost=new personspost(person.username);
         List<Post> posts=personspost.posts();
         if(posts.size()>0){
@@ -62,7 +63,7 @@ public class ownprofilecontroller {
 
     }
     public void editing(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
-        (new carryoverperson_give1_server()).start();
+       // (new carryoverperson_give1_server()).start();
         carryoverperson_client carryoverperson_client=new carryoverperson_client(Controller.mainUser);
         if(carryoverperson_client.person_give_info().equals("ok")){
             new Loader().load("edit");
@@ -74,7 +75,7 @@ public class ownprofilecontroller {
     }
 
     public void deleting(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
-        (new deletingacount_server()).start();
+        //(new deletingacount_server()).start();
         deletingacount_client dac=new deletingacount_client(Controller.mainUser);
          if (dac.deleting().equals("ok")){
              new Loader().load("sample");

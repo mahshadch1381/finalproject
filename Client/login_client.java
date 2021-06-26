@@ -8,7 +8,7 @@ import java.net.Socket;
 public class login_client {
     public String username;
     public String password;
-    public final int port=111;
+    public final int port=218;
     public String a= "1";
     public login_client(String user,String pass){
         username=user;

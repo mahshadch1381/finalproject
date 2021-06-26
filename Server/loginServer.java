@@ -14,11 +14,21 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
-public class loginServer implements Runnable{
-        public static final int port=111;
+public class loginServer extends Thread{
+        public  final int port=218;
         public static AtomicInteger server_time=new AtomicInteger(0);
-        public static ServerSocket serverSocket;
-        public static Map<String,String> map=new ConcurrentHashMap<>();
+        public  ServerSocket serverSocket;
+
+     {
+        try {
+            //serverSocket.close();
+            serverSocket = new ServerSocket(port);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static Map<String,String> map=new ConcurrentHashMap<>();
         public static String address="C:\\Users\\98912\\IdeaProjects\\HelloFX\\src\\files\\users.txt";
         public static String date;
         public static long time_date;
@@ -26,7 +36,7 @@ public class loginServer implements Runnable{
         SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy/ HH:mm:ss");
         date=formatter.format(d);
     }
-        public void start() {
+       /* public void start() {
            try {
                 if (server_time.get() == 1) {
                     serverSocket.close();
@@ -37,7 +47,7 @@ public class loginServer implements Runnable{
 
             }catch (IOException e){e.printStackTrace(); }
             new Thread(new Server.loginServer()).start();
-        }
+        }*/
         @Override
         public void run() {
             try {
@@ -59,9 +69,10 @@ public class loginServer implements Runnable{
                                        // System.out.println(Controller.mainUser +" login");
                                         break; }
                                     Scanner scanner=new Scanner(fileReader);
-                                    int i=0,j=0;
+                                    AtomicInteger i=new AtomicInteger(0);
+                                    AtomicInteger j=new AtomicInteger(0);
                                     while (scanner.hasNextLine()){
-                                        i++;
+                                        i.set(i.get()+1);
                                         String line=scanner.nextLine();
                                         if(line.contains(input)){
                                             String[] array=line.split("#");
@@ -74,9 +85,9 @@ public class loginServer implements Runnable{
                                             oos.flush();
                                             break;
                                         }else {
-                                            j++;
+                                            j.set(j.get()+1);
                                         }
-                                    }if(i==j){
+                                    }if(i.get()==j.get()){
                                         oos.writeObject("false");
                                         oos.flush();}
                                 } catch (ClassNotFoundException | IOException e) {
@@ -85,8 +96,8 @@ public class loginServer implements Runnable{
                             }
                         }
                     } new My_thread().start();
-                    break;
-                }serverSocket.close();
+
+                }
             }catch (IOException e){e.printStackTrace(); }
         }
     }
